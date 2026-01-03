@@ -155,6 +155,14 @@ elif st.session_state.page == 'diagnosis':
             """
             
             import google.generativeai as genai
+            
+            # List available models for debugging
+            print("=" * 50)
+            print("Available Gemini Models:")
+            for m in genai.list_models():
+                print(m.name)
+            print("=" * 50)
+            
             model = genai.GenerativeModel('gemini-1.5-flash')
             final_report = model.generate_content(final_prompt)
         

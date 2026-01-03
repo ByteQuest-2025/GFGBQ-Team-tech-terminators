@@ -8,6 +8,17 @@ from dotenv import load_dotenv
 
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
+# List available Gemini models
+def list_available_models():
+    """List all available Gemini models"""
+    print("Available Gemini Models:")
+    for m in genai.list_models():
+        print(m.name)
+
+# Uncomment the line below to see available models when the module loads
+# list_available_models()
+
 # Load the data
 df = pd.read_csv('Symptom2Disease.csv')
 
@@ -43,7 +54,8 @@ def get_top_3_diagnosis(user_input, mode="Fast"):
 # --- STRUCTURED KNOWLEDGE BASE ---
 
 def get_gemini_reasoning(user_data, user_input, candidates):
-    model = genai.GenerativeModel('models/gemini-1.5-flash-latest')
+    # In model_logic.py:
+    model = genai.GenerativeModel('gemini-pro')
     
     prompt = f"""
     You are a clinical reasoning assistant. 
@@ -270,7 +282,7 @@ def get_medicine_details(disease):
     return None
 
 def get_clarifying_questions(user_input, top_candidates):
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel("models/gemini-1.5-flash")
     prompt = f"""
     A user reported these symptoms: "{user_input}"
     Our model is split between: {', '.join([c['label'] for c in top_candidates])}.
