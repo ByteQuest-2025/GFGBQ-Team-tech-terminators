@@ -1,0 +1,1001 @@
+Patient_ID,Patient_Name,Age,Gender,Blood_Group,Prior_Medical_History,Allergies,Current_Medication,Hemoglobin_g_dL,Blood_Sugar_mg_dL,Cholesterol_mg_dL,BP_Systolic_mmHg,BP_Diastolic_mmHg,Report_Date
+1,Vihaan Sharma,36,Male,B-,Hypertension,None,Metformin,15.1,209,142,165,87,2022-02-02
+2,Aarav Verma,28,Male,A+,Thyroid,Dust,None,14.9,209,227,118,88,2023-08-27
+3,Arnav Sharma,21,Other,O+,Asthma,Pollen,Insulin,11.6,156,146,101,84,2022-04-10
+4,Diya Singh,78,Female,A+,Kidney Disease,Peanuts,Salbutamol,10.9,166,140,160,78,2024-04-29
+5,Priya Singh,74,Male,A-,Diabetes,None,Insulin,15.8,90,179,102,84,2022-10-12
+6,Pooja Singh,21,Female,AB-,Hypertension,None,Amlodipine,15.3,235,138,167,100,2022-06-25
+7,Aditi Patel,21,Female,O+,Asthma,None,None,14.2,153,134,119,112,2022-02-02
+8,Ananya Kumar,35,Male,B-,Thyroid,None,Amlodipine,11.6,197,221,172,89,2022-05-27
+9,Arnav Gupta,32,Other,AB+,Kidney Disease,Seafood,Levothyroxine,16.7,172,212,118,68,2023-06-06
+10,Riya Verma,7,Male,B+,Kidney Disease,Dust,None,13.2,86,218,138,98,2023-04-25
+11,Saanvi Mehta,71,Male,A-,Kidney Disease,Seafood,Amlodipine,15.8,157,148,127,87,2022-06-11
+12,Pooja Sharma,34,Other,B+,Thyroid,Penicillin,None,12.2,233,249,167,72,2022-06-06
+13,Diya Gupta,70,Other,A+,Thyroid,Pollen,Levothyroxine,10.1,162,198,120,63,2022-09-04
+14,Nisha Verma,11,Other,O-,None,Penicillin,Salbutamol,15.7,102,241,160,70,2022-09-29
+15,Saanvi Malhotra,55,Male,B-,Kidney Disease,Pollen,Levothyroxine,17.5,236,215,146,117,2023-06-14
+16,Pooja Verma,32,Male,A-,Asthma,Penicillin,Salbutamol,14.2,220,176,90,64,2023-12-26
+17,Vivaan Patel,9,Male,AB-,Diabetes,Seafood,Insulin,12.1,194,174,159,68,2024-01-11
+18,Nisha Malhotra,61,Male,O-,None,Peanuts,Insulin,10.7,238,230,135,87,2023-02-25
+19,Pooja Sharma,87,Other,A-,Diabetes,Peanuts,None,12.5,97,183,114,72,2023-07-04
+20,Pooja Gupta,55,Male,AB+,Heart Disease,Dust,Metformin,13.3,210,145,96,101,2023-07-08
+21,Aarav Verma,31,Male,O+,Heart Disease,Peanuts,Insulin,16.5,85,162,138,60,2023-02-04
+22,Arnav Agarwal,37,Female,O-,Hypertension,Dust,Amlodipine,11.6,84,268,159,63,2024-02-05
+23,Ananya Sharma,7,Other,O-,Thyroid,Seafood,Insulin,10.4,200,140,113,64,2023-09-02
+24,Aditya Patel,52,Male,B-,Thyroid,Seafood,Metformin,14.6,177,269,162,93,2022-11-20
+25,Arnav Patel,86,Other,AB-,Hypertension,Pollen,Levothyroxine,11.0,235,196,148,80,2024-08-09
+26,Aditya Sharma,59,Other,A-,Diabetes,Seafood,Insulin,13.8,103,209,98,116,2022-09-08
+27,Diya Mehta,21,Female,AB+,Thyroid,None,Salbutamol,10.1,211,196,174,66,2024-08-19
+28,Arjun Mehta,15,Male,B+,Asthma,Pollen,Salbutamol,11.6,157,172,177,100,2024-05-23
+29,Arnav Jain,63,Female,A+,Diabetes,None,Levothyroxine,16.2,81,120,132,109,2022-05-14
+30,Arnav Gupta,57,Other,O+,Thyroid,Penicillin,Metformin,10.6,108,259,94,113,2023-01-14
+31,Nisha Jain,19,Female,B+,Diabetes,Pollen,Amlodipine,16.7,80,211,116,103,2022-09-13
+32,Vihaan Singh,72,Female,B+,Hypertension,Dust,Insulin,16.6,76,165,132,110,2024-08-11
+33,Kavya Patel,35,Male,A-,Heart Disease,Penicillin,Levothyroxine,11.7,187,209,129,112,2024-03-25
+34,Sai Patel,4,Other,B-,Heart Disease,Pollen,Amlodipine,16.5,141,209,172,92,2023-02-14
+35,Aditi Singh,4,Male,AB+,Hypertension,Seafood,Amlodipine,10.3,222,231,134,106,2024-03-16
+36,Ananya Kumar,78,Other,A-,Heart Disease,Seafood,Insulin,11.9,181,120,156,119,2024-04-05
+37,Aditi Patel,47,Female,A-,Kidney Disease,Pollen,Salbutamol,12.4,101,196,154,79,2023-11-14
+38,Kavya Singh,52,Other,AB+,Thyroid,Dust,Insulin,13.2,167,164,168,96,2022-11-05
+39,Ishita Jain,1,Female,AB+,Hypertension,Peanuts,Salbutamol,14.5,152,239,146,88,2023-11-23
+40,Muhammad Jain,61,Other,B+,Kidney Disease,Penicillin,Amlodipine,13.9,232,278,132,65,2024-04-18
+41,Sai Mehta,29,Male,B+,Diabetes,Penicillin,Insulin,17.4,226,138,148,86,2024-06-26
+42,Nisha Patel,90,Female,O-,Heart Disease,Dust,Insulin,14.9,71,147,144,74,2022-06-30
+43,Saanvi Agarwal,7,Other,B-,None,Penicillin,Levothyroxine,11.0,188,255,161,98,2022-11-21
+44,Pooja Malhotra,65,Female,O-,Hypertension,None,Levothyroxine,13.4,133,190,156,91,2023-10-04
+45,Sai Mehta,57,Male,AB+,Hypertension,Pollen,Amlodipine,12.4,208,140,107,69,2022-08-25
+46,Ishita Gupta,28,Male,O+,Heart Disease,Pollen,Salbutamol,13.5,85,172,143,84,2024-07-15
+47,Nisha Sharma,74,Female,O-,Diabetes,Pollen,Amlodipine,15.7,177,257,159,111,2023-09-10
+48,Sai Agarwal,29,Female,O+,Heart Disease,Penicillin,Levothyroxine,12.5,173,162,149,118,2022-05-11
+49,Priya Jain,4,Female,A+,Diabetes,None,Levothyroxine,11.0,188,166,96,76,2023-01-24
+50,Ananya Patel,59,Female,AB-,None,Peanuts,Amlodipine,15.6,177,184,100,90,2022-01-20
+51,Aditi Sharma,45,Male,A-,None,None,Metformin,15.7,133,171,92,99,2022-06-06
+52,Sai Gupta,61,Other,A-,Thyroid,Dust,Levothyroxine,15.2,164,162,167,98,2024-09-13
+53,Vihaan Gupta,40,Male,A+,Asthma,Seafood,None,16.8,166,221,115,64,2023-08-30
+54,Sai Verma,90,Female,A-,None,Seafood,Metformin,12.6,179,214,98,92,2023-10-26
+55,Ananya Sharma,54,Female,A-,Heart Disease,Pollen,None,16.7,187,159,145,71,2024-01-22
+56,Saanvi Mehta,79,Other,O-,Heart Disease,Peanuts,None,14.4,152,182,101,77,2024-06-21
+57,Pooja Patel,60,Other,O+,Asthma,Penicillin,Levothyroxine,16.4,116,244,117,82,2024-03-27
+58,Arnav Singh,36,Other,AB+,Thyroid,Penicillin,Salbutamol,17.1,91,181,142,91,2023-07-23
+59,Sai Agarwal,83,Other,O-,Heart Disease,Penicillin,Metformin,12.2,173,182,129,102,2023-08-19
+60,Diya Agarwal,71,Other,AB-,Heart Disease,None,Salbutamol,12.5,186,189,129,76,2022-08-25
+61,Vihaan Patel,41,Male,B+,Hypertension,Dust,None,13.6,220,254,166,78,2022-04-13
+62,Muhammad Mehta,30,Female,B+,Asthma,Penicillin,None,14.0,140,131,96,95,2022-10-27
+63,Arjun Agarwal,14,Male,AB+,Heart Disease,Peanuts,Levothyroxine,12.6,83,184,151,67,2024-04-21
+64,Aditya Kumar,63,Male,A+,Hypertension,Dust,Salbutamol,17.1,91,183,105,95,2024-02-22
+65,Kavya Malhotra,77,Other,B-,None,Seafood,Levothyroxine,13.4,183,196,165,87,2022-11-09
+66,Nisha Malhotra,8,Other,A-,None,Dust,None,11.6,239,140,110,75,2022-06-27
+67,Aditi Verma,21,Male,O+,Heart Disease,None,Salbutamol,13.5,78,179,126,105,2022-10-17
+68,Pooja Verma,88,Male,AB+,None,None,Salbutamol,15.0,120,228,104,94,2022-08-19
+69,Arjun Mehta,19,Male,A+,Hypertension,Pollen,Salbutamol,15.6,215,193,146,67,2023-04-25
+70,Ayaan Kumar,35,Other,O-,Heart Disease,Penicillin,Salbutamol,10.3,180,202,167,76,2022-01-27
+71,Aditya Patel,87,Other,A+,None,None,Amlodipine,14.3,114,240,156,101,2023-03-29
+72,Arnav Gupta,75,Female,O-,Diabetes,Peanuts,Amlodipine,13.1,152,146,110,81,2023-02-26
+73,Riya Mehta,85,Female,A+,Heart Disease,Penicillin,Amlodipine,11.9,99,223,155,112,2022-01-02
+74,Aditi Agarwal,53,Male,B-,Thyroid,Pollen,Salbutamol,15.7,230,233,96,73,2022-10-01
+75,Aditi Gupta,37,Female,O-,Diabetes,Penicillin,None,14.6,131,160,129,95,2022-01-15
+76,Aditi Kumar,12,Male,A-,Heart Disease,Penicillin,None,16.2,197,194,155,105,2022-10-07
+77,Kavya Agarwal,61,Male,O-,Thyroid,Dust,Levothyroxine,11.4,223,250,107,115,2022-03-13
+78,Arnav Kumar,44,Other,AB+,None,Penicillin,Amlodipine,15.4,220,268,174,91,2024-06-05
+79,Arjun Agarwal,69,Female,AB-,Asthma,Seafood,Salbutamol,12.8,152,168,179,75,2023-08-09
+80,Ishita Patel,53,Male,AB-,Kidney Disease,Peanuts,None,16.9,167,218,174,110,2024-04-20
+81,Arjun Agarwal,5,Male,AB-,None,Penicillin,Levothyroxine,10.7,186,123,108,86,2024-06-10
+82,Arjun Verma,61,Female,AB-,Thyroid,None,Levothyroxine,14.9,154,256,138,80,2023-10-04
+83,Riya Jain,5,Other,A-,Hypertension,None,None,16.9,128,143,145,66,2024-02-18
+84,Vihaan Agarwal,22,Other,AB+,Diabetes,Penicillin,Amlodipine,16.0,145,211,137,87,2022-05-30
+85,Sai Jain,53,Other,B+,Hypertension,Dust,Metformin,14.6,167,278,177,75,2023-05-25
+86,Nisha Gupta,30,Female,AB+,Heart Disease,Pollen,None,10.1,189,193,176,94,2022-06-11
+87,Aditya Agarwal,45,Other,AB+,Kidney Disease,Peanuts,None,11.9,147,170,139,114,2023-05-10
+88,Vihaan Patel,49,Other,AB-,Thyroid,Pollen,None,12.2,238,221,125,60,2023-08-03
+89,Vivaan Malhotra,64,Female,B-,Thyroid,Pollen,Insulin,14.8,228,184,176,108,2024-01-09
+90,Arjun Verma,81,Other,A+,Asthma,Peanuts,Metformin,14.3,103,143,127,80,2024-02-05
+91,Kavya Gupta,26,Male,AB-,Thyroid,Seafood,Amlodipine,16.2,135,243,127,107,2024-06-10
+92,Ananya Verma,60,Male,B+,None,Dust,None,15.4,171,262,136,65,2024-03-20
+93,Ishita Sharma,34,Other,A-,Heart Disease,Pollen,None,15.6,137,269,138,112,2023-10-16
+94,Diya Verma,87,Male,O-,Diabetes,Seafood,Salbutamol,12.5,226,176,172,64,2023-10-13
+95,Pooja Mehta,84,Female,A-,Hypertension,Penicillin,Metformin,12.3,196,149,102,75,2024-06-27
+96,Aditi Gupta,50,Female,AB-,Kidney Disease,None,None,17.1,177,270,109,116,2023-03-01
+97,Vihaan Agarwal,79,Female,AB+,Diabetes,None,Amlodipine,11.6,183,180,136,66,2023-12-04
+98,Diya Jain,83,Female,A+,Heart Disease,Pollen,Insulin,17.3,186,143,174,73,2023-10-20
+99,Priya Sharma,7,Female,B-,Hypertension,Seafood,Insulin,10.5,211,173,165,73,2024-04-12
+100,Sai Singh,19,Other,A+,Asthma,Dust,Insulin,14.1,114,148,174,115,2022-01-27
+101,Arjun Sharma,46,Male,AB-,Diabetes,Dust,Amlodipine,10.4,177,254,104,107,2022-03-07
+102,Riya Agarwal,47,Other,A-,Heart Disease,Seafood,Insulin,17.1,81,253,128,89,2023-10-21
+103,Aarav Sharma,62,Female,O+,Kidney Disease,Penicillin,Levothyroxine,15.3,183,138,100,80,2023-09-15
+104,Arjun Verma,17,Female,AB-,Heart Disease,Seafood,Salbutamol,12.2,199,274,145,66,2024-03-23
+105,Vihaan Jain,28,Female,O-,Hypertension,Peanuts,Amlodipine,16.2,172,226,102,80,2023-03-14
+106,Ananya Mehta,48,Male,O-,Diabetes,Penicillin,Metformin,10.7,94,215,106,95,2022-03-03
+107,Nisha Jain,72,Female,A-,Heart Disease,Pollen,None,17.1,178,133,126,98,2022-11-16
+108,Diya Verma,74,Other,B-,Hypertension,None,Levothyroxine,11.7,97,209,161,83,2022-04-28
+109,Arnav Malhotra,29,Female,A+,Thyroid,None,None,12.0,116,189,179,108,2022-11-13
+110,Ananya Singh,1,Male,B+,Thyroid,None,Levothyroxine,10.5,232,127,101,107,2023-06-28
+111,Muhammad Kumar,54,Female,AB-,Hypertension,Pollen,Amlodipine,15.4,215,272,100,116,2022-02-23
+112,Arjun Gupta,80,Male,A-,Asthma,Peanuts,None,13.2,225,233,143,77,2022-08-09
+113,Saanvi Verma,45,Female,A-,Asthma,None,None,14.4,204,198,95,74,2023-02-09
+114,Priya Sharma,1,Male,AB+,Hypertension,Dust,Amlodipine,12.2,100,121,153,107,2023-03-17
+115,Reyansh Gupta,49,Other,B-,Thyroid,Seafood,None,16.0,88,221,95,87,2022-01-20
+116,Pooja Verma,41,Other,O+,Thyroid,Peanuts,None,14.8,144,149,141,61,2024-09-16
+117,Ananya Gupta,80,Female,AB-,Diabetes,Peanuts,Metformin,11.8,220,222,157,65,2023-02-10
+118,Ayaan Singh,29,Female,B+,Diabetes,Seafood,None,10.9,200,169,134,82,2024-01-15
+119,Arjun Patel,14,Male,AB+,Hypertension,Dust,Salbutamol,11.1,237,139,112,120,2024-03-02
+120,Riya Agarwal,73,Other,O-,Kidney Disease,Seafood,None,14.8,229,202,170,80,2022-06-04
+121,Pooja Verma,61,Female,AB+,None,Pollen,Salbutamol,10.4,199,138,129,89,2023-04-08
+122,Vivaan Sharma,48,Female,A-,Kidney Disease,Penicillin,Salbutamol,14.5,168,238,164,95,2024-09-04
+123,Vivaan Agarwal,74,Other,B-,Asthma,Seafood,Levothyroxine,13.8,85,235,103,111,2024-07-09
+124,Ananya Verma,65,Other,B+,Diabetes,Dust,None,13.3,182,254,156,99,2022-06-12
+125,Diya Singh,37,Female,O+,None,Pollen,None,14.5,231,205,98,81,2022-04-07
+126,Aditi Kumar,37,Female,B+,Asthma,Penicillin,Salbutamol,15.0,159,199,173,104,2023-11-10
+127,Ishita Gupta,77,Other,A-,Asthma,Seafood,Levothyroxine,14.8,154,152,175,104,2024-04-28
+128,Saanvi Verma,83,Other,O+,Thyroid,Pollen,Metformin,12.7,116,174,133,120,2024-02-24
+129,Riya Patel,29,Male,B+,Diabetes,Pollen,Metformin,13.8,208,254,94,102,2022-12-11
+130,Priya Gupta,77,Female,B+,Hypertension,Dust,None,15.8,112,232,95,86,2023-01-09
+131,Sai Agarwal,79,Female,O-,Hypertension,Seafood,Insulin,12.3,190,169,137,103,2024-08-27
+132,Nisha Agarwal,60,Female,O+,Thyroid,Seafood,Levothyroxine,17.2,121,274,107,115,2022-09-14
+133,Vivaan Agarwal,48,Other,A-,Kidney Disease,Seafood,Metformin,12.1,111,189,147,117,2023-06-10
+134,Arjun Kumar,12,Male,O-,Asthma,Penicillin,Levothyroxine,10.4,198,215,120,84,2022-03-25
+135,Diya Patel,4,Female,A-,None,None,None,12.5,107,155,94,78,2024-07-28
+136,Riya Gupta,61,Female,A+,Diabetes,Penicillin,Amlodipine,11.6,108,260,167,93,2023-03-10
+137,Vihaan Mehta,31,Female,A-,Diabetes,Dust,Levothyroxine,14.8,229,237,98,67,2024-05-06
+138,Riya Malhotra,69,Male,B-,Kidney Disease,Dust,Amlodipine,13.2,227,210,120,96,2023-03-03
+139,Reyansh Verma,68,Female,A-,Thyroid,Seafood,Salbutamol,15.9,199,261,92,84,2024-06-13
+140,Riya Sharma,82,Female,AB-,Asthma,None,Metformin,12.7,87,208,120,106,2023-11-04
+141,Vihaan Malhotra,43,Male,A+,Asthma,Seafood,Amlodipine,16.1,114,238,179,90,2023-10-09
+142,Reyansh Gupta,9,Other,O-,Diabetes,Pollen,Insulin,10.3,121,130,130,119,2022-11-14
+143,Saanvi Kumar,70,Female,AB+,Diabetes,None,Insulin,12.1,82,204,124,67,2024-03-29
+144,Diya Kumar,52,Other,O-,Heart Disease,Pollen,Insulin,13.7,197,214,156,77,2024-03-31
+145,Aditya Kumar,11,Female,B+,Thyroid,Pollen,Amlodipine,10.8,153,195,129,88,2023-09-10
+146,Kavya Gupta,89,Female,AB-,Heart Disease,Penicillin,None,16.5,160,277,145,77,2023-10-17
+147,Vivaan Verma,86,Other,O+,Asthma,Seafood,None,15.1,77,156,167,103,2024-03-11
+148,Pooja Sharma,17,Male,B-,None,None,Amlodipine,12.7,215,128,167,69,2023-11-27
+149,Pooja Singh,48,Female,A-,Thyroid,Dust,Salbutamol,12.8,150,191,121,67,2022-01-27
+150,Reyansh Agarwal,67,Female,A-,Asthma,Pollen,None,13.3,226,193,178,118,2023-05-18
+151,Muhammad Verma,18,Male,O-,Hypertension,None,Levothyroxine,17.5,151,208,180,64,2023-07-18
+152,Aditi Mehta,39,Male,B+,None,Pollen,Salbutamol,11.7,121,155,120,110,2023-05-21
+153,Aarav Singh,71,Other,AB-,Heart Disease,Seafood,Insulin,14.6,92,136,129,85,2024-01-05
+154,Riya Jain,53,Female,A-,Hypertension,Pollen,None,10.6,189,252,134,68,2024-06-18
+155,Aditi Malhotra,24,Male,O+,Thyroid,Penicillin,Metformin,13.9,147,162,110,80,2024-08-15
+156,Sai Singh,67,Female,A-,Asthma,Dust,None,17.2,140,152,170,79,2023-09-22
+157,Aditi Verma,65,Other,B+,Thyroid,Seafood,Insulin,11.3,229,274,133,113,2024-08-04
+158,Nisha Sharma,4,Male,A+,Kidney Disease,Seafood,Amlodipine,14.9,216,226,169,100,2022-02-01
+159,Riya Jain,38,Other,AB+,Heart Disease,Dust,None,13.0,186,138,178,63,2022-06-11
+160,Pooja Kumar,62,Female,B-,Asthma,Seafood,Insulin,12.3,151,208,141,68,2024-02-18
+161,Diya Jain,72,Male,AB-,Hypertension,Peanuts,Metformin,12.0,133,156,102,63,2022-10-25
+162,Ishita Malhotra,54,Male,B+,None,Pollen,Salbutamol,15.4,118,160,153,92,2023-04-24
+163,Riya Mehta,64,Male,A-,Heart Disease,Seafood,Levothyroxine,17.3,125,269,135,63,2022-02-21
+164,Ayaan Agarwal,77,Other,O-,Asthma,Seafood,Metformin,16.4,180,154,123,106,2023-01-10
+165,Ishita Singh,6,Female,A+,Thyroid,Seafood,Insulin,12.7,143,138,139,92,2023-04-07
+166,Aditi Mehta,80,Other,A-,Hypertension,Penicillin,Levothyroxine,12.8,156,262,136,108,2022-05-28
+167,Muhammad Malhotra,66,Female,A+,Diabetes,Penicillin,Insulin,15.4,191,252,148,69,2023-09-13
+168,Saanvi Gupta,42,Other,AB-,Hypertension,Peanuts,Salbutamol,15.5,146,271,133,92,2024-04-28
+169,Saanvi Jain,63,Other,AB+,Heart Disease,Penicillin,Amlodipine,12.5,98,226,164,79,2024-03-26
+170,Aarav Malhotra,61,Female,B-,Kidney Disease,Penicillin,Salbutamol,13.6,204,278,138,69,2024-04-21
+171,Sai Sharma,74,Other,A-,Hypertension,Penicillin,Levothyroxine,12.4,108,225,178,73,2023-02-25
+172,Saanvi Malhotra,61,Other,A+,Kidney Disease,Dust,Salbutamol,11.6,153,242,157,84,2022-11-18
+173,Reyansh Agarwal,69,Female,AB-,Kidney Disease,None,None,14.8,137,276,151,72,2024-09-07
+174,Sai Mehta,72,Female,B-,Asthma,Pollen,None,11.6,195,201,151,82,2023-07-28
+175,Arnav Mehta,16,Other,O+,Heart Disease,Pollen,Insulin,12.2,143,140,134,119,2023-03-29
+176,Arnav Agarwal,28,Male,AB+,Thyroid,None,Amlodipine,11.0,227,270,120,75,2022-02-21
+177,Saanvi Patel,82,Male,A+,Diabetes,Peanuts,Amlodipine,15.4,95,155,90,95,2024-08-09
+178,Reyansh Kumar,84,Female,O-,Kidney Disease,Dust,Amlodipine,12.4,235,135,101,101,2023-08-11
+179,Sai Jain,5,Male,O+,None,Dust,Metformin,17.5,171,246,113,119,2024-02-06
+180,Ayaan Sharma,2,Female,A-,Asthma,Pollen,Levothyroxine,17.4,209,254,153,116,2024-08-19
+181,Arjun Jain,60,Female,B-,None,Penicillin,Amlodipine,11.2,187,185,113,60,2024-01-25
+182,Ananya Mehta,73,Other,B-,Hypertension,Seafood,None,16.7,179,251,131,65,2023-02-15
+183,Vihaan Gupta,18,Female,AB-,Hypertension,Penicillin,Amlodipine,12.9,184,188,132,79,2023-08-20
+184,Nisha Sharma,34,Other,AB-,Kidney Disease,Dust,Metformin,15.0,189,198,110,85,2023-12-04
+185,Saanvi Mehta,89,Male,AB+,Asthma,Seafood,Insulin,11.6,104,242,109,89,2024-02-05
+186,Priya Singh,54,Other,O-,None,Seafood,None,16.2,133,272,100,93,2023-04-03
+187,Saanvi Singh,10,Other,A-,Diabetes,Seafood,Salbutamol,11.5,207,158,111,80,2024-05-24
+188,Saanvi Agarwal,15,Other,B-,Kidney Disease,Seafood,Levothyroxine,10.7,200,234,97,89,2022-05-16
+189,Saanvi Kumar,59,Other,A+,Thyroid,Peanuts,None,16.1,75,221,122,112,2022-01-04
+190,Muhammad Malhotra,10,Male,O+,Asthma,None,Metformin,14.1,85,137,150,62,2022-10-21
+191,Kavya Gupta,18,Other,O+,Asthma,Peanuts,Levothyroxine,16.5,166,216,100,103,2024-09-14
+192,Aditi Gupta,84,Female,A-,Hypertension,Seafood,Levothyroxine,14.0,127,120,92,79,2023-04-20
+193,Aditi Kumar,69,Female,B-,Hypertension,Peanuts,Amlodipine,11.2,118,148,94,111,2023-11-08
+194,Kavya Malhotra,3,Male,B-,Diabetes,Penicillin,Salbutamol,10.3,223,132,121,107,2022-02-15
+195,Ishita Agarwal,30,Other,B-,None,Penicillin,Insulin,13.8,144,179,163,80,2023-08-15
+196,Priya Singh,31,Female,B+,Kidney Disease,Seafood,Insulin,13.1,140,135,161,120,2023-08-29
+197,Reyansh Kumar,72,Female,A+,Asthma,None,None,12.9,204,201,179,86,2023-02-23
+198,Arjun Mehta,49,Male,O-,Hypertension,Dust,Amlodipine,16.4,106,238,97,95,2023-02-27
+199,Kavya Jain,68,Male,O+,Hypertension,Pollen,Insulin,12.5,90,235,137,65,2023-07-03
+200,Muhammad Sharma,35,Female,A+,None,Penicillin,Insulin,16.0,220,263,117,90,2022-08-02
+201,Ananya Mehta,2,Male,B-,Kidney Disease,Penicillin,None,17.5,192,182,179,98,2023-12-22
+202,Muhammad Kumar,31,Other,AB-,None,Pollen,Levothyroxine,13.5,236,211,129,76,2023-01-04
+203,Saanvi Agarwal,60,Male,O-,None,Pollen,Insulin,12.8,175,131,162,115,2022-08-15
+204,Arjun Sharma,34,Other,O+,Asthma,Dust,Insulin,12.5,167,265,121,91,2023-07-18
+205,Ananya Mehta,63,Other,O-,Heart Disease,Dust,None,16.0,113,155,159,91,2022-07-08
+206,Aditi Sharma,68,Male,A-,None,None,Metformin,15.7,175,155,170,74,2022-03-11
+207,Arjun Sharma,28,Other,O-,Asthma,Penicillin,Salbutamol,14.8,227,243,174,91,2022-01-17
+208,Aarav Jain,71,Female,A+,Diabetes,Seafood,None,12.1,143,124,154,112,2023-12-16
+209,Kavya Gupta,14,Male,B+,Hypertension,Dust,Salbutamol,13.9,160,188,140,65,2023-01-18
+210,Ishita Agarwal,73,Male,B-,Asthma,None,Metformin,14.9,236,128,101,85,2023-01-24
+211,Ishita Jain,61,Male,A+,Kidney Disease,Dust,Metformin,13.7,181,204,162,114,2024-09-24
+212,Vihaan Jain,6,Male,B-,None,None,Salbutamol,13.6,81,139,177,119,2022-10-15
+213,Aditi Malhotra,85,Male,B+,None,Pollen,Metformin,17.2,220,156,140,119,2022-03-20
+214,Ayaan Gupta,73,Male,O+,Kidney Disease,Seafood,Amlodipine,12.9,105,140,154,107,2024-09-24
+215,Diya Sharma,13,Female,B-,None,Penicillin,Amlodipine,14.5,227,272,140,109,2022-12-01
+216,Aarav Mehta,58,Female,B-,Asthma,Seafood,Levothyroxine,13.2,219,217,100,109,2023-09-26
+217,Ayaan Patel,10,Male,AB+,Hypertension,Peanuts,None,15.9,109,219,130,83,2022-04-20
+218,Aditya Sharma,40,Female,AB-,None,Pollen,Metformin,11.0,117,230,147,95,2023-07-23
+219,Saanvi Kumar,14,Male,A-,Asthma,Seafood,Metformin,14.5,153,218,91,78,2023-02-28
+220,Ishita Verma,72,Male,B+,Kidney Disease,Peanuts,Insulin,11.0,147,188,153,69,2022-03-06
+221,Reyansh Kumar,36,Female,AB+,Heart Disease,Penicillin,Amlodipine,11.9,133,280,153,98,2023-09-24
+222,Muhammad Agarwal,14,Male,AB+,Diabetes,Peanuts,Amlodipine,16.3,167,204,146,81,2023-03-17
+223,Priya Gupta,39,Female,B-,Heart Disease,Pollen,Insulin,17.2,151,194,178,100,2023-05-18
+224,Nisha Patel,42,Female,AB+,None,Peanuts,Amlodipine,10.9,214,171,165,94,2022-07-04
+225,Aditi Sharma,60,Other,B-,Heart Disease,Pollen,None,10.5,174,247,107,100,2022-11-07
+226,Sai Mehta,85,Male,O+,None,Peanuts,Metformin,13.4,223,242,164,85,2023-07-02
+227,Saanvi Kumar,70,Male,AB-,Kidney Disease,Seafood,Salbutamol,14.8,91,147,121,102,2023-11-12
+228,Diya Gupta,83,Other,A+,Thyroid,None,None,14.9,154,230,103,60,2022-04-11
+229,Arnav Patel,66,Other,B-,Heart Disease,Pollen,Levothyroxine,13.5,220,248,109,82,2022-01-26
+230,Riya Verma,38,Female,A-,Diabetes,None,Insulin,12.6,157,236,116,93,2023-05-10
+231,Diya Agarwal,13,Female,O-,Asthma,Penicillin,Amlodipine,10.3,99,125,133,101,2022-04-22
+232,Reyansh Patel,67,Male,B+,Asthma,Seafood,Levothyroxine,17.2,129,223,170,71,2022-07-10
+233,Kavya Kumar,4,Other,B-,Heart Disease,Seafood,Levothyroxine,12.9,124,172,125,108,2023-12-22
+234,Aditya Malhotra,14,Other,B+,Asthma,Pollen,Insulin,13.4,137,245,157,100,2022-11-17
+235,Priya Kumar,79,Female,A-,Asthma,Pollen,Levothyroxine,14.6,146,277,165,65,2023-11-20
+236,Arjun Singh,16,Male,AB+,Diabetes,Dust,Amlodipine,15.2,200,219,143,98,2022-05-22
+237,Nisha Kumar,55,Male,O-,Kidney Disease,Seafood,None,16.9,114,262,111,91,2022-10-23
+238,Arjun Gupta,41,Female,A+,None,Pollen,Metformin,13.6,119,218,161,92,2023-10-31
+239,Riya Kumar,88,Female,O+,Kidney Disease,Peanuts,Levothyroxine,11.3,214,127,118,78,2022-02-03
+240,Arnav Patel,69,Female,B+,None,Peanuts,Salbutamol,15.6,196,260,155,67,2023-08-10
+241,Vihaan Mehta,70,Female,A+,None,None,Levothyroxine,14.1,178,146,173,108,2022-09-11
+242,Ayaan Sharma,58,Female,AB-,None,Penicillin,Levothyroxine,16.5,100,180,116,111,2024-01-26
+243,Nisha Singh,79,Other,O+,Hypertension,Seafood,Insulin,15.9,122,135,162,82,2023-06-30
+244,Arnav Malhotra,69,Male,AB-,Kidney Disease,Pollen,Amlodipine,14.3,201,144,107,108,2024-03-15
+245,Kavya Sharma,36,Other,B+,Kidney Disease,Dust,Insulin,11.1,152,183,176,85,2023-05-17
+246,Arjun Malhotra,81,Female,O+,Heart Disease,Peanuts,Metformin,14.8,93,223,155,107,2022-10-12
+247,Diya Agarwal,63,Female,A+,None,None,Metformin,15.5,187,211,98,110,2023-07-02
+248,Ishita Patel,55,Male,O-,Asthma,Pollen,Amlodipine,12.5,217,153,162,114,2023-05-12
+249,Ananya Sharma,6,Male,O-,Diabetes,Penicillin,Insulin,13.3,70,229,115,104,2024-07-20
+250,Arjun Mehta,21,Female,A-,Kidney Disease,Pollen,Amlodipine,10.6,240,162,96,85,2023-10-03
+251,Ayaan Patel,55,Other,A-,Kidney Disease,Penicillin,Metformin,11.6,89,153,165,74,2023-06-16
+252,Pooja Sharma,2,Other,AB-,None,Penicillin,Levothyroxine,15.2,192,138,119,84,2022-04-02
+253,Vihaan Verma,41,Female,AB+,Hypertension,Peanuts,Insulin,14.8,106,137,157,96,2022-01-09
+254,Priya Gupta,57,Female,B-,Kidney Disease,None,Insulin,16.9,227,233,117,65,2024-07-07
+255,Vihaan Gupta,16,Other,O+,Asthma,Peanuts,Amlodipine,15.9,133,190,172,65,2022-09-12
+256,Aditi Malhotra,77,Other,AB+,None,None,Metformin,16.4,238,197,116,93,2023-09-14
+257,Saanvi Patel,51,Female,A+,None,Dust,Levothyroxine,12.9,131,247,171,98,2022-03-14
+258,Saanvi Sharma,47,Female,B+,Heart Disease,Seafood,Levothyroxine,12.7,114,240,99,61,2023-08-25
+259,Aditya Sharma,34,Male,A+,Diabetes,Peanuts,Salbutamol,12.1,198,226,144,104,2023-02-16
+260,Aditya Jain,69,Other,B+,Asthma,Penicillin,Amlodipine,10.6,122,159,158,80,2023-02-05
+261,Nisha Verma,40,Other,O+,Kidney Disease,Dust,Metformin,11.8,181,149,148,99,2023-09-16
+262,Vivaan Mehta,86,Other,B+,Diabetes,Penicillin,None,11.0,72,161,153,120,2022-12-22
+263,Saanvi Jain,34,Male,AB-,Hypertension,None,Amlodipine,15.5,100,127,132,111,2023-03-16
+264,Arnav Jain,9,Female,A-,Heart Disease,Peanuts,Salbutamol,12.7,197,265,111,83,2022-06-11
+265,Arnav Verma,74,Other,A-,Hypertension,None,Salbutamol,10.0,73,182,95,90,2023-01-08
+266,Ishita Gupta,23,Male,O+,Hypertension,Pollen,Insulin,13.1,151,189,99,96,2023-01-17
+267,Vihaan Jain,87,Male,B+,Hypertension,Seafood,Metformin,17.2,87,239,126,109,2024-05-15
+268,Ayaan Singh,12,Other,O-,Diabetes,Pollen,Insulin,12.2,147,279,121,89,2023-01-13
+269,Nisha Agarwal,26,Other,B-,Hypertension,Penicillin,Levothyroxine,10.2,208,208,171,113,2023-12-12
+270,Aarav Singh,1,Other,O+,None,None,None,12.3,122,255,120,86,2023-05-19
+271,Vivaan Gupta,36,Male,A+,Hypertension,Seafood,Levothyroxine,15.3,165,237,100,97,2022-04-08
+272,Saanvi Gupta,82,Female,A-,Thyroid,Seafood,Metformin,13.3,103,180,127,76,2024-05-21
+273,Ananya Kumar,90,Other,AB-,Asthma,Peanuts,Amlodipine,11.8,121,154,164,66,2022-06-09
+274,Vihaan Gupta,58,Female,AB-,Heart Disease,Penicillin,Salbutamol,12.7,123,235,129,89,2022-09-29
+275,Vihaan Verma,21,Other,AB+,None,None,None,14.5,125,203,108,65,2023-12-30
+276,Sai Singh,51,Other,A+,Kidney Disease,Pollen,Amlodipine,16.2,114,127,141,114,2023-04-09
+277,Aditi Jain,32,Male,O-,Diabetes,Dust,Metformin,10.1,126,153,115,112,2023-02-15
+278,Diya Verma,75,Other,AB+,None,Penicillin,Metformin,17.5,120,233,106,65,2024-07-15
+279,Ananya Verma,6,Female,A+,Hypertension,Seafood,Levothyroxine,16.2,171,247,93,84,2023-12-01
+280,Kavya Gupta,46,Male,B+,Asthma,Pollen,Levothyroxine,16.6,78,277,169,99,2022-09-09
+281,Ayaan Agarwal,53,Other,O-,Diabetes,Penicillin,Amlodipine,12.9,177,171,172,116,2024-03-27
+282,Saanvi Patel,81,Other,A+,Heart Disease,None,Amlodipine,13.6,194,208,162,92,2022-11-26
+283,Ishita Mehta,24,Male,AB-,Thyroid,Dust,Metformin,16.7,141,134,150,93,2023-01-02
+284,Nisha Patel,21,Male,B-,Kidney Disease,Dust,Amlodipine,14.0,84,176,163,114,2024-03-27
+285,Ishita Singh,23,Male,B-,Thyroid,Pollen,None,15.2,221,127,180,104,2022-12-27
+286,Nisha Malhotra,19,Other,B-,None,Peanuts,Salbutamol,12.3,195,129,101,63,2022-08-27
+287,Priya Patel,3,Other,O-,Diabetes,Pollen,Salbutamol,11.5,103,207,112,118,2024-04-01
+288,Ananya Sharma,3,Male,B+,None,Penicillin,Salbutamol,16.5,88,215,180,120,2023-11-10
+289,Ishita Malhotra,13,Female,AB+,Asthma,Dust,Insulin,15.5,181,244,173,80,2022-06-28
+290,Aditi Malhotra,46,Male,B+,Heart Disease,Pollen,None,15.2,102,165,90,120,2023-12-20
+291,Nisha Kumar,73,Male,B+,Thyroid,Pollen,Salbutamol,11.7,214,146,153,69,2022-12-06
+292,Aditya Patel,45,Female,B+,Kidney Disease,Penicillin,None,15.0,155,234,91,76,2022-08-03
+293,Sai Verma,45,Female,A-,Kidney Disease,Penicillin,Metformin,12.9,177,162,142,91,2024-06-21
+294,Ishita Singh,70,Female,A-,None,Peanuts,Salbutamol,14.9,127,161,147,64,2024-03-29
+295,Vivaan Mehta,3,Female,AB+,Diabetes,Penicillin,Amlodipine,11.3,166,161,99,95,2024-08-22
+296,Aditya Singh,77,Other,O-,Kidney Disease,Penicillin,Levothyroxine,17.1,112,275,145,70,2022-02-24
+297,Vihaan Singh,27,Male,O+,Kidney Disease,Seafood,None,16.9,208,187,174,78,2022-11-01
+298,Sai Verma,7,Female,O-,Hypertension,Penicillin,Amlodipine,10.0,92,195,174,100,2023-09-07
+299,Riya Patel,13,Male,B-,Hypertension,None,Amlodipine,17.3,191,149,129,110,2023-02-12
+300,Riya Agarwal,85,Female,A-,Kidney Disease,Seafood,Levothyroxine,11.4,167,214,113,88,2022-02-15
+301,Arnav Agarwal,60,Female,B-,None,Pollen,Salbutamol,10.5,240,144,100,102,2022-12-19
+302,Aditi Kumar,76,Male,A+,None,Peanuts,Salbutamol,13.1,207,241,163,116,2022-08-30
+303,Riya Mehta,11,Female,A+,Thyroid,Seafood,Salbutamol,16.0,228,157,105,120,2024-02-15
+304,Pooja Gupta,22,Male,B-,Hypertension,Penicillin,Levothyroxine,10.6,181,171,170,69,2024-05-04
+305,Priya Mehta,41,Other,A-,Diabetes,Peanuts,Salbutamol,13.0,153,190,156,89,2024-07-28
+306,Aarav Malhotra,76,Other,O+,Diabetes,Peanuts,Insulin,11.1,220,269,102,119,2022-04-19
+307,Nisha Verma,37,Other,AB-,Heart Disease,Pollen,Levothyroxine,14.9,216,275,150,62,2022-06-26
+308,Arnav Kumar,19,Other,O+,Diabetes,Peanuts,Amlodipine,15.2,82,241,124,117,2023-01-17
+309,Aarav Singh,39,Female,AB+,None,Peanuts,None,15.1,128,154,128,107,2023-03-30
+310,Ananya Mehta,54,Other,A-,Hypertension,Peanuts,Insulin,16.9,174,244,156,115,2023-01-18
+311,Vivaan Jain,21,Male,AB+,Kidney Disease,Seafood,Levothyroxine,11.0,204,265,93,71,2022-07-17
+312,Muhammad Sharma,32,Male,O-,Diabetes,Pollen,None,11.5,164,238,154,85,2023-10-13
+313,Vihaan Sharma,31,Female,O-,Thyroid,Peanuts,Insulin,17.2,191,270,160,82,2022-12-19
+314,Reyansh Mehta,89,Male,AB+,Diabetes,Peanuts,Metformin,11.2,216,174,118,101,2022-08-19
+315,Muhammad Mehta,84,Female,A+,None,None,Metformin,13.6,103,164,166,111,2022-01-09
+316,Sai Mehta,78,Female,AB+,Heart Disease,Peanuts,Amlodipine,13.4,125,239,128,103,2023-06-18
+317,Priya Kumar,75,Male,A+,Thyroid,None,Amlodipine,14.2,222,275,126,79,2023-12-02
+318,Vihaan Agarwal,9,Female,AB+,Kidney Disease,Pollen,Amlodipine,12.0,236,196,114,69,2023-06-14
+319,Sai Sharma,77,Female,AB-,Kidney Disease,Dust,None,10.2,197,195,123,118,2023-03-05
+320,Ishita Kumar,5,Other,B-,Asthma,None,None,11.7,206,241,175,82,2023-06-04
+321,Ayaan Gupta,85,Other,B+,Asthma,Penicillin,Levothyroxine,11.0,136,263,113,120,2023-11-28
+322,Ananya Verma,29,Female,B-,Kidney Disease,Pollen,Levothyroxine,15.9,154,215,123,97,2022-10-29
+323,Pooja Verma,61,Male,A-,Heart Disease,Dust,Salbutamol,10.9,167,255,128,86,2022-02-25
+324,Arjun Gupta,26,Female,O+,Thyroid,Peanuts,Insulin,12.4,116,140,152,81,2023-10-09
+325,Reyansh Singh,82,Male,A+,Heart Disease,Pollen,Insulin,15.7,113,267,110,91,2024-03-15
+326,Aditya Gupta,79,Female,O+,Heart Disease,Peanuts,Levothyroxine,12.9,79,256,115,106,2023-01-18
+327,Aarav Singh,68,Male,A+,Kidney Disease,Penicillin,None,15.5,127,208,129,68,2022-04-16
+328,Ishita Jain,76,Female,B+,Diabetes,Penicillin,Amlodipine,17.1,186,253,166,93,2022-12-12
+329,Kavya Gupta,44,Female,AB-,None,Dust,Insulin,17.1,173,124,119,74,2024-01-15
+330,Arjun Patel,3,Other,B+,Diabetes,Pollen,None,14.9,79,216,171,76,2024-02-29
+331,Aditi Malhotra,7,Other,A+,Kidney Disease,Penicillin,None,16.3,82,149,143,88,2023-01-25
+332,Vihaan Jain,33,Female,B+,Hypertension,None,None,14.7,147,227,174,66,2023-11-10
+333,Saanvi Mehta,80,Other,B+,Heart Disease,Penicillin,Salbutamol,15.4,100,192,104,110,2022-04-19
+334,Riya Patel,78,Male,AB+,None,Seafood,Insulin,12.7,174,195,110,62,2023-07-16
+335,Riya Patel,89,Female,AB-,Hypertension,Penicillin,Metformin,15.0,98,266,175,91,2022-06-02
+336,Aditya Jain,10,Other,A-,Asthma,None,Insulin,13.4,145,187,149,63,2022-04-13
+337,Reyansh Sharma,38,Female,AB-,Heart Disease,None,Metformin,10.7,81,122,107,102,2023-10-25
+338,Reyansh Singh,46,Female,AB+,Kidney Disease,Penicillin,Amlodipine,16.1,116,149,141,85,2024-09-12
+339,Pooja Mehta,50,Other,O-,None,Peanuts,None,16.6,112,148,106,104,2024-01-14
+340,Vivaan Gupta,14,Female,O-,None,Seafood,None,13.3,226,217,135,99,2022-01-30
+341,Arjun Agarwal,63,Male,O+,Heart Disease,Penicillin,Metformin,12.0,150,123,180,115,2023-11-26
+342,Saanvi Malhotra,73,Male,AB-,Thyroid,Seafood,None,15.3,94,230,174,106,2022-09-12
+343,Riya Singh,85,Other,O+,Hypertension,Seafood,Salbutamol,10.4,234,160,154,114,2023-04-26
+344,Riya Gupta,10,Female,AB-,Hypertension,Pollen,Amlodipine,10.4,127,260,172,84,2023-02-17
+345,Sai Verma,59,Female,O-,Diabetes,Peanuts,Levothyroxine,12.4,197,124,103,85,2023-02-27
+346,Vivaan Jain,71,Male,A-,None,Seafood,Salbutamol,14.8,200,263,116,101,2023-11-19
+347,Pooja Singh,47,Male,B-,None,Peanuts,Amlodipine,14.2,228,273,150,105,2023-11-04
+348,Diya Agarwal,15,Male,B-,Diabetes,Pollen,Amlodipine,16.2,144,260,156,83,2023-12-20
+349,Vihaan Sharma,22,Female,B+,None,None,None,15.4,97,185,168,72,2022-07-12
+350,Vihaan Kumar,28,Female,B-,Kidney Disease,Pollen,Metformin,15.7,81,270,105,109,2024-07-02
+351,Pooja Agarwal,85,Other,B+,Heart Disease,Penicillin,Salbutamol,15.5,211,230,164,90,2024-08-04
+352,Saanvi Gupta,89,Other,B+,Kidney Disease,Dust,Metformin,12.9,223,275,131,92,2024-06-21
+353,Ishita Kumar,78,Other,B-,Asthma,Peanuts,Amlodipine,17.3,185,154,107,86,2023-09-09
+354,Saanvi Mehta,90,Other,AB-,Kidney Disease,None,Salbutamol,14.7,121,173,169,105,2022-10-25
+355,Diya Gupta,84,Male,AB-,Kidney Disease,Penicillin,Amlodipine,14.2,219,266,175,105,2023-03-04
+356,Aditi Mehta,55,Male,A-,Diabetes,Peanuts,Insulin,10.4,84,171,124,108,2024-03-15
+357,Reyansh Mehta,88,Female,B+,None,Penicillin,None,15.9,122,258,94,82,2024-04-13
+358,Pooja Verma,79,Other,B-,Kidney Disease,None,Salbutamol,12.9,200,193,178,102,2022-02-18
+359,Ishita Kumar,54,Other,AB-,Thyroid,Penicillin,Metformin,15.6,121,278,146,113,2022-08-19
+360,Diya Malhotra,70,Other,B-,None,None,Insulin,12.2,115,139,113,71,2024-01-23
+361,Saanvi Verma,49,Male,O+,Asthma,Seafood,Amlodipine,11.0,219,185,90,81,2023-04-23
+362,Arjun Sharma,20,Female,A+,None,None,Salbutamol,16.3,147,245,163,95,2023-01-02
+363,Aditya Singh,68,Male,B+,Thyroid,Penicillin,Salbutamol,11.2,209,257,141,65,2022-12-24
+364,Sai Patel,85,Female,AB-,Asthma,Pollen,Insulin,17.1,228,255,150,95,2024-04-23
+365,Aarav Verma,86,Female,O-,Hypertension,None,Salbutamol,16.9,132,130,177,116,2022-11-25
+366,Ishita Verma,50,Female,AB+,Diabetes,Seafood,Amlodipine,13.9,200,234,152,62,2022-10-31
+367,Muhammad Singh,66,Male,A-,Hypertension,Seafood,Salbutamol,10.1,86,173,175,100,2024-03-03
+368,Muhammad Kumar,14,Male,O+,Kidney Disease,Penicillin,None,15.1,76,237,132,62,2022-03-31
+369,Aditya Sharma,23,Female,A-,Thyroid,Dust,Amlodipine,13.1,185,223,145,80,2022-01-18
+370,Ishita Verma,69,Male,A-,None,None,Salbutamol,10.3,88,211,154,66,2022-10-24
+371,Ayaan Malhotra,12,Female,O-,Heart Disease,Peanuts,None,10.2,110,256,118,68,2024-02-04
+372,Ishita Jain,38,Other,B+,Asthma,None,None,14.9,72,261,161,69,2022-05-07
+373,Vivaan Sharma,74,Other,O+,Thyroid,Seafood,Metformin,12.3,158,174,142,117,2023-10-24
+374,Saanvi Gupta,21,Male,B-,Thyroid,Pollen,Insulin,10.9,215,133,160,89,2023-10-23
+375,Aditi Verma,38,Other,A-,Asthma,Penicillin,Insulin,15.4,194,204,135,68,2023-11-19
+376,Sai Verma,37,Other,A-,Hypertension,Pollen,Levothyroxine,13.4,227,198,178,97,2022-06-06
+377,Nisha Malhotra,47,Female,O+,Hypertension,Penicillin,Amlodipine,11.8,126,231,125,113,2023-01-04
+378,Arjun Singh,62,Female,O-,Asthma,Pollen,Levothyroxine,14.1,114,275,100,113,2022-10-15
+379,Arjun Jain,26,Female,A-,Kidney Disease,Penicillin,Metformin,16.4,231,127,164,97,2023-02-19
+380,Nisha Patel,5,Other,AB+,Thyroid,Seafood,Levothyroxine,14.9,108,213,140,74,2024-07-01
+381,Nisha Mehta,18,Female,A-,Heart Disease,Pollen,Salbutamol,10.1,131,277,177,70,2024-02-15
+382,Saanvi Gupta,58,Male,B+,Thyroid,Seafood,None,16.5,107,243,135,62,2022-08-13
+383,Riya Patel,9,Female,AB-,Hypertension,Penicillin,None,11.6,162,219,150,118,2023-04-11
+384,Vivaan Sharma,84,Female,A-,Kidney Disease,Seafood,None,16.2,137,268,159,96,2022-06-28
+385,Ishita Kumar,47,Other,A-,Thyroid,Pollen,Levothyroxine,17.3,127,252,141,82,2024-04-16
+386,Diya Agarwal,62,Other,A+,Thyroid,Dust,Levothyroxine,11.2,89,251,172,77,2022-08-05
+387,Arjun Gupta,21,Female,A-,Kidney Disease,Dust,Levothyroxine,16.1,99,243,176,90,2023-05-06
+388,Muhammad Malhotra,21,Other,O+,Diabetes,Dust,Metformin,11.0,221,161,107,100,2023-06-09
+389,Vivaan Malhotra,19,Male,B+,Asthma,Dust,Salbutamol,17.2,223,264,171,61,2024-06-18
+390,Ayaan Verma,28,Female,O-,None,Peanuts,Insulin,11.6,175,273,108,110,2023-08-20
+391,Reyansh Malhotra,85,Other,AB+,Hypertension,None,None,12.6,186,272,165,64,2022-08-24
+392,Ishita Kumar,17,Male,A+,Hypertension,Seafood,Salbutamol,15.1,108,275,102,71,2023-05-03
+393,Priya Malhotra,5,Other,A-,Diabetes,Peanuts,None,11.0,224,258,90,117,2024-08-18
+394,Kavya Jain,54,Female,A+,Kidney Disease,Seafood,Levothyroxine,11.7,193,217,134,97,2024-04-03
+395,Nisha Verma,55,Male,AB+,Heart Disease,Dust,Metformin,12.1,209,224,122,72,2022-01-06
+396,Aarav Malhotra,67,Male,A+,Heart Disease,None,Insulin,15.2,150,224,136,66,2022-06-08
+397,Kavya Malhotra,33,Female,O+,Thyroid,Pollen,Salbutamol,12.1,171,172,142,95,2024-03-13
+398,Aditi Agarwal,23,Female,O-,Asthma,Pollen,Salbutamol,12.6,171,155,174,67,2024-02-05
+399,Sai Agarwal,90,Male,A-,Hypertension,Seafood,Levothyroxine,15.9,210,277,179,103,2023-12-25
+400,Vivaan Gupta,50,Other,A+,None,Penicillin,Insulin,13.5,223,231,101,64,2022-09-27
+401,Sai Singh,11,Other,A+,Kidney Disease,Peanuts,Levothyroxine,14.6,203,193,166,63,2024-08-26
+402,Reyansh Agarwal,57,Male,B-,None,None,Salbutamol,12.1,78,273,155,93,2023-12-17
+403,Sai Malhotra,22,Other,A+,Asthma,Dust,None,10.0,110,142,125,109,2023-02-14
+404,Diya Kumar,52,Other,B-,Thyroid,Penicillin,None,15.3,93,260,126,106,2024-04-29
+405,Aditi Malhotra,45,Female,AB+,Hypertension,Seafood,Insulin,13.4,173,267,90,76,2022-06-29
+406,Kavya Jain,14,Other,A-,Thyroid,Pollen,Amlodipine,17.1,201,185,158,112,2024-03-23
+407,Nisha Mehta,89,Female,O+,Thyroid,Peanuts,Insulin,15.7,187,237,165,115,2022-01-29
+408,Riya Verma,34,Male,O+,Kidney Disease,Dust,None,15.3,150,225,135,93,2023-07-03
+409,Aarav Mehta,32,Female,A-,Heart Disease,None,None,16.2,89,261,112,90,2022-11-18
+410,Diya Patel,74,Female,B+,Kidney Disease,None,Insulin,13.7,121,180,120,115,2022-09-29
+411,Muhammad Patel,26,Male,AB-,Hypertension,Penicillin,Metformin,16.9,239,246,168,60,2024-02-22
+412,Aditi Sharma,62,Female,AB-,Heart Disease,Seafood,Amlodipine,13.7,200,191,140,74,2024-02-08
+413,Nisha Gupta,7,Other,O+,Heart Disease,Seafood,Metformin,13.8,170,164,148,67,2023-12-17
+414,Saanvi Agarwal,41,Other,A+,Diabetes,None,Insulin,12.8,95,203,136,99,2024-06-01
+415,Arnav Gupta,71,Female,B-,Asthma,Peanuts,Salbutamol,12.6,117,247,144,73,2023-03-06
+416,Diya Singh,52,Female,O-,Hypertension,Seafood,Insulin,17.3,128,145,124,111,2022-08-30
+417,Aditi Kumar,49,Male,B+,None,None,Insulin,13.5,72,165,143,91,2022-05-18
+418,Saanvi Jain,41,Female,AB+,Asthma,Seafood,Salbutamol,10.4,95,161,97,73,2024-04-13
+419,Arnav Agarwal,81,Male,O-,Kidney Disease,Pollen,Amlodipine,12.7,213,262,122,82,2022-01-21
+420,Kavya Verma,45,Other,B-,Thyroid,Seafood,None,14.9,114,192,135,80,2023-11-21
+421,Saanvi Agarwal,58,Male,O+,Thyroid,Pollen,Levothyroxine,14.7,107,162,171,111,2024-08-08
+422,Ananya Kumar,81,Other,O+,None,Penicillin,Metformin,11.2,128,200,130,101,2022-10-26
+423,Arnav Malhotra,83,Female,AB+,Heart Disease,Pollen,None,14.4,185,225,111,71,2024-05-24
+424,Aarav Gupta,31,Other,AB+,Kidney Disease,None,None,10.6,112,221,103,66,2022-03-07
+425,Riya Jain,7,Male,O+,Thyroid,Penicillin,Metformin,12.0,109,141,173,119,2024-06-25
+426,Ishita Mehta,30,Male,AB+,Heart Disease,None,Insulin,11.0,113,127,94,102,2023-01-01
+427,Ananya Agarwal,60,Other,AB+,Thyroid,Peanuts,Insulin,17.3,208,165,165,98,2023-04-13
+428,Nisha Kumar,68,Other,AB+,Asthma,Peanuts,Salbutamol,11.7,92,233,129,83,2023-02-27
+429,Arnav Gupta,39,Male,A+,Thyroid,Dust,Amlodipine,12.2,206,122,178,119,2023-05-19
+430,Riya Mehta,2,Female,AB+,Thyroid,Dust,Metformin,14.1,118,225,161,87,2023-02-09
+431,Sai Gupta,83,Female,O+,Hypertension,Pollen,Metformin,13.2,131,252,168,111,2023-12-12
+432,Arnav Mehta,84,Other,AB+,Heart Disease,Dust,Metformin,11.4,144,148,171,89,2023-09-25
+433,Pooja Mehta,90,Other,O-,Hypertension,Pollen,Metformin,11.1,206,125,113,66,2022-10-16
+434,Arnav Gupta,57,Other,A+,Hypertension,Penicillin,Insulin,10.1,125,207,143,79,2024-03-15
+435,Riya Singh,60,Other,A+,Asthma,Penicillin,Insulin,10.4,170,138,159,90,2022-07-05
+436,Muhammad Mehta,49,Male,A-,None,None,Insulin,12.9,183,183,94,72,2023-04-17
+437,Vihaan Jain,86,Male,O-,Heart Disease,None,Amlodipine,17.0,110,130,160,93,2022-05-06
+438,Arnav Agarwal,82,Female,B-,Asthma,Penicillin,None,11.6,98,180,171,87,2022-11-29
+439,Aarav Gupta,36,Other,A-,Heart Disease,Dust,Metformin,17.3,218,241,178,98,2022-06-08
+440,Diya Verma,32,Male,O-,Diabetes,None,Salbutamol,12.5,230,135,97,82,2023-10-23
+441,Arjun Jain,14,Male,O-,Hypertension,Pollen,Salbutamol,15.9,158,232,114,61,2023-12-07
+442,Ishita Singh,18,Female,A+,Heart Disease,None,Levothyroxine,14.2,208,245,114,96,2022-07-11
+443,Aditi Singh,42,Other,O-,Asthma,Seafood,Salbutamol,11.2,205,159,147,78,2024-04-19
+444,Arnav Jain,47,Female,A+,None,None,Salbutamol,12.8,117,124,169,114,2023-01-08
+445,Priya Patel,42,Other,A-,Kidney Disease,Seafood,Levothyroxine,11.4,197,261,109,99,2022-10-17
+446,Ananya Kumar,83,Female,A-,Diabetes,Seafood,None,10.5,103,165,94,72,2022-04-20
+447,Riya Patel,13,Male,O+,Kidney Disease,Peanuts,Salbutamol,14.7,221,185,96,83,2022-08-15
+448,Priya Verma,2,Male,O-,None,Penicillin,Levothyroxine,16.0,85,212,161,107,2024-08-18
+449,Kavya Singh,8,Other,AB+,Thyroid,Penicillin,None,10.5,147,139,117,93,2022-04-10
+450,Vihaan Patel,69,Female,B-,Hypertension,Seafood,None,11.9,230,165,161,107,2023-07-26
+451,Kavya Verma,82,Other,AB-,Kidney Disease,Peanuts,None,15.0,96,162,113,95,2023-02-16
+452,Saanvi Singh,85,Male,O-,Asthma,Pollen,Salbutamol,17.4,153,215,142,108,2023-10-11
+453,Kavya Singh,78,Male,B-,Heart Disease,Seafood,None,11.9,185,234,140,60,2024-01-14
+454,Vivaan Mehta,77,Male,B+,Asthma,Penicillin,Amlodipine,17.4,124,200,92,109,2024-04-21
+455,Arnav Jain,66,Other,B+,Diabetes,Penicillin,Levothyroxine,12.7,105,187,136,116,2023-08-20
+456,Sai Patel,33,Female,A-,Thyroid,Peanuts,Salbutamol,16.9,89,203,151,71,2023-05-15
+457,Nisha Verma,77,Other,AB+,Diabetes,None,Salbutamol,12.9,84,205,134,116,2024-04-16
+458,Kavya Kumar,16,Male,A+,Kidney Disease,None,Levothyroxine,10.4,204,130,130,94,2023-08-02
+459,Arjun Singh,65,Other,B-,Hypertension,Penicillin,None,15.5,170,234,166,96,2023-06-01
+460,Aditya Patel,56,Female,O+,Hypertension,Dust,Amlodipine,10.6,216,132,160,85,2022-09-26
+461,Aditya Kumar,65,Female,B+,None,Dust,Levothyroxine,14.2,194,221,173,96,2022-07-20
+462,Aditi Malhotra,68,Male,B-,Diabetes,Pollen,Levothyroxine,12.4,217,142,104,102,2023-02-28
+463,Kavya Singh,45,Male,AB-,Asthma,Seafood,None,10.2,148,163,134,99,2024-04-21
+464,Pooja Malhotra,19,Female,A+,None,Dust,Insulin,15.1,109,141,104,107,2022-02-25
+465,Sai Malhotra,19,Female,A+,Asthma,None,Metformin,12.3,190,125,132,73,2024-01-28
+466,Aditi Patel,27,Other,AB+,Thyroid,Peanuts,Salbutamol,15.5,106,124,138,97,2024-07-16
+467,Saanvi Sharma,33,Male,A+,Asthma,Dust,None,14.6,83,239,173,120,2022-01-09
+468,Aditya Kumar,85,Female,AB-,None,Penicillin,Metformin,12.2,236,218,119,84,2023-06-05
+469,Vihaan Singh,63,Other,A-,Hypertension,Dust,Salbutamol,17.3,213,125,95,75,2024-08-02
+470,Saanvi Mehta,43,Female,O+,Kidney Disease,Dust,Metformin,12.6,160,210,170,79,2022-08-30
+471,Saanvi Mehta,8,Other,AB+,Heart Disease,Penicillin,Salbutamol,17.1,127,158,133,117,2023-02-07
+472,Arjun Verma,49,Other,B-,Heart Disease,Dust,Salbutamol,11.1,149,274,132,88,2023-07-10
+473,Arjun Patel,84,Male,B-,None,Dust,Amlodipine,15.2,204,154,145,118,2024-09-26
+474,Arjun Malhotra,21,Female,A-,Thyroid,Seafood,None,10.9,151,157,93,108,2022-11-23
+475,Kavya Kumar,39,Female,AB+,Hypertension,Dust,Metformin,11.0,76,276,168,77,2023-09-13
+476,Nisha Malhotra,30,Other,B-,Hypertension,None,Metformin,12.7,192,154,154,114,2023-09-12
+477,Riya Singh,24,Female,O-,Heart Disease,Dust,Insulin,11.4,78,224,91,119,2022-10-04
+478,Kavya Patel,86,Male,B-,Diabetes,Dust,Levothyroxine,16.5,195,203,148,116,2022-09-10
+479,Kavya Kumar,6,Other,O+,Kidney Disease,Pollen,Levothyroxine,14.6,216,272,158,93,2023-10-19
+480,Vivaan Jain,14,Female,O-,None,Penicillin,Insulin,13.9,171,130,161,84,2023-06-13
+481,Vivaan Patel,38,Female,O+,Asthma,Pollen,Levothyroxine,11.2,145,276,96,104,2023-06-14
+482,Arjun Agarwal,83,Female,A-,Kidney Disease,Seafood,Metformin,11.3,219,259,107,85,2023-02-28
+483,Ananya Agarwal,4,Male,O-,Thyroid,None,Insulin,16.6,93,184,131,104,2023-10-27
+484,Reyansh Verma,12,Male,O-,Kidney Disease,Pollen,Metformin,13.9,168,250,168,120,2022-06-13
+485,Ishita Jain,49,Male,B+,Asthma,Seafood,None,16.5,111,157,112,109,2023-12-31
+486,Vivaan Kumar,40,Female,O-,Asthma,None,Insulin,10.9,103,171,90,99,2024-02-23
+487,Arnav Sharma,59,Female,O-,Thyroid,Penicillin,Salbutamol,16.6,130,175,165,102,2023-05-03
+488,Pooja Kumar,57,Male,A+,Hypertension,Seafood,Amlodipine,14.6,212,173,96,71,2022-06-01
+489,Vivaan Singh,5,Male,A+,Kidney Disease,Seafood,Salbutamol,12.2,92,132,103,86,2022-07-02
+490,Reyansh Mehta,79,Other,B+,Heart Disease,None,Salbutamol,12.7,79,143,128,80,2023-01-13
+491,Ishita Verma,55,Other,A-,Asthma,Peanuts,Insulin,10.9,140,204,157,86,2023-06-22
+492,Muhammad Patel,79,Male,A-,Thyroid,None,None,14.0,92,243,178,98,2024-08-14
+493,Ayaan Kumar,78,Female,AB+,Thyroid,Seafood,Salbutamol,12.7,103,277,162,91,2023-06-17
+494,Riya Agarwal,24,Other,B-,Kidney Disease,Pollen,Insulin,10.0,76,239,170,110,2022-05-01
+495,Muhammad Malhotra,54,Female,A+,Asthma,Pollen,Salbutamol,16.0,124,122,171,72,2023-12-08
+496,Ayaan Mehta,9,Female,AB+,Thyroid,Seafood,Amlodipine,15.8,99,205,133,85,2024-01-12
+497,Nisha Malhotra,4,Male,B-,Asthma,Pollen,None,13.6,191,129,172,68,2023-05-09
+498,Arjun Agarwal,69,Female,O-,None,Peanuts,None,10.4,203,196,162,106,2023-11-26
+499,Ananya Jain,69,Male,B-,Thyroid,None,Amlodipine,16.0,160,136,109,77,2024-05-10
+500,Aarav Singh,49,Other,B+,Thyroid,Seafood,Levothyroxine,11.4,99,198,180,114,2022-11-19
+501,Vivaan Mehta,53,Male,O-,Hypertension,Pollen,Levothyroxine,16.2,147,175,157,79,2022-06-29
+502,Vihaan Singh,5,Male,A-,Heart Disease,Seafood,Metformin,16.0,198,159,114,81,2024-08-03
+503,Riya Jain,40,Female,B+,None,Penicillin,Salbutamol,15.1,103,172,94,89,2023-02-01
+504,Saanvi Verma,1,Female,A+,Kidney Disease,Seafood,Metformin,12.5,81,146,156,109,2023-11-06
+505,Ayaan Sharma,74,Female,B-,Asthma,Dust,Insulin,12.1,206,201,146,102,2022-05-01
+506,Arnav Gupta,21,Female,A-,Diabetes,Seafood,Salbutamol,13.9,122,258,134,95,2022-11-23
+507,Arnav Gupta,37,Other,B-,Hypertension,Penicillin,Amlodipine,14.6,156,258,146,63,2022-05-14
+508,Aarav Agarwal,87,Male,A-,Heart Disease,Penicillin,Metformin,13.2,115,272,165,100,2024-05-06
+509,Pooja Malhotra,46,Female,AB-,None,Dust,None,15.7,206,140,149,96,2022-05-15
+510,Aditya Agarwal,13,Female,AB+,Kidney Disease,None,None,15.7,190,179,118,69,2024-05-31
+511,Priya Mehta,47,Female,B+,Kidney Disease,None,Amlodipine,15.9,153,236,152,61,2022-03-08
+512,Riya Verma,45,Female,O-,None,Dust,Amlodipine,15.8,224,267,106,92,2022-04-16
+513,Ishita Verma,42,Other,A-,None,Pollen,Salbutamol,13.5,221,225,120,99,2022-09-07
+514,Aditi Gupta,62,Female,A-,Asthma,Dust,None,14.4,181,265,133,94,2023-12-12
+515,Sai Gupta,85,Other,A-,Kidney Disease,None,Salbutamol,16.3,99,271,166,89,2022-11-30
+516,Aditi Verma,57,Male,AB+,Heart Disease,Penicillin,Salbutamol,10.8,222,217,131,91,2023-10-23
+517,Vivaan Verma,28,Male,A+,None,Dust,None,11.1,206,194,139,99,2023-08-15
+518,Pooja Patel,27,Other,AB-,Asthma,Seafood,None,12.3,181,208,101,97,2022-01-09
+519,Priya Jain,52,Male,AB+,Diabetes,Pollen,Salbutamol,17.3,70,263,135,67,2024-05-31
+520,Ayaan Sharma,31,Female,O+,Kidney Disease,Pollen,None,12.9,167,231,159,73,2023-11-10
+521,Reyansh Agarwal,18,Male,O+,None,Pollen,Levothyroxine,11.2,102,154,91,64,2023-10-26
+522,Aarav Gupta,63,Other,O+,Hypertension,Penicillin,Insulin,14.8,176,236,179,98,2024-08-10
+523,Kavya Malhotra,24,Female,O+,Thyroid,Peanuts,Levothyroxine,12.7,117,228,167,60,2023-08-15
+524,Riya Patel,65,Female,O+,Thyroid,Seafood,Amlodipine,10.3,79,265,151,105,2023-01-13
+525,Vihaan Malhotra,62,Other,A-,Hypertension,None,None,13.9,141,239,156,65,2023-06-20
+526,Priya Verma,32,Female,A-,Kidney Disease,None,Salbutamol,16.0,149,276,96,117,2022-12-18
+527,Aditi Sharma,61,Female,O-,Thyroid,None,Amlodipine,13.2,145,194,111,62,2023-12-13
+528,Priya Mehta,73,Female,A+,Kidney Disease,Peanuts,Salbutamol,11.3,83,194,169,61,2022-10-21
+529,Riya Verma,17,Other,A-,None,Pollen,Amlodipine,11.0,141,190,122,60,2024-01-30
+530,Vihaan Malhotra,23,Other,B+,Kidney Disease,Peanuts,Amlodipine,16.1,136,180,152,71,2024-03-29
+531,Saanvi Sharma,44,Male,B+,Thyroid,Dust,Levothyroxine,15.6,175,218,120,102,2023-03-27
+532,Reyansh Patel,74,Other,AB-,Diabetes,None,Amlodipine,15.7,99,133,111,89,2023-02-13
+533,Riya Mehta,61,Other,B-,Heart Disease,None,None,12.9,137,157,157,115,2023-03-22
+534,Aarav Mehta,58,Female,AB-,Thyroid,None,Metformin,10.7,206,210,145,99,2024-07-29
+535,Arnav Singh,35,Female,A-,Asthma,None,Salbutamol,12.9,131,270,114,93,2022-12-12
+536,Reyansh Singh,71,Male,A+,None,Penicillin,Metformin,13.1,204,146,177,88,2022-12-26
+537,Sai Mehta,33,Male,A+,Diabetes,Seafood,Metformin,10.4,222,175,166,100,2022-05-05
+538,Vihaan Verma,78,Male,O+,Kidney Disease,None,Salbutamol,16.0,117,148,179,71,2022-09-17
+539,Ayaan Agarwal,85,Male,O-,Asthma,Peanuts,None,16.8,152,185,110,109,2022-03-17
+540,Arnav Sharma,49,Female,AB-,Diabetes,Pollen,Amlodipine,11.3,87,245,115,99,2023-02-07
+541,Reyansh Agarwal,14,Male,O+,Hypertension,Seafood,None,10.8,183,186,103,62,2022-03-16
+542,Aditya Malhotra,33,Female,A+,Heart Disease,Dust,None,14.8,79,219,124,69,2023-12-18
+543,Ananya Kumar,74,Male,O-,Heart Disease,Peanuts,Levothyroxine,16.3,87,258,118,60,2023-01-29
+544,Riya Verma,73,Other,AB-,Asthma,None,Amlodipine,13.0,231,143,136,94,2024-05-23
+545,Ananya Verma,59,Female,B-,Hypertension,Seafood,Metformin,17.3,239,168,128,104,2023-02-04
+546,Vihaan Singh,63,Male,O-,Kidney Disease,Dust,Insulin,10.3,76,271,120,91,2023-02-03
+547,Aditya Jain,83,Female,O-,Thyroid,Peanuts,Metformin,10.3,84,206,95,85,2022-05-02
+548,Muhammad Jain,59,Other,B+,Kidney Disease,Seafood,Insulin,16.9,79,156,152,101,2022-01-20
+549,Riya Malhotra,6,Male,B+,Diabetes,Dust,None,10.4,148,144,148,99,2022-06-24
+550,Nisha Verma,14,Male,O-,Thyroid,Seafood,Insulin,10.5,121,229,133,111,2024-05-05
+551,Ishita Singh,16,Other,B+,Asthma,Dust,Metformin,14.4,155,136,105,77,2022-05-25
+552,Kavya Gupta,90,Female,B+,Heart Disease,Dust,Salbutamol,10.3,95,276,138,109,2022-06-11
+553,Aarav Agarwal,11,Male,A+,Hypertension,Penicillin,None,14.9,142,226,178,111,2024-03-22
+554,Riya Gupta,27,Male,AB+,Thyroid,Peanuts,Levothyroxine,11.8,114,276,178,62,2023-09-03
+555,Reyansh Agarwal,79,Male,AB+,Asthma,Peanuts,Metformin,14.2,119,150,157,66,2023-09-26
+556,Diya Jain,65,Male,O-,None,None,None,11.6,83,169,104,110,2022-06-02
+557,Riya Agarwal,23,Male,A+,Diabetes,None,Amlodipine,12.1,181,184,132,99,2024-04-04
+558,Pooja Sharma,14,Other,A+,Thyroid,Dust,Insulin,15.9,194,251,104,64,2024-07-05
+559,Sai Agarwal,76,Other,AB-,Heart Disease,Dust,None,15.1,153,178,104,80,2022-08-22
+560,Vihaan Patel,53,Male,O+,Hypertension,Penicillin,Levothyroxine,14.4,83,231,108,73,2024-08-08
+561,Priya Agarwal,23,Female,AB-,Hypertension,Peanuts,None,11.5,161,189,115,81,2022-05-11
+562,Vivaan Malhotra,8,Female,B+,Diabetes,Peanuts,Levothyroxine,13.1,157,176,127,98,2022-06-10
+563,Priya Gupta,74,Other,B-,Diabetes,Peanuts,Salbutamol,13.7,125,271,150,113,2023-04-19
+564,Arnav Sharma,55,Other,B-,Hypertension,Pollen,Levothyroxine,14.3,221,158,163,117,2022-01-06
+565,Kavya Sharma,6,Female,A+,Heart Disease,Seafood,Levothyroxine,13.6,95,235,153,75,2022-03-27
+566,Aditi Sharma,89,Other,O+,Hypertension,Dust,Amlodipine,12.2,235,143,92,90,2023-11-17
+567,Ayaan Gupta,59,Other,A+,Heart Disease,Peanuts,Insulin,16.6,173,167,137,100,2023-04-21
+568,Aarav Verma,50,Other,AB-,Thyroid,Penicillin,Amlodipine,13.2,139,276,159,96,2024-03-24
+569,Muhammad Verma,80,Female,A+,Thyroid,None,Amlodipine,16.7,98,218,136,89,2023-09-26
+570,Vivaan Singh,47,Male,A-,Thyroid,None,Insulin,11.0,155,181,159,67,2023-10-27
+571,Riya Malhotra,90,Male,B-,Asthma,Pollen,Amlodipine,13.8,178,190,96,64,2023-01-17
+572,Diya Agarwal,63,Other,A-,Heart Disease,None,Salbutamol,15.1,206,194,147,99,2023-01-12
+573,Aditya Patel,59,Male,A-,Heart Disease,Dust,Amlodipine,17.2,89,147,111,77,2022-04-25
+574,Arjun Agarwal,20,Male,A+,Asthma,Peanuts,None,14.1,103,241,134,86,2023-03-31
+575,Aarav Mehta,25,Male,A+,None,Dust,Salbutamol,14.8,175,268,133,101,2023-10-24
+576,Ananya Agarwal,76,Other,O-,Heart Disease,Pollen,Salbutamol,11.0,148,163,123,74,2023-05-11
+577,Diya Mehta,7,Male,AB-,Asthma,Peanuts,Insulin,14.6,111,257,126,71,2024-09-23
+578,Reyansh Gupta,21,Male,A-,Diabetes,Pollen,Salbutamol,10.9,136,214,113,73,2023-07-30
+579,Vivaan Singh,45,Male,AB-,Heart Disease,Seafood,Insulin,14.0,101,126,141,119,2023-05-27
+580,Arjun Agarwal,41,Male,A+,Kidney Disease,Seafood,Salbutamol,12.5,145,241,127,120,2024-02-12
+581,Nisha Gupta,73,Other,O-,Asthma,None,Metformin,15.5,80,155,176,95,2022-04-30
+582,Ayaan Sharma,52,Other,B-,Heart Disease,Pollen,Metformin,12.4,225,169,164,93,2022-08-16
+583,Arnav Patel,3,Male,O-,Kidney Disease,None,Metformin,17.3,170,169,152,80,2023-09-10
+584,Priya Jain,8,Other,AB-,Heart Disease,Dust,None,16.4,164,218,137,60,2022-10-19
+585,Diya Singh,40,Female,A-,Hypertension,None,Levothyroxine,15.6,176,233,126,70,2024-04-05
+586,Kavya Kumar,18,Other,A-,Hypertension,Dust,Amlodipine,13.6,204,205,98,119,2024-09-10
+587,Nisha Kumar,12,Male,O+,Kidney Disease,Pollen,Levothyroxine,11.3,188,265,107,72,2022-07-10
+588,Ishita Mehta,71,Female,A+,None,Pollen,Salbutamol,12.3,213,238,118,61,2024-03-21
+589,Aarav Gupta,34,Female,O-,Diabetes,None,None,16.7,176,165,152,118,2023-12-06
+590,Sai Sharma,16,Female,O-,Diabetes,Seafood,None,12.7,193,264,145,115,2022-09-22
+591,Riya Verma,48,Other,A+,None,Pollen,Insulin,14.4,107,201,149,116,2023-12-11
+592,Arjun Singh,21,Male,AB+,Asthma,Peanuts,None,16.8,161,132,127,78,2023-06-27
+593,Aditya Jain,25,Other,B+,None,Penicillin,Salbutamol,15.6,209,202,130,112,2024-05-15
+594,Ayaan Mehta,88,Other,AB-,Diabetes,Seafood,Salbutamol,12.6,106,123,107,93,2022-10-16
+595,Diya Agarwal,53,Female,B+,Diabetes,Dust,Insulin,13.8,118,263,168,104,2024-05-01
+596,Saanvi Jain,71,Other,A-,Heart Disease,Peanuts,Metformin,10.9,103,124,151,82,2022-11-16
+597,Diya Gupta,57,Other,AB-,Hypertension,None,Amlodipine,10.2,100,176,106,114,2023-12-12
+598,Arjun Patel,40,Male,B-,Hypertension,Penicillin,Levothyroxine,15.2,98,139,92,109,2023-05-11
+599,Kavya Sharma,26,Male,A+,None,None,Salbutamol,14.4,190,150,122,62,2022-03-09
+600,Ayaan Sharma,13,Male,B-,Thyroid,Dust,Insulin,15.0,77,143,108,114,2024-02-04
+601,Arnav Malhotra,45,Female,B+,None,Seafood,None,14.6,199,265,98,66,2024-04-19
+602,Nisha Sharma,68,Male,B-,Asthma,Dust,Salbutamol,10.0,95,174,154,114,2023-12-26
+603,Riya Singh,90,Other,B+,Heart Disease,None,Metformin,11.4,160,217,144,73,2023-06-11
+604,Sai Kumar,15,Female,A-,Heart Disease,Penicillin,Salbutamol,11.0,162,193,161,106,2022-02-11
+605,Aditya Singh,64,Male,O+,Asthma,Peanuts,Salbutamol,15.5,183,177,160,86,2022-10-25
+606,Kavya Patel,9,Female,AB-,Hypertension,Penicillin,None,13.7,96,221,146,93,2023-11-06
+607,Aditya Verma,19,Female,O+,Kidney Disease,Seafood,Metformin,15.6,113,136,136,72,2022-12-13
+608,Muhammad Malhotra,52,Male,B-,None,Peanuts,None,13.7,218,271,124,108,2024-03-19
+609,Ishita Singh,61,Other,O+,Heart Disease,Seafood,Amlodipine,11.1,186,147,105,76,2023-05-17
+610,Riya Patel,81,Male,A+,Diabetes,None,Metformin,16.2,197,126,112,84,2023-09-12
+611,Ananya Gupta,39,Other,A-,None,Penicillin,None,15.6,196,239,115,78,2023-11-09
+612,Riya Agarwal,65,Female,AB-,None,Seafood,Salbutamol,10.1,78,230,105,84,2023-04-06
+613,Ananya Kumar,57,Female,A+,Diabetes,Dust,Salbutamol,14.9,147,162,152,87,2022-05-18
+614,Ayaan Kumar,63,Male,O-,Kidney Disease,Seafood,None,14.0,190,241,161,114,2022-06-10
+615,Saanvi Sharma,51,Female,O-,Thyroid,Peanuts,Salbutamol,15.1,142,202,97,61,2023-08-28
+616,Vivaan Gupta,47,Female,A+,None,None,Amlodipine,12.9,179,208,135,86,2022-12-26
+617,Vivaan Patel,32,Male,AB+,Thyroid,Penicillin,None,10.5,148,149,133,70,2022-01-21
+618,Aditi Singh,5,Female,O+,Thyroid,Seafood,Levothyroxine,12.0,190,270,92,80,2023-01-22
+619,Nisha Kumar,42,Other,A-,None,Peanuts,Metformin,15.2,122,206,153,92,2024-04-10
+620,Ananya Gupta,79,Female,AB-,Heart Disease,Dust,Levothyroxine,14.8,89,257,117,78,2022-09-29
+621,Vivaan Mehta,74,Female,B-,Thyroid,None,Metformin,15.4,218,144,165,81,2022-10-07
+622,Aditya Malhotra,68,Female,O+,Hypertension,Pollen,Metformin,14.9,147,249,128,87,2023-11-11
+623,Aditi Singh,26,Female,O+,Asthma,Seafood,Salbutamol,13.4,210,166,92,100,2023-12-22
+624,Saanvi Gupta,74,Female,B-,Kidney Disease,None,Levothyroxine,12.0,233,256,168,114,2024-02-27
+625,Kavya Malhotra,81,Male,B-,Asthma,Peanuts,Insulin,11.8,146,231,142,80,2024-05-30
+626,Aditya Patel,53,Female,AB+,Kidney Disease,Dust,Amlodipine,15.2,130,223,120,67,2022-06-03
+627,Muhammad Sharma,32,Female,O-,Heart Disease,Seafood,Levothyroxine,13.2,79,171,110,77,2022-05-20
+628,Aarav Mehta,36,Other,B+,Kidney Disease,Penicillin,None,13.6,75,134,100,80,2023-09-09
+629,Ayaan Verma,53,Female,A-,Heart Disease,None,Insulin,11.8,216,248,105,93,2023-11-12
+630,Nisha Jain,33,Female,A-,Hypertension,Seafood,Metformin,15.8,150,204,164,107,2023-02-04
+631,Sai Kumar,28,Male,A-,Hypertension,Dust,Amlodipine,13.3,135,270,97,91,2023-07-01
+632,Diya Verma,41,Other,O+,Heart Disease,None,Insulin,17.2,107,212,150,105,2023-01-12
+633,Ayaan Sharma,83,Other,A+,None,None,None,16.0,83,181,122,95,2023-01-29
+634,Ayaan Singh,88,Male,B-,None,Peanuts,Levothyroxine,10.1,170,185,128,65,2024-08-16
+635,Sai Mehta,27,Male,O-,Kidney Disease,Pollen,None,13.0,78,190,100,112,2024-03-09
+636,Riya Agarwal,53,Female,O+,None,Penicillin,Insulin,15.2,199,136,135,86,2023-09-09
+637,Aditi Singh,59,Other,A+,None,Penicillin,None,14.8,231,233,172,68,2022-01-04
+638,Ishita Patel,81,Female,AB-,Thyroid,Penicillin,Metformin,11.2,202,153,166,103,2023-02-25
+639,Ananya Agarwal,62,Other,B+,Asthma,Dust,None,14.4,153,192,115,65,2023-03-01
+640,Diya Gupta,51,Female,B-,Diabetes,Penicillin,Salbutamol,14.9,230,178,101,89,2022-07-23
+641,Arnav Gupta,7,Female,O+,Thyroid,Pollen,Insulin,10.7,164,163,162,67,2022-01-15
+642,Saanvi Kumar,59,Other,O-,Diabetes,Dust,None,11.5,138,193,153,84,2022-05-14
+643,Kavya Patel,77,Male,AB+,Kidney Disease,None,Insulin,13.1,174,157,93,78,2024-09-26
+644,Arnav Patel,80,Female,B-,Asthma,Seafood,None,14.9,91,122,150,68,2024-06-11
+645,Ananya Kumar,88,Male,O+,Kidney Disease,Peanuts,None,14.5,88,144,161,63,2022-02-23
+646,Ananya Patel,61,Female,A+,Diabetes,Pollen,Salbutamol,14.6,147,221,175,83,2022-05-16
+647,Aditi Sharma,75,Male,AB+,Hypertension,Seafood,Levothyroxine,17.0,189,153,101,80,2023-12-29
+648,Saanvi Kumar,19,Female,A-,Asthma,Penicillin,Insulin,13.7,141,212,145,78,2024-07-13
+649,Arnav Malhotra,34,Other,AB-,Heart Disease,Dust,Amlodipine,15.5,195,158,161,114,2024-08-03
+650,Pooja Sharma,25,Male,A+,Hypertension,Dust,Metformin,13.5,111,239,145,67,2024-07-05
+651,Riya Sharma,57,Female,O-,Heart Disease,Peanuts,Metformin,16.3,107,151,134,65,2022-07-28
+652,Ayaan Gupta,22,Other,AB+,Thyroid,None,Salbutamol,11.6,71,254,163,71,2023-03-03
+653,Aditya Patel,64,Other,A-,Asthma,Penicillin,Amlodipine,15.1,101,220,137,97,2024-08-09
+654,Vihaan Singh,20,Male,A-,Heart Disease,None,None,13.6,230,188,166,102,2022-01-06
+655,Ananya Sharma,84,Other,O-,Asthma,None,None,16.8,215,153,117,115,2022-02-19
+656,Ayaan Singh,8,Other,A-,Thyroid,Seafood,Levothyroxine,10.7,135,165,120,109,2024-06-05
+657,Ishita Verma,3,Male,B+,Heart Disease,Peanuts,Amlodipine,14.9,237,159,105,79,2023-05-18
+658,Kavya Mehta,88,Other,B+,Asthma,None,Metformin,16.2,201,171,152,88,2024-06-25
+659,Ishita Agarwal,35,Other,O+,Diabetes,Peanuts,Amlodipine,14.6,181,229,101,62,2023-06-10
+660,Ananya Agarwal,87,Male,B+,Heart Disease,Seafood,None,14.9,91,194,149,87,2022-03-23
+661,Riya Mehta,20,Male,AB+,None,Dust,Salbutamol,13.2,215,132,160,64,2024-07-28
+662,Vivaan Jain,14,Other,O+,Heart Disease,Penicillin,Levothyroxine,15.0,215,184,135,76,2023-08-23
+663,Aditya Jain,3,Male,O-,Hypertension,Dust,Levothyroxine,10.3,176,196,130,97,2024-01-12
+664,Pooja Agarwal,80,Female,AB-,None,Dust,Insulin,11.4,224,186,176,66,2023-03-21
+665,Aditi Sharma,1,Female,A-,Diabetes,Dust,None,13.6,173,274,152,79,2023-09-26
+666,Priya Singh,89,Other,O+,None,Pollen,Metformin,10.9,73,168,104,112,2022-01-17
+667,Muhammad Sharma,27,Female,B+,Kidney Disease,Dust,Levothyroxine,16.3,207,168,101,79,2024-02-28
+668,Pooja Gupta,61,Female,A+,Diabetes,Dust,Insulin,15.5,183,244,150,61,2024-05-30
+669,Pooja Malhotra,32,Male,AB+,Thyroid,Peanuts,Metformin,12.5,96,230,143,114,2023-05-23
+670,Nisha Malhotra,71,Female,A+,Heart Disease,Peanuts,Levothyroxine,13.9,226,244,119,105,2022-03-04
+671,Saanvi Sharma,55,Other,AB-,Thyroid,Penicillin,Amlodipine,16.7,176,241,104,91,2023-09-30
+672,Diya Agarwal,90,Female,A+,Hypertension,Pollen,None,11.4,158,232,119,92,2022-08-13
+673,Nisha Singh,78,Other,O-,Hypertension,Pollen,None,15.3,176,212,150,111,2024-09-21
+674,Reyansh Malhotra,27,Female,A-,Kidney Disease,Peanuts,Insulin,11.3,110,275,152,66,2024-03-23
+675,Kavya Agarwal,39,Male,B-,Thyroid,Penicillin,Metformin,12.7,136,211,176,70,2022-06-28
+676,Saanvi Sharma,9,Female,O+,Diabetes,Seafood,Insulin,10.9,127,244,123,81,2024-03-14
+677,Diya Sharma,72,Female,B+,None,None,Salbutamol,14.5,96,132,146,111,2023-04-14
+678,Vihaan Verma,79,Other,A-,None,Seafood,Metformin,13.8,112,150,116,118,2023-01-06
+679,Reyansh Mehta,57,Other,O-,Kidney Disease,Penicillin,Insulin,14.9,155,155,105,114,2022-07-26
+680,Pooja Kumar,1,Male,O-,Asthma,Pollen,Salbutamol,11.3,138,215,143,83,2023-10-07
+681,Sai Gupta,68,Female,B-,Hypertension,Peanuts,Levothyroxine,16.9,187,252,177,83,2024-08-24
+682,Aarav Agarwal,19,Male,A-,Diabetes,Pollen,Amlodipine,13.0,112,231,97,85,2024-02-17
+683,Vivaan Gupta,74,Male,AB+,Heart Disease,Peanuts,None,15.3,147,200,134,60,2024-04-26
+684,Arnav Jain,79,Male,O+,Heart Disease,None,Insulin,16.7,229,278,173,88,2023-12-16
+685,Diya Kumar,26,Female,A-,Diabetes,Seafood,Amlodipine,12.9,102,253,159,78,2022-08-07
+686,Aditya Jain,71,Female,AB-,None,None,Insulin,10.2,208,271,123,75,2024-05-02
+687,Ayaan Kumar,65,Male,A+,None,Pollen,Amlodipine,14.7,160,151,96,108,2023-10-29
+688,Vihaan Agarwal,39,Other,A+,Heart Disease,Pollen,Insulin,16.0,218,264,170,102,2023-07-01
+689,Priya Patel,45,Female,AB+,Kidney Disease,None,Salbutamol,15.0,166,253,121,66,2022-12-02
+690,Saanvi Malhotra,25,Female,O-,Diabetes,Dust,None,13.2,175,140,101,63,2023-03-12
+691,Arjun Agarwal,28,Female,A-,Asthma,None,Salbutamol,13.0,213,252,140,115,2022-09-28
+692,Nisha Agarwal,82,Female,O-,Kidney Disease,Peanuts,None,17.3,111,156,154,68,2023-05-12
+693,Pooja Gupta,66,Other,A-,Kidney Disease,Dust,Levothyroxine,13.6,110,263,137,118,2024-09-01
+694,Vihaan Malhotra,53,Male,A-,Asthma,Seafood,Amlodipine,10.3,109,150,137,79,2023-01-19
+695,Ayaan Mehta,63,Male,B+,Hypertension,Seafood,Levothyroxine,10.4,148,192,117,71,2024-04-18
+696,Riya Sharma,16,Other,AB-,Diabetes,Penicillin,Levothyroxine,13.6,149,264,147,117,2022-12-12
+697,Ishita Agarwal,78,Male,B+,Thyroid,None,Levothyroxine,15.7,240,234,109,115,2024-01-16
+698,Ananya Verma,80,Other,O+,Heart Disease,Dust,Levothyroxine,12.5,81,233,125,101,2022-04-01
+699,Reyansh Sharma,74,Other,AB+,Thyroid,None,Metformin,14.8,91,169,169,94,2023-08-14
+700,Vivaan Malhotra,67,Male,O-,Thyroid,Penicillin,Metformin,14.9,206,166,92,77,2024-03-16
+701,Muhammad Patel,75,Female,A-,None,Seafood,Salbutamol,12.4,220,131,152,115,2024-08-14
+702,Aarav Singh,56,Male,O+,Diabetes,Seafood,Amlodipine,12.9,93,149,102,94,2022-06-22
+703,Ayaan Gupta,24,Female,A-,Hypertension,Pollen,Levothyroxine,15.1,85,277,131,71,2022-01-28
+704,Vivaan Mehta,50,Male,AB-,Hypertension,Peanuts,Amlodipine,11.9,100,133,115,75,2024-02-10
+705,Priya Malhotra,31,Female,O+,Diabetes,Pollen,Metformin,12.4,211,224,98,90,2022-01-30
+706,Kavya Patel,3,Female,A-,Hypertension,Seafood,None,15.9,147,265,142,88,2022-03-27
+707,Saanvi Patel,19,Female,B+,None,Dust,Salbutamol,17.1,212,235,95,60,2024-04-12
+708,Pooja Malhotra,38,Other,B+,Diabetes,Penicillin,Levothyroxine,12.0,134,217,134,113,2023-10-10
+709,Muhammad Malhotra,66,Female,A+,Hypertension,None,Salbutamol,14.2,146,142,140,104,2022-05-06
+710,Arjun Jain,36,Female,B-,Thyroid,Seafood,Amlodipine,16.6,157,186,180,88,2022-10-07
+711,Sai Singh,44,Male,O-,Thyroid,Pollen,Metformin,16.9,104,120,167,90,2022-01-05
+712,Aarav Gupta,53,Other,O-,None,Peanuts,Salbutamol,10.6,236,139,158,61,2024-07-02
+713,Pooja Verma,46,Female,AB-,Heart Disease,Dust,None,17.4,101,238,137,119,2022-07-17
+714,Pooja Sharma,29,Other,A+,None,Pollen,None,16.9,161,169,101,112,2023-09-21
+715,Ayaan Patel,30,Female,AB-,Diabetes,Pollen,Levothyroxine,16.8,225,173,90,72,2024-04-20
+716,Ishita Verma,36,Other,O-,Hypertension,Seafood,Insulin,14.9,214,274,162,71,2022-03-08
+717,Nisha Gupta,9,Male,AB+,Thyroid,Dust,Salbutamol,15.5,140,169,176,61,2024-09-20
+718,Aditi Malhotra,33,Other,O-,Diabetes,Peanuts,None,15.0,236,133,131,87,2024-05-14
+719,Kavya Mehta,16,Other,O-,Heart Disease,Pollen,Salbutamol,15.7,127,132,125,118,2023-03-07
+720,Aditi Agarwal,41,Male,O+,Hypertension,Pollen,Metformin,16.6,76,177,178,87,2024-09-07
+721,Aditya Patel,26,Male,AB-,Asthma,Penicillin,None,14.7,77,242,145,111,2022-01-25
+722,Nisha Singh,33,Male,A-,Heart Disease,Dust,Amlodipine,16.2,155,253,120,120,2022-03-16
+723,Priya Malhotra,57,Male,O-,Thyroid,Penicillin,Metformin,17.3,78,216,130,116,2024-05-18
+724,Aditya Gupta,8,Female,A+,Asthma,Seafood,None,13.2,96,134,161,63,2022-10-29
+725,Ishita Kumar,13,Other,O+,Hypertension,Seafood,None,14.7,186,218,149,110,2023-03-15
+726,Priya Malhotra,13,Female,A+,Heart Disease,Seafood,Amlodipine,14.4,97,146,91,98,2024-01-01
+727,Aditya Malhotra,25,Other,B+,Kidney Disease,Seafood,Amlodipine,12.7,193,278,146,71,2022-09-06
+728,Arjun Sharma,8,Male,AB+,Thyroid,Peanuts,Salbutamol,17.2,161,199,164,116,2023-07-09
+729,Arjun Gupta,61,Female,AB-,Asthma,Pollen,Metformin,13.9,238,157,97,75,2023-06-04
+730,Aditi Sharma,55,Female,B-,Hypertension,None,Insulin,15.9,157,168,175,90,2023-12-13
+731,Pooja Malhotra,89,Female,AB-,Thyroid,Pollen,Levothyroxine,12.5,96,236,95,91,2022-08-13
+732,Aarav Patel,89,Male,O-,Thyroid,Dust,Insulin,13.6,154,216,116,85,2022-07-08
+733,Aarav Singh,2,Male,AB-,Diabetes,Seafood,Metformin,11.1,182,169,170,97,2024-07-23
+734,Diya Sharma,4,Male,B-,Asthma,Dust,Insulin,16.6,114,206,160,75,2022-07-02
+735,Muhammad Sharma,23,Female,A-,Diabetes,None,Insulin,12.8,98,206,116,79,2023-04-13
+736,Sai Singh,48,Other,B+,Thyroid,Seafood,Levothyroxine,16.6,86,150,108,116,2024-08-04
+737,Arjun Patel,25,Other,O+,Kidney Disease,Pollen,Amlodipine,14.5,232,182,95,108,2023-09-23
+738,Nisha Patel,69,Female,B+,Asthma,Dust,Metformin,14.7,141,152,155,97,2024-06-26
+739,Riya Patel,11,Female,A-,Hypertension,Seafood,Levothyroxine,15.6,235,250,137,91,2023-06-16
+740,Pooja Gupta,42,Other,AB-,Thyroid,None,Levothyroxine,15.4,196,241,124,97,2023-02-15
+741,Nisha Sharma,27,Male,B-,Heart Disease,Dust,Levothyroxine,11.6,178,216,163,70,2024-08-15
+742,Diya Mehta,71,Male,B+,None,Penicillin,Amlodipine,13.3,160,178,164,62,2023-04-22
+743,Saanvi Malhotra,44,Female,O-,Heart Disease,Peanuts,Levothyroxine,12.8,197,201,124,84,2022-01-26
+744,Reyansh Agarwal,30,Female,A-,Asthma,Penicillin,Amlodipine,16.3,201,259,172,65,2024-03-15
+745,Arnav Patel,13,Male,A-,Asthma,Penicillin,Salbutamol,11.5,120,204,122,79,2024-02-03
+746,Arnav Patel,78,Male,AB+,Diabetes,Pollen,Amlodipine,16.2,173,223,164,108,2023-11-03
+747,Aarav Agarwal,84,Other,B+,None,Peanuts,Insulin,11.7,123,241,119,93,2023-08-25
+748,Aditi Agarwal,60,Female,A-,Asthma,Dust,Levothyroxine,15.8,176,173,146,88,2024-05-23
+749,Aditi Sharma,48,Male,B+,Asthma,None,Metformin,13.7,238,210,133,74,2023-03-06
+750,Kavya Kumar,89,Other,AB+,Asthma,Seafood,Metformin,14.3,78,155,109,120,2022-12-05
+751,Nisha Malhotra,78,Other,O+,Heart Disease,Dust,Levothyroxine,10.5,168,168,150,66,2022-12-03
+752,Nisha Agarwal,82,Female,A-,Hypertension,Penicillin,None,14.1,78,274,152,61,2022-07-11
+753,Muhammad Verma,50,Female,B-,Hypertension,Pollen,None,13.9,186,134,137,93,2022-01-12
+754,Reyansh Singh,53,Female,B+,Diabetes,Dust,Salbutamol,13.1,87,219,116,68,2024-06-10
+755,Muhammad Mehta,56,Other,O-,Hypertension,Seafood,Salbutamol,17.0,220,171,154,105,2023-12-03
+756,Pooja Mehta,26,Male,B+,Heart Disease,Penicillin,Levothyroxine,14.5,133,254,132,118,2023-08-06
+757,Riya Agarwal,60,Other,A+,Kidney Disease,Penicillin,Amlodipine,14.8,186,208,179,113,2023-12-30
+758,Ayaan Kumar,79,Male,O+,Hypertension,Dust,Salbutamol,15.5,187,218,174,71,2023-12-17
+759,Nisha Verma,51,Other,A+,Hypertension,Dust,Amlodipine,16.6,207,194,175,118,2022-03-10
+760,Muhammad Agarwal,53,Other,A-,Asthma,Penicillin,Metformin,13.8,153,224,147,70,2022-09-16
+761,Muhammad Jain,6,Female,A+,Diabetes,None,None,15.1,188,217,133,107,2023-02-13
+762,Muhammad Kumar,5,Male,AB+,Diabetes,None,Insulin,12.5,188,244,149,64,2022-03-26
+763,Aditi Patel,57,Male,O-,None,Pollen,Insulin,11.3,74,275,102,71,2022-10-29
+764,Vihaan Jain,51,Male,A-,Kidney Disease,Penicillin,None,12.0,182,211,112,73,2024-01-02
+765,Vivaan Jain,28,Female,A+,None,None,Salbutamol,14.8,238,146,139,104,2022-11-12
+766,Pooja Sharma,77,Male,A+,None,Peanuts,Insulin,17.0,165,181,115,65,2022-01-17
+767,Kavya Sharma,2,Female,B-,Kidney Disease,None,Metformin,11.7,94,162,111,62,2023-03-02
+768,Saanvi Verma,42,Female,B-,Thyroid,Dust,Salbutamol,13.0,179,150,119,73,2022-04-19
+769,Diya Singh,23,Male,O+,Kidney Disease,Pollen,Metformin,12.9,187,176,98,102,2024-04-14
+770,Arnav Malhotra,48,Male,A-,Hypertension,Peanuts,Amlodipine,15.8,197,146,158,110,2024-08-02
+771,Nisha Gupta,33,Male,AB-,Kidney Disease,None,Levothyroxine,15.1,104,205,112,100,2024-02-19
+772,Ananya Agarwal,9,Female,A+,Thyroid,Seafood,Levothyroxine,12.9,233,179,154,97,2023-12-23
+773,Aarav Patel,3,Other,A-,Asthma,Dust,None,13.2,132,278,100,63,2022-05-21
+774,Diya Agarwal,38,Male,B+,Heart Disease,Dust,None,10.3,223,233,132,68,2022-10-12
+775,Ananya Sharma,67,Female,AB+,None,Penicillin,Insulin,16.4,154,207,121,73,2023-07-07
+776,Vivaan Patel,88,Other,B-,Thyroid,Peanuts,Salbutamol,12.4,183,121,98,115,2023-05-19
+777,Aditya Patel,7,Other,B+,Hypertension,Dust,Metformin,11.3,210,172,120,92,2022-03-22
+778,Kavya Agarwal,40,Male,B-,Hypertension,Peanuts,Insulin,14.5,147,193,163,88,2024-09-17
+779,Muhammad Mehta,62,Male,AB-,Heart Disease,Peanuts,Insulin,13.5,178,249,168,107,2023-03-20
+780,Arjun Agarwal,3,Female,O+,None,Penicillin,Amlodipine,14.5,109,261,112,76,2023-01-25
+781,Pooja Mehta,59,Female,O+,Thyroid,Seafood,Levothyroxine,10.5,104,240,115,69,2024-07-27
+782,Muhammad Sharma,2,Other,AB-,Heart Disease,Peanuts,Levothyroxine,17.1,165,218,152,79,2023-10-19
+783,Nisha Verma,53,Male,A-,Heart Disease,Seafood,Insulin,11.5,181,185,134,92,2023-12-28
+784,Riya Singh,90,Male,O+,Heart Disease,None,Insulin,11.8,78,212,170,105,2023-11-24
+785,Aarav Gupta,34,Other,O-,Kidney Disease,Dust,Amlodipine,11.9,218,161,91,67,2024-02-29
+786,Aditya Kumar,51,Other,A-,Thyroid,Dust,Levothyroxine,11.2,179,184,178,79,2023-05-28
+787,Aditi Kumar,76,Female,O+,None,None,Metformin,10.8,216,208,108,77,2024-02-06
+788,Muhammad Kumar,90,Female,A+,Hypertension,Peanuts,Metformin,10.7,176,254,143,101,2022-10-23
+789,Kavya Gupta,23,Female,B+,Kidney Disease,Dust,Insulin,13.6,198,148,147,96,2024-04-13
+790,Muhammad Gupta,26,Male,B+,None,Dust,Amlodipine,17.4,174,232,170,118,2023-10-02
+791,Vihaan Gupta,11,Female,A-,Heart Disease,Penicillin,Amlodipine,10.5,77,269,120,90,2023-05-12
+792,Vihaan Sharma,8,Female,A+,Kidney Disease,Seafood,Metformin,10.7,203,121,138,98,2023-06-17
+793,Arnav Agarwal,61,Female,O+,Asthma,Pollen,None,16.7,150,181,136,102,2023-02-13
+794,Ishita Malhotra,8,Female,AB-,None,Penicillin,Metformin,13.4,172,155,93,98,2022-05-06
+795,Saanvi Mehta,90,Male,AB-,Heart Disease,Seafood,None,14.9,191,251,142,102,2022-07-12
+796,Aarav Singh,3,Other,AB-,None,Penicillin,None,12.4,183,179,167,91,2023-02-14
+797,Priya Verma,45,Female,O-,Kidney Disease,None,Metformin,15.5,145,275,114,105,2022-05-27
+798,Saanvi Malhotra,65,Male,B+,Heart Disease,Penicillin,Amlodipine,16.2,210,239,111,117,2023-04-02
+799,Vihaan Agarwal,85,Other,B-,Hypertension,Dust,Insulin,15.6,238,142,103,87,2024-01-03
+800,Aarav Gupta,42,Female,AB+,Hypertension,None,Amlodipine,15.0,101,154,158,100,2024-01-13
+801,Riya Verma,89,Female,B-,Thyroid,Seafood,Metformin,14.8,166,217,173,101,2024-03-14
+802,Aditi Kumar,30,Male,AB+,Diabetes,Pollen,Metformin,10.8,157,271,114,107,2024-08-22
+803,Vihaan Malhotra,48,Male,AB-,Heart Disease,Seafood,None,10.0,85,271,158,72,2024-05-17
+804,Ishita Kumar,41,Female,B+,Thyroid,None,Salbutamol,14.4,97,221,91,94,2024-05-22
+805,Pooja Singh,19,Female,B-,Heart Disease,None,Levothyroxine,11.1,142,157,175,114,2024-03-31
+806,Vivaan Malhotra,41,Female,A-,Asthma,None,Salbutamol,13.6,125,246,127,105,2024-09-16
+807,Ishita Sharma,43,Male,B-,None,None,Insulin,15.3,83,165,152,106,2023-02-06
+808,Ayaan Gupta,3,Other,O+,Asthma,Peanuts,None,13.6,159,220,140,64,2023-06-25
+809,Ayaan Mehta,90,Male,O+,Diabetes,Dust,Amlodipine,15.6,218,133,180,79,2023-04-14
+810,Reyansh Malhotra,18,Female,O-,Asthma,Dust,Insulin,11.6,120,122,136,106,2024-05-26
+811,Nisha Verma,87,Male,O+,Heart Disease,None,Insulin,16.9,94,211,150,71,2024-08-25
+812,Vivaan Verma,66,Other,AB-,Thyroid,Peanuts,Insulin,14.7,173,182,94,67,2022-09-04
+813,Ishita Agarwal,39,Other,B+,Kidney Disease,None,Levothyroxine,15.8,238,142,149,115,2024-04-17
+814,Ishita Mehta,81,Other,O-,Asthma,Penicillin,Metformin,10.9,101,245,172,102,2024-07-19
+815,Saanvi Patel,3,Other,O-,Asthma,None,None,10.7,221,166,139,90,2023-10-23
+816,Kavya Mehta,74,Male,A-,Asthma,Penicillin,None,16.8,207,167,141,112,2023-12-19
+817,Aarav Kumar,72,Other,O-,Diabetes,Seafood,Salbutamol,14.0,236,151,116,102,2024-07-08
+818,Vihaan Gupta,77,Other,B+,Diabetes,Seafood,Levothyroxine,16.0,101,130,106,96,2022-07-31
+819,Reyansh Verma,72,Female,A+,Diabetes,Penicillin,Salbutamol,12.2,209,163,144,120,2023-11-05
+820,Aarav Patel,39,Male,AB+,Kidney Disease,Seafood,Levothyroxine,11.0,195,200,156,118,2022-12-27
+821,Priya Jain,66,Male,A-,Kidney Disease,Penicillin,Insulin,10.3,106,196,117,68,2023-09-09
+822,Aditi Patel,76,Female,AB+,Hypertension,None,Salbutamol,13.2,210,185,123,84,2023-10-28
+823,Reyansh Kumar,59,Male,AB+,Kidney Disease,Peanuts,None,11.1,122,138,170,106,2022-10-03
+824,Muhammad Singh,73,Other,B+,Heart Disease,Dust,Amlodipine,17.4,181,217,93,98,2022-09-11
+825,Aditya Mehta,16,Other,A-,Kidney Disease,Seafood,Levothyroxine,10.5,233,142,136,118,2022-12-08
+826,Arnav Gupta,29,Female,A+,Diabetes,Peanuts,Insulin,12.8,96,151,112,93,2024-01-16
+827,Ayaan Malhotra,63,Male,AB-,Kidney Disease,Seafood,Amlodipine,14.1,225,145,96,70,2022-11-22
+828,Ishita Gupta,45,Other,O+,Heart Disease,Seafood,Insulin,11.9,201,159,174,68,2022-05-27
+829,Ishita Malhotra,35,Male,AB-,Kidney Disease,Dust,None,14.6,187,166,146,82,2024-03-28
+830,Pooja Jain,37,Female,O+,Thyroid,None,Insulin,12.3,92,198,142,109,2022-11-17
+831,Aditya Verma,10,Other,B-,Diabetes,Dust,Salbutamol,10.4,143,261,153,111,2024-06-14
+832,Aarav Kumar,87,Other,B+,Heart Disease,Peanuts,Salbutamol,15.1,206,151,141,60,2023-09-24
+833,Muhammad Sharma,55,Other,AB-,Hypertension,None,None,17.1,205,275,95,98,2023-04-05
+834,Reyansh Jain,29,Male,A-,Asthma,Dust,Salbutamol,12.6,83,228,153,84,2022-06-24
+835,Diya Verma,44,Other,B-,None,Seafood,Metformin,12.2,193,195,123,73,2022-01-03
+836,Nisha Kumar,28,Female,A+,Heart Disease,Seafood,Levothyroxine,10.4,71,277,148,81,2022-11-02
+837,Diya Verma,1,Female,B+,Heart Disease,Pollen,Metformin,10.8,195,170,100,93,2023-06-11
+838,Arjun Kumar,16,Female,A+,Hypertension,None,Amlodipine,11.7,171,215,128,83,2023-03-15
+839,Reyansh Jain,35,Male,O-,Kidney Disease,Peanuts,Insulin,11.0,181,121,135,116,2024-06-10
+840,Muhammad Verma,25,Female,A+,Hypertension,Peanuts,Levothyroxine,15.6,78,161,175,72,2024-08-29
+841,Riya Mehta,16,Female,O-,Thyroid,Peanuts,None,15.4,153,222,154,106,2024-08-03
+842,Ishita Gupta,15,Male,A+,Hypertension,Dust,Amlodipine,13.8,130,133,176,113,2022-12-17
+843,Kavya Malhotra,2,Female,O-,Asthma,Pollen,Levothyroxine,10.6,179,183,169,69,2024-01-17
+844,Saanvi Gupta,32,Female,A-,None,Pollen,None,11.9,179,170,150,105,2024-03-12
+845,Vihaan Jain,79,Male,B-,None,Seafood,None,14.8,128,150,106,85,2022-02-09
+846,Arnav Patel,19,Female,A+,Thyroid,Dust,Metformin,16.5,167,224,157,79,2023-12-18
+847,Sai Patel,44,Female,O-,Diabetes,Seafood,Levothyroxine,14.8,147,148,124,83,2022-10-15
+848,Diya Kumar,32,Female,A+,Hypertension,Penicillin,Metformin,10.4,152,174,126,90,2022-10-14
+849,Priya Verma,56,Male,AB+,Heart Disease,Pollen,Amlodipine,12.3,94,123,177,95,2024-02-28
+850,Arjun Singh,47,Other,AB-,Kidney Disease,Seafood,Salbutamol,14.5,130,190,116,97,2023-01-29
+851,Aditya Verma,17,Other,A-,Diabetes,Seafood,None,16.1,119,234,102,64,2024-08-22
+852,Aditi Malhotra,44,Female,O-,None,Dust,Salbutamol,15.4,81,152,114,86,2023-07-18
+853,Arnav Jain,45,Female,O-,Kidney Disease,None,Metformin,16.8,87,243,143,93,2024-08-11
+854,Saanvi Sharma,22,Other,AB+,Kidney Disease,Dust,Amlodipine,10.3,214,135,178,72,2024-01-29
+855,Ishita Agarwal,88,Other,A-,Hypertension,Peanuts,Salbutamol,12.9,169,222,167,77,2022-07-31
+856,Reyansh Sharma,21,Other,B-,Thyroid,None,Metformin,16.6,201,236,154,105,2024-01-08
+857,Saanvi Mehta,39,Male,AB+,Kidney Disease,Pollen,Salbutamol,10.9,127,131,158,75,2022-10-26
+858,Vivaan Gupta,36,Male,AB+,None,Penicillin,None,17.4,123,256,104,60,2023-10-27
+859,Diya Malhotra,48,Female,A-,Kidney Disease,Seafood,Amlodipine,15.4,174,276,127,80,2022-02-28
+860,Aarav Singh,29,Other,AB+,Hypertension,Pollen,Metformin,14.0,219,147,178,84,2024-08-26
+861,Arnav Malhotra,71,Male,O-,Hypertension,Pollen,Amlodipine,11.5,231,221,109,88,2022-08-26
+862,Kavya Singh,19,Female,A-,Heart Disease,Dust,Levothyroxine,11.4,115,168,162,91,2024-08-23
+863,Reyansh Mehta,3,Female,B+,Hypertension,Peanuts,None,14.6,87,156,99,87,2022-09-09
+864,Pooja Kumar,13,Other,B+,Kidney Disease,Penicillin,Salbutamol,10.7,168,125,104,112,2022-01-14
+865,Vivaan Gupta,32,Male,AB+,Hypertension,None,Salbutamol,10.1,72,147,159,107,2024-04-17
+866,Ananya Verma,26,Male,O-,None,Seafood,Levothyroxine,16.1,148,204,151,69,2022-09-07
+867,Vivaan Jain,89,Female,A-,Diabetes,Penicillin,Metformin,14.1,96,250,143,69,2022-01-02
+868,Sai Sharma,30,Female,O+,Hypertension,Pollen,None,12.2,168,148,152,70,2022-04-23
+869,Sai Verma,37,Female,A-,Thyroid,Pollen,Metformin,12.7,91,131,167,69,2022-07-02
+870,Kavya Jain,43,Other,B+,Kidney Disease,Peanuts,Insulin,16.7,147,279,126,82,2024-06-15
+871,Vihaan Mehta,64,Other,AB-,Asthma,None,Metformin,15.9,108,157,130,69,2023-02-04
+872,Pooja Agarwal,9,Male,O+,Kidney Disease,Pollen,Insulin,10.7,102,166,139,82,2022-11-23
+873,Riya Kumar,62,Other,O+,Thyroid,None,Amlodipine,11.0,237,182,139,86,2023-07-17
+874,Riya Jain,69,Female,B-,Heart Disease,Penicillin,Salbutamol,15.4,204,267,178,111,2024-02-06
+875,Sai Verma,31,Female,A+,Hypertension,Penicillin,Amlodipine,14.2,104,148,97,118,2022-12-24
+876,Diya Gupta,38,Female,B+,None,Seafood,Levothyroxine,11.8,127,134,107,67,2024-09-12
+877,Arjun Kumar,4,Other,O+,Asthma,Penicillin,None,10.8,218,138,151,113,2023-09-01
+878,Reyansh Sharma,19,Female,B+,Diabetes,Dust,Metformin,10.1,176,158,113,90,2024-02-01
+879,Arjun Jain,90,Female,O-,Heart Disease,None,Amlodipine,13.3,235,123,126,67,2022-06-09
+880,Vivaan Sharma,78,Male,B+,Diabetes,Peanuts,Levothyroxine,15.1,186,261,123,118,2023-08-09
+881,Saanvi Mehta,30,Female,B+,Asthma,Penicillin,Salbutamol,12.8,102,174,141,99,2022-02-27
+882,Sai Kumar,24,Other,A-,None,None,Levothyroxine,13.6,237,223,138,70,2022-02-25
+883,Diya Kumar,25,Female,A-,Diabetes,Penicillin,Amlodipine,14.5,155,127,120,78,2022-06-16
+884,Aditi Verma,9,Male,A+,None,Pollen,Insulin,14.1,233,128,120,77,2022-03-29
+885,Nisha Malhotra,6,Other,O-,Diabetes,Penicillin,Amlodipine,10.7,149,122,135,108,2022-10-17
+886,Ishita Jain,25,Female,O+,Kidney Disease,Pollen,Insulin,15.3,94,204,142,117,2024-01-30
+887,Saanvi Verma,65,Male,A+,Thyroid,Peanuts,Levothyroxine,14.4,79,194,110,69,2023-11-30
+888,Pooja Verma,81,Male,B-,Hypertension,None,None,11.1,111,248,156,106,2023-09-16
+889,Saanvi Singh,58,Male,AB-,Asthma,Pollen,Salbutamol,16.4,180,130,177,84,2022-09-02
+890,Muhammad Malhotra,78,Male,B+,Thyroid,None,Levothyroxine,10.7,73,156,129,95,2024-06-07
+891,Aditya Agarwal,13,Female,AB-,Hypertension,Pollen,Insulin,10.5,217,213,135,65,2022-03-14
+892,Reyansh Agarwal,34,Female,AB+,None,Peanuts,None,16.9,101,265,152,62,2023-01-08
+893,Ayaan Kumar,53,Other,B+,Heart Disease,Pollen,Salbutamol,16.3,150,215,100,103,2023-02-28
+894,Saanvi Agarwal,34,Other,A+,Thyroid,None,Metformin,15.6,132,263,91,69,2024-05-23
+895,Vihaan Mehta,49,Male,O+,None,Penicillin,Insulin,12.9,188,143,134,89,2023-04-25
+896,Aditi Agarwal,14,Male,B+,Kidney Disease,Penicillin,Levothyroxine,15.8,121,222,132,64,2022-11-21
+897,Ananya Malhotra,63,Male,O-,Diabetes,Pollen,Levothyroxine,10.3,109,240,108,100,2022-08-07
+898,Ananya Malhotra,5,Other,O+,Diabetes,Pollen,Levothyroxine,17.3,124,133,117,115,2022-01-24
+899,Kavya Mehta,33,Other,B+,Diabetes,Dust,Metformin,12.1,90,196,147,115,2023-03-06
+900,Saanvi Patel,86,Female,B+,None,Penicillin,Metformin,16.7,179,207,128,70,2022-07-23
+901,Diya Kumar,62,Female,B+,Kidney Disease,Peanuts,Amlodipine,16.8,216,219,91,95,2024-03-12
+902,Priya Patel,10,Other,B+,Asthma,None,None,15.6,151,123,109,117,2023-04-15
+903,Arjun Agarwal,41,Male,O+,Asthma,Seafood,None,10.0,185,152,171,88,2023-10-17
+904,Nisha Verma,5,Male,B-,Heart Disease,None,Salbutamol,15.8,223,216,117,82,2022-08-03
+905,Muhammad Malhotra,2,Female,AB-,Diabetes,Pollen,Amlodipine,13.8,101,247,173,89,2023-02-28
+906,Kavya Singh,46,Other,O+,Thyroid,Pollen,Metformin,16.9,187,229,137,71,2023-07-21
+907,Priya Gupta,70,Female,O+,Asthma,None,None,15.1,232,192,179,99,2024-08-18
+908,Vihaan Verma,14,Male,A+,Thyroid,Peanuts,Metformin,13.7,229,259,102,100,2023-03-31
+909,Saanvi Malhotra,5,Other,AB+,None,Peanuts,Insulin,11.7,186,261,138,67,2022-07-20
+910,Riya Verma,45,Female,O+,None,None,None,15.9,171,121,137,110,2022-08-18
+911,Saanvi Mehta,35,Other,AB+,Asthma,Peanuts,None,11.8,176,128,91,61,2022-06-07
+912,Diya Jain,77,Female,AB-,Hypertension,Seafood,Levothyroxine,11.8,170,169,168,101,2023-02-07
+913,Vivaan Malhotra,55,Male,O+,Kidney Disease,Dust,Levothyroxine,16.8,202,160,145,74,2022-04-12
+914,Arjun Jain,16,Other,O+,None,None,Amlodipine,16.3,110,202,116,65,2022-04-06
+915,Aarav Kumar,2,Other,B+,Diabetes,Seafood,None,14.1,90,266,138,61,2024-01-31
+916,Arjun Agarwal,82,Other,AB-,Hypertension,Dust,None,16.7,146,169,158,113,2022-09-09
+917,Ishita Mehta,85,Male,AB+,Diabetes,Dust,None,10.2,218,146,104,89,2024-08-07
+918,Priya Verma,14,Male,AB+,Asthma,Dust,Metformin,10.6,162,173,140,66,2023-05-18
+919,Aarav Kumar,10,Female,A-,Hypertension,None,Levothyroxine,12.8,150,235,110,71,2022-11-02
+920,Aarav Gupta,85,Other,A+,Diabetes,Pollen,Amlodipine,13.6,227,273,159,60,2022-06-12
+921,Saanvi Mehta,16,Male,A+,Thyroid,Penicillin,Salbutamol,13.8,109,175,136,67,2024-07-09
+922,Muhammad Sharma,42,Male,B-,Diabetes,None,None,17.0,138,190,151,72,2024-09-03
+923,Aditya Singh,71,Other,AB+,Heart Disease,None,Levothyroxine,13.3,172,169,122,71,2022-07-22
+924,Arnav Kumar,14,Other,AB+,Hypertension,Dust,None,13.7,184,228,166,107,2022-10-06
+925,Ananya Malhotra,14,Other,O+,Heart Disease,Dust,Salbutamol,12.6,231,136,147,70,2024-06-29
+926,Vivaan Jain,33,Other,O+,Asthma,Seafood,None,17.1,205,210,140,61,2022-04-28
+927,Reyansh Singh,55,Male,AB-,Hypertension,Penicillin,Insulin,14.9,165,157,130,67,2022-01-10
+928,Ananya Sharma,43,Male,O-,Thyroid,Pollen,Insulin,14.2,168,192,167,73,2023-06-24
+929,Muhammad Verma,72,Female,A-,Thyroid,None,Levothyroxine,15.1,181,201,130,72,2022-07-21
+930,Vivaan Agarwal,64,Male,AB+,Heart Disease,Penicillin,Metformin,13.4,223,203,165,84,2022-08-31
+931,Nisha Sharma,37,Male,A+,Heart Disease,Pollen,Insulin,16.3,173,129,158,118,2023-06-25
+932,Vivaan Singh,83,Male,A-,Heart Disease,Penicillin,Levothyroxine,15.4,140,201,134,85,2022-03-23
+933,Aditi Singh,64,Other,A+,Heart Disease,Pollen,None,17.4,196,151,137,120,2023-09-25
+934,Vihaan Sharma,29,Male,A+,Hypertension,Penicillin,Amlodipine,16.5,181,177,111,65,2022-07-15
+935,Diya Jain,1,Other,A+,Asthma,Penicillin,Metformin,10.4,147,139,123,81,2023-12-06
+936,Priya Kumar,35,Other,B+,Hypertension,Seafood,Levothyroxine,10.9,151,157,164,116,2024-05-20
+937,Kavya Agarwal,86,Male,B-,Thyroid,Peanuts,None,13.7,141,202,151,74,2022-04-05
+938,Arnav Mehta,11,Female,B-,Kidney Disease,None,None,16.4,89,139,153,63,2022-08-06
+939,Aarav Patel,60,Female,B-,Heart Disease,Penicillin,Amlodipine,11.6,221,255,155,114,2022-11-17
+940,Ayaan Agarwal,84,Male,A-,Hypertension,Dust,Amlodipine,12.9,185,278,155,72,2024-03-09
+941,Ishita Patel,9,Female,O+,Hypertension,None,Amlodipine,17.1,217,146,108,89,2024-06-16
+942,Vihaan Verma,31,Male,O-,Hypertension,Pollen,Metformin,13.6,205,235,135,76,2022-05-02
+943,Aditi Verma,46,Female,B-,Hypertension,Peanuts,Salbutamol,13.2,155,133,146,77,2023-01-14
+944,Vihaan Sharma,84,Female,O+,Hypertension,Pollen,Insulin,13.0,222,190,157,98,2023-05-21
+945,Saanvi Kumar,14,Other,A+,Kidney Disease,Dust,Metformin,11.6,83,129,163,77,2022-09-02
+946,Aditya Jain,13,Female,B-,Thyroid,None,None,13.0,170,145,118,106,2024-04-23
+947,Arnav Agarwal,27,Male,B-,Asthma,None,Amlodipine,15.3,143,120,102,71,2023-05-31
+948,Priya Agarwal,40,Other,B-,Hypertension,Pollen,None,10.5,117,205,148,69,2024-09-12
+949,Aarav Agarwal,55,Female,A+,Hypertension,Pollen,Metformin,11.3,72,272,135,90,2023-08-21
+950,Aarav Agarwal,32,Female,A-,Diabetes,Penicillin,Salbutamol,15.1,144,178,157,92,2022-06-21
+951,Arjun Verma,13,Female,AB-,Heart Disease,Peanuts,None,12.6,209,185,174,91,2022-09-17
+952,Diya Agarwal,2,Female,AB+,Kidney Disease,Pollen,Salbutamol,15.8,222,243,104,77,2023-12-04
+953,Saanvi Sharma,19,Female,B-,Kidney Disease,Dust,Amlodipine,13.7,132,267,179,87,2023-01-04
+954,Muhammad Verma,25,Female,A-,Asthma,None,None,14.1,185,254,112,76,2024-07-21
+955,Diya Singh,51,Other,O+,Asthma,Pollen,Insulin,10.3,203,207,168,67,2023-03-20
+956,Pooja Malhotra,45,Female,A-,Diabetes,Peanuts,None,11.1,108,253,127,99,2023-07-26
+957,Reyansh Mehta,63,Female,A-,None,Pollen,Metformin,13.4,125,192,165,67,2022-02-24
+958,Riya Mehta,1,Female,AB-,Kidney Disease,Penicillin,Metformin,11.9,159,192,154,102,2024-09-08
+959,Aditi Gupta,12,Other,AB+,Hypertension,None,Insulin,13.2,90,194,118,62,2023-04-30
+960,Diya Patel,87,Other,O+,Heart Disease,Peanuts,Metformin,16.7,147,272,129,71,2023-08-01
+961,Kavya Singh,75,Male,B-,Asthma,Dust,Levothyroxine,14.2,147,198,100,79,2023-08-04
+962,Pooja Jain,24,Female,O+,Diabetes,Dust,Salbutamol,13.3,150,248,177,105,2023-01-02
+963,Pooja Singh,55,Female,O+,Heart Disease,Peanuts,Metformin,16.8,76,227,101,108,2022-05-24
+964,Priya Mehta,32,Other,AB-,Hypertension,Seafood,Salbutamol,16.7,145,133,140,68,2023-02-17
+965,Aarav Agarwal,67,Female,A+,Diabetes,Penicillin,Amlodipine,16.2,236,147,132,98,2022-04-10
+966,Ayaan Malhotra,62,Other,AB-,None,Penicillin,Metformin,15.6,200,133,179,73,2023-06-13
+967,Arjun Jain,64,Male,B-,Kidney Disease,None,Insulin,12.3,149,121,152,99,2023-12-06
+968,Muhammad Verma,9,Male,B+,Thyroid,Penicillin,Salbutamol,10.7,122,146,150,61,2024-05-02
+969,Saanvi Agarwal,51,Male,A-,Asthma,Peanuts,Levothyroxine,17.4,130,259,123,112,2023-09-20
+970,Pooja Malhotra,16,Female,B+,Kidney Disease,Penicillin,Insulin,11.1,238,181,111,92,2024-01-30
+971,Aditi Patel,61,Female,AB+,Asthma,None,Metformin,17.2,196,214,175,77,2023-02-05
+972,Ishita Verma,60,Female,O+,Hypertension,Penicillin,Amlodipine,13.4,214,219,91,97,2022-11-07
+973,Vivaan Malhotra,57,Male,AB-,Hypertension,Peanuts,None,13.4,72,160,135,92,2024-05-26
+974,Saanvi Patel,45,Other,O+,Thyroid,Penicillin,Insulin,14.9,160,264,133,89,2024-01-03
+975,Arjun Mehta,85,Female,O+,Diabetes,None,Levothyroxine,12.8,190,275,174,71,2023-08-13
+976,Saanvi Jain,34,Male,AB-,Thyroid,Seafood,Amlodipine,14.4,173,137,95,61,2024-05-22
+977,Reyansh Patel,13,Other,A-,Heart Disease,None,Levothyroxine,12.4,129,180,103,117,2024-06-20
+978,Reyansh Kumar,54,Male,A+,Thyroid,Pollen,Metformin,10.3,88,233,137,98,2023-10-09
+979,Aarav Gupta,42,Male,O-,Heart Disease,Dust,None,14.3,121,170,122,91,2023-03-25
+980,Ayaan Patel,26,Other,B+,Heart Disease,Seafood,Insulin,10.6,76,144,116,62,2024-04-09
+981,Arjun Sharma,47,Female,A-,Asthma,Dust,None,15.5,234,255,153,72,2024-05-02
+982,Muhammad Malhotra,61,Other,AB-,Asthma,Seafood,Salbutamol,16.4,87,232,144,100,2023-01-21
+983,Aditya Malhotra,11,Male,AB+,Diabetes,Penicillin,Levothyroxine,11.7,223,258,132,61,2022-08-18
+984,Ayaan Mehta,50,Other,AB-,Diabetes,Dust,Amlodipine,10.6,217,181,156,119,2023-09-18
+985,Saanvi Mehta,52,Other,A+,Thyroid,None,Metformin,14.4,137,127,94,81,2023-03-08
+986,Arnav Patel,43,Male,B+,Hypertension,Seafood,None,12.5,239,135,120,91,2022-03-16
+987,Nisha Malhotra,90,Male,AB-,Diabetes,Peanuts,Salbutamol,15.5,90,261,151,120,2022-05-13
+988,Arnav Sharma,14,Male,O-,Thyroid,Dust,None,12.6,192,197,119,61,2024-08-11
+989,Vivaan Sharma,26,Other,O+,Kidney Disease,None,None,10.1,193,133,139,109,2023-01-22
+990,Arjun Kumar,90,Female,B+,Diabetes,Peanuts,Metformin,16.7,164,210,114,81,2023-03-24
+991,Vivaan Patel,30,Male,A+,Hypertension,Peanuts,None,15.6,207,265,95,111,2022-01-16
+992,Sai Sharma,10,Male,B+,Heart Disease,Dust,Amlodipine,10.3,159,274,173,116,2022-09-08
+993,Ayaan Gupta,78,Female,O-,Kidney Disease,Penicillin,None,10.6,134,259,116,91,2023-12-24
+994,Diya Patel,57,Other,AB+,Asthma,Seafood,Amlodipine,16.5,132,254,124,80,2023-12-16
+995,Aditi Jain,14,Male,AB-,Heart Disease,None,Salbutamol,13.6,90,172,107,113,2024-09-26
+996,Saanvi Patel,40,Other,B-,Diabetes,Pollen,None,16.1,106,129,120,104,2023-03-27
+997,Pooja Verma,3,Female,A+,Asthma,Pollen,Salbutamol,12.9,91,135,125,114,2023-09-17
+998,Ishita Agarwal,3,Female,O+,Heart Disease,Penicillin,Insulin,11.5,117,230,158,63,2023-11-08
+999,Ayaan Sharma,70,Female,A+,Thyroid,Pollen,Amlodipine,16.1,221,175,93,81,2024-01-14
+1000,Priya Kumar,55,Other,A+,None,Penicillin,Salbutamol,12.9,143,256,149,87,2023-08-10

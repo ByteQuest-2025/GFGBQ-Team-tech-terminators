@@ -1,0 +1,1001 @@
+Case_ID,Reported_Symptoms,Severity_Level,Recommended_Lab_Tests,Possible_Diagnosis,Consultation_Date
+1,"Fever, Cough",Severe,"CBC, Chest X-Ray",Arthritis,2024-12-07
+2,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Hypertension,2024-05-05
+3,Chest Pain,Severe,"ECG, Troponin",Respiratory Infection,2025-04-07
+4,"Joint Pain, Swelling",Moderate,"ESR, CRP",Anemia,2024-06-01
+5,"Joint Pain, Swelling",Moderate,"ESR, CRP",Diabetes Mellitus,2025-03-18
+6,Headache,Mild,"BP Measurement, Vision Check",Viral Infection,2024-01-15
+7,"Skin Rash, Fever",Moderate,"CBC, CRP",Arthritis,2023-03-12
+8,"Fever, Cough",Mild,CBC,Diabetes Mellitus,2023-08-27
+9,Headache,Severe,"CBC, BP Measurement",Arthritis,2025-01-26
+10,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Allergic Reaction,2024-03-28
+11,Headache,Severe,"CBC, BP Measurement",Gastroenteritis,2024-07-07
+12,Joint Pain,Mild,ESR,Migraine,2024-10-26
+13,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Viral Infection,2023-06-08
+14,"Headache, Fever",Moderate,"CBC, CRP",Migraine,2025-04-08
+15,Headache,Mild,"BP Measurement, Vision Check",Respiratory Infection,2023-06-14
+16,Skin Rash,Mild,CBC,Gastroenteritis,2024-02-15
+17,Joint Pain,Mild,ESR,Anemia,2023-07-11
+18,Headache,Severe,"CBC, BP Measurement",Respiratory Infection,2025-06-05
+19,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Migraine,2025-03-09
+20,Chest Pain,Severe,"ECG, Troponin",Diabetes Mellitus,2024-11-20
+21,"Skin Rash, Fever",Moderate,"CBC, CRP",Migraine,2023-05-06
+22,Skin Rash,Mild,CBC,Respiratory Infection,2024-07-26
+23,Diarrhea,Mild,Stool Examination,Diabetes Mellitus,2023-12-16
+24,"Fever, Cough",Mild,CBC,Cardiac Condition,2024-02-24
+25,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Gastroenteritis,2024-04-07
+26,"Joint Pain, Swelling",Moderate,"ESR, CRP",Arthritis,2023-11-22
+27,Joint Pain,Mild,ESR,Arthritis,2023-09-30
+28,Headache,Mild,"BP Measurement, Vision Check",Migraine,2023-06-12
+29,Joint Pain,Mild,ESR,Viral Infection,2024-05-18
+30,"Headache, Fever",Moderate,"CBC, CRP",Cardiac Condition,2024-09-05
+31,"Joint Pain, Swelling",Moderate,"ESR, CRP",Diabetes Mellitus,2024-08-08
+32,Dizziness,Mild,"BP Measurement, Blood Sugar",Gastroenteritis,2024-07-23
+33,Dizziness,Mild,"BP Measurement, Blood Sugar",Migraine,2023-07-05
+34,"Fever, Cough",Severe,"CBC, Chest X-Ray",Gastroenteritis,2025-05-03
+35,Abdominal Pain,Mild,CBC,Gastroenteritis,2025-02-19
+36,Dizziness,Mild,"BP Measurement, Blood Sugar",Hypertension,2023-09-09
+37,"Headache, Vomiting",Severe,"CBC, Electrolytes",Anemia,2023-03-09
+38,"Fever, Cough",Severe,"CBC, Chest X-Ray",Arthritis,2024-01-19
+39,"Fever, Cough",Severe,"CBC, Chest X-Ray",Viral Infection,2024-11-23
+40,"Joint Pain, Swelling",Moderate,"ESR, CRP",Diabetes Mellitus,2024-02-21
+41,"Fever, Cough",Severe,"CBC, Chest X-Ray",Allergic Reaction,2023-01-15
+42,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Respiratory Infection,2024-06-02
+43,Diarrhea,Mild,Stool Examination,Diabetes Mellitus,2025-06-16
+44,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Anemia,2024-07-29
+45,"Headache, Fever",Moderate,"CBC, CRP",Respiratory Infection,2025-04-04
+46,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Respiratory Infection,2023-02-28
+47,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Viral Infection,2025-05-23
+48,Fatigue,Mild,CBC,Hypertension,2023-02-05
+49,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Diabetes Mellitus,2023-06-24
+50,Diarrhea,Mild,Stool Examination,Migraine,2025-06-10
+51,Abdominal Pain,Mild,CBC,Anemia,2023-06-04
+52,Joint Pain,Mild,ESR,Viral Infection,2023-09-16
+53,"Fever, Cough",Mild,CBC,Cardiac Condition,2025-01-16
+54,Joint Pain,Mild,ESR,Viral Infection,2023-08-06
+55,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Anemia,2024-01-13
+56,Dizziness,Mild,"BP Measurement, Blood Sugar",Arthritis,2024-05-11
+57,"Skin Rash, Fever",Moderate,"CBC, CRP",Respiratory Infection,2023-11-12
+58,"Fever, Cough",Mild,CBC,Cardiac Condition,2024-08-25
+59,Fatigue,Mild,CBC,Anemia,2025-02-25
+60,Headache,Mild,"BP Measurement, Vision Check",Arthritis,2024-12-02
+61,"Fever, Cough",Mild,CBC,Viral Infection,2023-09-28
+62,"Skin Rash, Fever",Moderate,"CBC, CRP",Gastroenteritis,2024-10-21
+63,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Allergic Reaction,2024-03-07
+64,Fatigue,Mild,CBC,Arthritis,2025-02-08
+65,"Fever, Cough",Mild,CBC,Anemia,2023-05-26
+66,"Headache, Vomiting",Severe,"CBC, Electrolytes",Arthritis,2023-04-07
+67,"Fever, Cough",Severe,"CBC, Chest X-Ray",Viral Infection,2024-10-19
+68,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Anemia,2023-03-15
+69,"Headache, Vomiting",Severe,"CBC, Electrolytes",Hypertension,2023-05-10
+70,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Cardiac Condition,2023-11-29
+71,Diarrhea,Mild,Stool Examination,Respiratory Infection,2023-08-13
+72,Dizziness,Mild,"BP Measurement, Blood Sugar",Anemia,2023-07-05
+73,"Fever, Cough",Severe,"CBC, Chest X-Ray",Arthritis,2023-07-26
+74,Skin Rash,Mild,CBC,Viral Infection,2024-09-10
+75,"Joint Pain, Swelling",Moderate,"ESR, CRP",Viral Infection,2025-03-20
+76,Headache,Mild,"BP Measurement, Vision Check",Arthritis,2024-04-20
+77,"Headache, Fever",Moderate,"CBC, CRP",Arthritis,2025-02-21
+78,"Skin Rash, Fever",Moderate,"CBC, CRP",Anemia,2025-05-24
+79,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Hypertension,2024-12-14
+80,Dizziness,Mild,"BP Measurement, Blood Sugar",Gastroenteritis,2025-02-02
+81,Headache,Severe,"CBC, BP Measurement",Diabetes Mellitus,2024-02-03
+82,"Fever, Cough",Mild,CBC,Hypertension,2025-01-13
+83,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Cardiac Condition,2025-04-02
+84,Skin Rash,Mild,CBC,Respiratory Infection,2024-08-09
+85,"Headache, Vomiting",Severe,"CBC, Electrolytes",Cardiac Condition,2024-09-07
+86,Headache,Severe,"CBC, BP Measurement",Cardiac Condition,2024-09-01
+87,Abdominal Pain,Mild,CBC,Cardiac Condition,2023-11-14
+88,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Allergic Reaction,2024-06-22
+89,Skin Rash,Mild,CBC,Diabetes Mellitus,2023-03-07
+90,Dizziness,Mild,"BP Measurement, Blood Sugar",Gastroenteritis,2023-07-26
+91,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Migraine,2023-11-22
+92,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Migraine,2025-06-07
+93,"Headache, Fever",Moderate,"CBC, CRP",Migraine,2024-10-03
+94,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Cardiac Condition,2024-09-28
+95,Headache,Mild,"BP Measurement, Vision Check",Respiratory Infection,2024-04-27
+96,"Joint Pain, Swelling",Moderate,"ESR, CRP",Cardiac Condition,2024-02-03
+97,Diarrhea,Mild,Stool Examination,Migraine,2023-08-19
+98,Headache,Mild,"BP Measurement, Vision Check",Viral Infection,2024-11-08
+99,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Viral Infection,2023-09-10
+100,Fatigue,Mild,CBC,Allergic Reaction,2025-04-16
+101,Diarrhea,Mild,Stool Examination,Arthritis,2024-04-11
+102,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Arthritis,2024-01-30
+103,Abdominal Pain,Mild,CBC,Respiratory Infection,2023-08-22
+104,"Headache, Fever",Moderate,"CBC, CRP",Viral Infection,2024-05-06
+105,"Fever, Cough",Severe,"CBC, Chest X-Ray",Respiratory Infection,2024-01-17
+106,Dizziness,Mild,"BP Measurement, Blood Sugar",Diabetes Mellitus,2025-03-09
+107,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Allergic Reaction,2024-11-15
+108,Dizziness,Mild,"BP Measurement, Blood Sugar",Hypertension,2023-09-09
+109,Joint Pain,Mild,ESR,Respiratory Infection,2024-01-31
+110,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Allergic Reaction,2024-01-27
+111,"Joint Pain, Swelling",Moderate,"ESR, CRP",Viral Infection,2023-06-15
+112,Abdominal Pain,Mild,CBC,Diabetes Mellitus,2023-11-16
+113,Diarrhea,Mild,Stool Examination,Anemia,2023-04-03
+114,Skin Rash,Mild,CBC,Anemia,2023-03-23
+115,"Joint Pain, Swelling",Moderate,"ESR, CRP",Hypertension,2024-09-26
+116,Diarrhea,Mild,Stool Examination,Respiratory Infection,2023-04-21
+117,"Fever, Cough",Severe,"CBC, Chest X-Ray",Arthritis,2023-07-30
+118,Abdominal Pain,Mild,CBC,Gastroenteritis,2024-10-18
+119,"Skin Rash, Fever",Moderate,"CBC, CRP",Diabetes Mellitus,2023-09-25
+120,"Headache, Fever",Moderate,"CBC, CRP",Viral Infection,2023-11-26
+121,"Joint Pain, Swelling",Moderate,"ESR, CRP",Hypertension,2025-05-15
+122,"Fever, Cough",Mild,CBC,Cardiac Condition,2023-07-24
+123,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Allergic Reaction,2024-12-05
+124,Fatigue,Mild,CBC,Arthritis,2023-06-10
+125,Diarrhea,Mild,Stool Examination,Respiratory Infection,2024-02-16
+126,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Respiratory Infection,2024-09-23
+127,Fatigue,Mild,CBC,Anemia,2024-11-14
+128,Diarrhea,Mild,Stool Examination,Allergic Reaction,2023-10-06
+129,"Headache, Vomiting",Severe,"CBC, Electrolytes",Diabetes Mellitus,2023-08-09
+130,Headache,Severe,"CBC, BP Measurement",Gastroenteritis,2025-04-09
+131,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Viral Infection,2023-03-18
+132,"Joint Pain, Swelling",Moderate,"ESR, CRP",Allergic Reaction,2023-02-10
+133,Diarrhea,Mild,Stool Examination,Allergic Reaction,2024-03-27
+134,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Diabetes Mellitus,2023-01-08
+135,Skin Rash,Mild,CBC,Anemia,2023-04-07
+136,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Diabetes Mellitus,2024-04-10
+137,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Viral Infection,2024-01-14
+138,"Fever, Cough",Severe,"CBC, Chest X-Ray",Anemia,2024-08-07
+139,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Cardiac Condition,2025-05-10
+140,Headache,Severe,"CBC, BP Measurement",Hypertension,2023-07-12
+141,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Arthritis,2024-07-19
+142,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Diabetes Mellitus,2024-08-11
+143,"Skin Rash, Fever",Moderate,"CBC, CRP",Respiratory Infection,2025-03-21
+144,Headache,Mild,"BP Measurement, Vision Check",Allergic Reaction,2023-03-16
+145,"Headache, Fever",Moderate,"CBC, CRP",Arthritis,2025-05-02
+146,Chest Pain,Severe,"ECG, Troponin",Anemia,2023-03-03
+147,Joint Pain,Mild,ESR,Cardiac Condition,2024-09-13
+148,Skin Rash,Mild,CBC,Allergic Reaction,2024-05-18
+149,Joint Pain,Mild,ESR,Gastroenteritis,2023-06-06
+150,Fatigue,Mild,CBC,Anemia,2023-12-28
+151,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Hypertension,2024-10-17
+152,Headache,Mild,"BP Measurement, Vision Check",Migraine,2024-11-15
+153,"Headache, Fever",Moderate,"CBC, CRP",Anemia,2024-06-08
+154,"Headache, Vomiting",Severe,"CBC, Electrolytes",Diabetes Mellitus,2024-01-04
+155,Fatigue,Mild,CBC,Gastroenteritis,2023-03-02
+156,"Fever, Cough",Severe,"CBC, Chest X-Ray",Viral Infection,2024-08-22
+157,Joint Pain,Mild,ESR,Hypertension,2024-11-28
+158,Diarrhea,Mild,Stool Examination,Anemia,2023-02-03
+159,"Headache, Vomiting",Severe,"CBC, Electrolytes",Diabetes Mellitus,2024-01-03
+160,Skin Rash,Mild,CBC,Hypertension,2024-02-23
+161,Chest Pain,Severe,"ECG, Troponin",Diabetes Mellitus,2025-01-15
+162,"Joint Pain, Swelling",Moderate,"ESR, CRP",Arthritis,2023-03-22
+163,Abdominal Pain,Mild,CBC,Diabetes Mellitus,2023-08-07
+164,"Joint Pain, Swelling",Moderate,"ESR, CRP",Viral Infection,2025-01-15
+165,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Allergic Reaction,2024-06-29
+166,"Fever, Cough",Severe,"CBC, Chest X-Ray",Viral Infection,2024-12-27
+167,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Respiratory Infection,2024-05-04
+168,"Fever, Cough",Severe,"CBC, Chest X-Ray",Respiratory Infection,2025-04-06
+169,Headache,Mild,"BP Measurement, Vision Check",Hypertension,2024-11-26
+170,Headache,Severe,"CBC, BP Measurement",Diabetes Mellitus,2024-11-28
+171,Dizziness,Mild,"BP Measurement, Blood Sugar",Cardiac Condition,2024-09-10
+172,"Headache, Vomiting",Severe,"CBC, Electrolytes",Hypertension,2024-02-04
+173,Chest Pain,Severe,"ECG, Troponin",Respiratory Infection,2024-12-14
+174,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Viral Infection,2023-12-27
+175,"Fever, Cough",Severe,"CBC, Chest X-Ray",Allergic Reaction,2023-09-29
+176,Dizziness,Mild,"BP Measurement, Blood Sugar",Viral Infection,2025-02-12
+177,Diarrhea,Mild,Stool Examination,Anemia,2023-07-06
+178,Skin Rash,Mild,CBC,Cardiac Condition,2024-02-27
+179,Chest Pain,Severe,"ECG, Troponin",Diabetes Mellitus,2024-06-11
+180,Skin Rash,Mild,CBC,Hypertension,2025-03-05
+181,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Gastroenteritis,2023-03-26
+182,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Arthritis,2024-09-05
+183,"Fever, Cough",Severe,"CBC, Chest X-Ray",Gastroenteritis,2024-07-06
+184,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Allergic Reaction,2023-05-15
+185,Headache,Mild,"BP Measurement, Vision Check",Arthritis,2024-08-17
+186,Headache,Mild,"BP Measurement, Vision Check",Diabetes Mellitus,2025-01-29
+187,"Headache, Vomiting",Severe,"CBC, Electrolytes",Diabetes Mellitus,2024-06-29
+188,"Joint Pain, Swelling",Moderate,"ESR, CRP",Gastroenteritis,2024-06-10
+189,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Migraine,2023-06-14
+190,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Arthritis,2024-09-20
+191,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Respiratory Infection,2025-02-08
+192,Chest Pain,Severe,"ECG, Troponin",Diabetes Mellitus,2023-09-17
+193,"Fever, Cough",Severe,"CBC, Chest X-Ray",Arthritis,2025-04-26
+194,Diarrhea,Mild,Stool Examination,Diabetes Mellitus,2024-05-16
+195,Joint Pain,Mild,ESR,Hypertension,2023-02-11
+196,Skin Rash,Mild,CBC,Respiratory Infection,2023-07-30
+197,Headache,Severe,"CBC, BP Measurement",Gastroenteritis,2024-08-23
+198,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Hypertension,2025-01-24
+199,"Fever, Cough",Mild,CBC,Diabetes Mellitus,2023-06-12
+200,Diarrhea,Mild,Stool Examination,Anemia,2024-02-08
+201,Headache,Severe,"CBC, BP Measurement",Viral Infection,2025-03-07
+202,"Skin Rash, Fever",Moderate,"CBC, CRP",Hypertension,2024-08-13
+203,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Diabetes Mellitus,2024-05-12
+204,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Cardiac Condition,2025-04-11
+205,Joint Pain,Mild,ESR,Viral Infection,2023-01-28
+206,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Anemia,2024-05-26
+207,Abdominal Pain,Mild,CBC,Respiratory Infection,2023-12-29
+208,Diarrhea,Mild,Stool Examination,Allergic Reaction,2024-10-05
+209,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Allergic Reaction,2025-01-05
+210,"Headache, Fever",Moderate,"CBC, CRP",Hypertension,2025-02-08
+211,"Headache, Vomiting",Severe,"CBC, Electrolytes",Gastroenteritis,2024-11-02
+212,Fatigue,Mild,CBC,Respiratory Infection,2025-03-22
+213,"Headache, Vomiting",Severe,"CBC, Electrolytes",Diabetes Mellitus,2024-09-01
+214,Abdominal Pain,Mild,CBC,Migraine,2025-02-02
+215,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Diabetes Mellitus,2024-10-10
+216,"Fever, Cough",Mild,CBC,Anemia,2025-02-08
+217,Fatigue,Mild,CBC,Migraine,2024-11-29
+218,Dizziness,Mild,"BP Measurement, Blood Sugar",Hypertension,2024-10-23
+219,Chest Pain,Severe,"ECG, Troponin",Cardiac Condition,2023-07-31
+220,"Fever, Cough",Mild,CBC,Respiratory Infection,2025-02-28
+221,Joint Pain,Mild,ESR,Diabetes Mellitus,2023-02-02
+222,Abdominal Pain,Mild,CBC,Cardiac Condition,2024-01-13
+223,Headache,Mild,"BP Measurement, Vision Check",Diabetes Mellitus,2025-05-13
+224,"Fever, Cough",Mild,CBC,Hypertension,2023-03-01
+225,Fatigue,Mild,CBC,Arthritis,2023-03-03
+226,"Headache, Vomiting",Severe,"CBC, Electrolytes",Allergic Reaction,2024-11-01
+227,"Joint Pain, Swelling",Moderate,"ESR, CRP",Viral Infection,2025-01-12
+228,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Allergic Reaction,2024-12-22
+229,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Respiratory Infection,2024-05-27
+230,Skin Rash,Mild,CBC,Cardiac Condition,2024-01-18
+231,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Viral Infection,2024-10-12
+232,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Anemia,2023-12-21
+233,Diarrhea,Mild,Stool Examination,Respiratory Infection,2024-10-13
+234,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Cardiac Condition,2024-08-23
+235,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Respiratory Infection,2025-03-19
+236,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Viral Infection,2025-05-22
+237,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Diabetes Mellitus,2025-03-04
+238,"Skin Rash, Fever",Moderate,"CBC, CRP",Allergic Reaction,2025-02-06
+239,"Headache, Fever",Moderate,"CBC, CRP",Gastroenteritis,2024-05-16
+240,"Fever, Cough",Mild,CBC,Anemia,2023-01-14
+241,Fatigue,Mild,CBC,Gastroenteritis,2024-12-09
+242,Abdominal Pain,Mild,CBC,Hypertension,2023-08-09
+243,Headache,Severe,"CBC, BP Measurement",Respiratory Infection,2023-07-11
+244,Chest Pain,Severe,"ECG, Troponin",Anemia,2023-01-11
+245,Dizziness,Mild,"BP Measurement, Blood Sugar",Anemia,2025-05-17
+246,"Fever, Cough",Mild,CBC,Diabetes Mellitus,2024-07-18
+247,"Headache, Vomiting",Severe,"CBC, Electrolytes",Anemia,2024-07-01
+248,"Headache, Vomiting",Severe,"CBC, Electrolytes",Arthritis,2023-05-06
+249,"Headache, Vomiting",Severe,"CBC, Electrolytes",Diabetes Mellitus,2024-12-18
+250,Chest Pain,Severe,"ECG, Troponin",Cardiac Condition,2023-01-19
+251,"Headache, Fever",Moderate,"CBC, CRP",Diabetes Mellitus,2023-08-13
+252,Dizziness,Mild,"BP Measurement, Blood Sugar",Allergic Reaction,2023-04-09
+253,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Diabetes Mellitus,2024-03-18
+254,"Skin Rash, Fever",Moderate,"CBC, CRP",Cardiac Condition,2024-12-16
+255,Headache,Mild,"BP Measurement, Vision Check",Arthritis,2023-11-06
+256,Abdominal Pain,Mild,CBC,Gastroenteritis,2025-03-14
+257,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Viral Infection,2024-08-13
+258,Joint Pain,Mild,ESR,Viral Infection,2024-02-18
+259,"Skin Rash, Fever",Moderate,"CBC, CRP",Respiratory Infection,2023-07-06
+260,Headache,Severe,"CBC, BP Measurement",Migraine,2025-03-08
+261,Fatigue,Mild,CBC,Respiratory Infection,2025-01-06
+262,Fatigue,Mild,CBC,Cardiac Condition,2025-04-24
+263,"Fever, Cough",Severe,"CBC, Chest X-Ray",Hypertension,2023-12-16
+264,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Respiratory Infection,2024-11-02
+265,Fatigue,Mild,CBC,Arthritis,2025-03-31
+266,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Viral Infection,2023-04-29
+267,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Allergic Reaction,2023-04-03
+268,Joint Pain,Mild,ESR,Gastroenteritis,2025-04-20
+269,"Fever, Cough",Mild,CBC,Anemia,2023-11-16
+270,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Arthritis,2023-04-25
+271,Fatigue,Mild,CBC,Respiratory Infection,2023-08-26
+272,Headache,Severe,"CBC, BP Measurement",Gastroenteritis,2025-02-02
+273,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Cardiac Condition,2024-12-08
+274,"Headache, Vomiting",Severe,"CBC, Electrolytes",Respiratory Infection,2023-08-12
+275,Skin Rash,Mild,CBC,Gastroenteritis,2025-01-13
+276,Chest Pain,Severe,"ECG, Troponin",Viral Infection,2024-05-21
+277,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Allergic Reaction,2023-12-05
+278,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Anemia,2025-02-27
+279,Headache,Mild,"BP Measurement, Vision Check",Arthritis,2024-05-29
+280,Chest Pain,Severe,"ECG, Troponin",Anemia,2023-02-02
+281,Chest Pain,Severe,"ECG, Troponin",Diabetes Mellitus,2023-06-19
+282,Abdominal Pain,Mild,CBC,Viral Infection,2024-11-14
+283,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Respiratory Infection,2023-09-12
+284,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Cardiac Condition,2025-05-16
+285,Diarrhea,Mild,Stool Examination,Diabetes Mellitus,2023-10-14
+286,Dizziness,Mild,"BP Measurement, Blood Sugar",Anemia,2024-12-09
+287,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Respiratory Infection,2023-05-27
+288,Abdominal Pain,Mild,CBC,Gastroenteritis,2025-05-16
+289,"Fever, Cough",Mild,CBC,Hypertension,2024-11-26
+290,"Headache, Fever",Moderate,"CBC, CRP",Viral Infection,2023-09-09
+291,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Gastroenteritis,2024-07-27
+292,Diarrhea,Mild,Stool Examination,Anemia,2025-01-08
+293,Diarrhea,Mild,Stool Examination,Viral Infection,2024-10-02
+294,"Skin Rash, Fever",Moderate,"CBC, CRP",Hypertension,2023-10-01
+295,Chest Pain,Severe,"ECG, Troponin",Allergic Reaction,2025-02-24
+296,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Migraine,2025-06-12
+297,Headache,Mild,"BP Measurement, Vision Check",Diabetes Mellitus,2025-04-23
+298,Diarrhea,Mild,Stool Examination,Diabetes Mellitus,2024-05-26
+299,"Joint Pain, Swelling",Moderate,"ESR, CRP",Diabetes Mellitus,2023-06-20
+300,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Arthritis,2024-11-10
+301,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Anemia,2024-06-15
+302,Diarrhea,Mild,Stool Examination,Viral Infection,2023-05-21
+303,Headache,Mild,"BP Measurement, Vision Check",Migraine,2023-06-19
+304,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Migraine,2025-02-20
+305,Joint Pain,Mild,ESR,Viral Infection,2023-03-18
+306,Abdominal Pain,Mild,CBC,Migraine,2023-06-30
+307,"Joint Pain, Swelling",Moderate,"ESR, CRP",Allergic Reaction,2023-10-30
+308,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Hypertension,2024-02-28
+309,Diarrhea,Mild,Stool Examination,Cardiac Condition,2023-04-29
+310,Fatigue,Mild,CBC,Gastroenteritis,2023-01-06
+311,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Hypertension,2024-04-19
+312,Abdominal Pain,Mild,CBC,Hypertension,2025-05-16
+313,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Anemia,2024-06-26
+314,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Gastroenteritis,2023-07-29
+315,"Fever, Cough",Severe,"CBC, Chest X-Ray",Migraine,2023-10-13
+316,"Fever, Cough",Severe,"CBC, Chest X-Ray",Viral Infection,2023-12-15
+317,Headache,Severe,"CBC, BP Measurement",Anemia,2025-03-19
+318,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Diabetes Mellitus,2024-05-31
+319,Headache,Mild,"BP Measurement, Vision Check",Viral Infection,2025-04-02
+320,Headache,Mild,"BP Measurement, Vision Check",Anemia,2023-11-29
+321,"Skin Rash, Fever",Moderate,"CBC, CRP",Cardiac Condition,2023-08-26
+322,"Fever, Cough",Mild,CBC,Gastroenteritis,2024-09-28
+323,"Fever, Cough",Severe,"CBC, Chest X-Ray",Allergic Reaction,2025-02-18
+324,Chest Pain,Severe,"ECG, Troponin",Migraine,2023-06-27
+325,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Arthritis,2023-09-16
+326,Abdominal Pain,Mild,CBC,Diabetes Mellitus,2025-01-14
+327,Diarrhea,Mild,Stool Examination,Arthritis,2025-03-21
+328,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Viral Infection,2023-09-07
+329,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Gastroenteritis,2023-08-22
+330,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Arthritis,2025-02-27
+331,Chest Pain,Severe,"ECG, Troponin",Migraine,2024-09-24
+332,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Respiratory Infection,2024-12-29
+333,"Fever, Cough",Severe,"CBC, Chest X-Ray",Anemia,2025-01-06
+334,Dizziness,Mild,"BP Measurement, Blood Sugar",Respiratory Infection,2023-02-21
+335,Diarrhea,Mild,Stool Examination,Respiratory Infection,2023-03-28
+336,Skin Rash,Mild,CBC,Respiratory Infection,2023-06-20
+337,Skin Rash,Mild,CBC,Migraine,2024-09-23
+338,Headache,Mild,"BP Measurement, Vision Check",Viral Infection,2023-11-14
+339,"Joint Pain, Swelling",Moderate,"ESR, CRP",Anemia,2025-01-09
+340,Headache,Mild,"BP Measurement, Vision Check",Migraine,2025-06-11
+341,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Migraine,2024-08-10
+342,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Gastroenteritis,2024-09-12
+343,Diarrhea,Mild,Stool Examination,Respiratory Infection,2024-05-15
+344,Fatigue,Mild,CBC,Anemia,2024-08-02
+345,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Diabetes Mellitus,2023-11-06
+346,"Headache, Fever",Moderate,"CBC, CRP",Anemia,2023-06-13
+347,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Gastroenteritis,2024-07-25
+348,Fatigue,Mild,CBC,Gastroenteritis,2024-02-06
+349,Skin Rash,Mild,CBC,Migraine,2024-01-13
+350,Skin Rash,Mild,CBC,Cardiac Condition,2023-02-22
+351,"Headache, Fever",Moderate,"CBC, CRP",Diabetes Mellitus,2023-09-04
+352,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Gastroenteritis,2024-04-28
+353,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Cardiac Condition,2025-05-06
+354,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Cardiac Condition,2024-04-29
+355,Fatigue,Mild,CBC,Diabetes Mellitus,2024-12-03
+356,"Skin Rash, Fever",Moderate,"CBC, CRP",Gastroenteritis,2023-11-21
+357,Dizziness,Mild,"BP Measurement, Blood Sugar",Allergic Reaction,2025-02-02
+358,Joint Pain,Mild,ESR,Cardiac Condition,2024-03-06
+359,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Hypertension,2023-07-28
+360,"Fever, Cough",Severe,"CBC, Chest X-Ray",Cardiac Condition,2024-06-24
+361,"Fever, Cough",Severe,"CBC, Chest X-Ray",Migraine,2025-01-10
+362,"Fever, Cough",Severe,"CBC, Chest X-Ray",Hypertension,2025-05-02
+363,Joint Pain,Mild,ESR,Arthritis,2024-09-03
+364,Skin Rash,Mild,CBC,Hypertension,2023-09-12
+365,"Joint Pain, Swelling",Moderate,"ESR, CRP",Hypertension,2023-03-31
+366,Dizziness,Mild,"BP Measurement, Blood Sugar",Migraine,2025-05-18
+367,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Allergic Reaction,2023-03-06
+368,Chest Pain,Severe,"ECG, Troponin",Cardiac Condition,2023-06-24
+369,Headache,Mild,"BP Measurement, Vision Check",Cardiac Condition,2025-02-27
+370,Skin Rash,Mild,CBC,Cardiac Condition,2025-03-28
+371,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Arthritis,2024-12-16
+372,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Arthritis,2023-09-25
+373,Dizziness,Mild,"BP Measurement, Blood Sugar",Anemia,2024-03-17
+374,Chest Pain,Severe,"ECG, Troponin",Viral Infection,2024-12-29
+375,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Arthritis,2024-03-03
+376,Chest Pain,Severe,"ECG, Troponin",Hypertension,2025-01-08
+377,Diarrhea,Mild,Stool Examination,Respiratory Infection,2023-10-17
+378,"Skin Rash, Fever",Moderate,"CBC, CRP",Diabetes Mellitus,2023-03-03
+379,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Hypertension,2024-01-19
+380,Abdominal Pain,Mild,CBC,Cardiac Condition,2024-03-14
+381,"Joint Pain, Swelling",Moderate,"ESR, CRP",Viral Infection,2023-09-28
+382,"Fever, Cough",Severe,"CBC, Chest X-Ray",Diabetes Mellitus,2025-06-03
+383,"Fever, Cough",Severe,"CBC, Chest X-Ray",Migraine,2023-12-09
+384,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Anemia,2025-02-28
+385,"Skin Rash, Fever",Moderate,"CBC, CRP",Anemia,2023-11-19
+386,Dizziness,Mild,"BP Measurement, Blood Sugar",Cardiac Condition,2025-01-08
+387,Dizziness,Mild,"BP Measurement, Blood Sugar",Migraine,2023-02-04
+388,Headache,Severe,"CBC, BP Measurement",Respiratory Infection,2025-04-26
+389,"Skin Rash, Fever",Moderate,"CBC, CRP",Allergic Reaction,2023-07-06
+390,"Fever, Cough",Severe,"CBC, Chest X-Ray",Arthritis,2024-01-21
+391,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Respiratory Infection,2025-03-15
+392,Headache,Severe,"CBC, BP Measurement",Anemia,2023-05-30
+393,"Fever, Cough",Severe,"CBC, Chest X-Ray",Allergic Reaction,2024-01-25
+394,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Anemia,2024-02-18
+395,Diarrhea,Mild,Stool Examination,Gastroenteritis,2023-05-02
+396,Chest Pain,Severe,"ECG, Troponin",Cardiac Condition,2025-04-28
+397,"Fever, Cough",Severe,"CBC, Chest X-Ray",Migraine,2023-04-27
+398,Abdominal Pain,Mild,CBC,Viral Infection,2023-04-28
+399,Diarrhea,Mild,Stool Examination,Gastroenteritis,2024-07-16
+400,Diarrhea,Mild,Stool Examination,Respiratory Infection,2023-10-07
+401,"Headache, Fever",Moderate,"CBC, CRP",Arthritis,2023-02-25
+402,"Joint Pain, Swelling",Moderate,"ESR, CRP",Allergic Reaction,2023-09-14
+403,"Fever, Cough",Mild,CBC,Gastroenteritis,2024-06-12
+404,Joint Pain,Mild,ESR,Migraine,2023-11-23
+405,"Headache, Vomiting",Severe,"CBC, Electrolytes",Respiratory Infection,2024-02-12
+406,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Respiratory Infection,2025-04-15
+407,Joint Pain,Mild,ESR,Hypertension,2024-09-24
+408,Headache,Severe,"CBC, BP Measurement",Arthritis,2023-09-07
+409,Headache,Severe,"CBC, BP Measurement",Allergic Reaction,2023-09-29
+410,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Respiratory Infection,2023-09-27
+411,Fatigue,Mild,CBC,Allergic Reaction,2025-03-25
+412,Skin Rash,Mild,CBC,Arthritis,2023-08-27
+413,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Arthritis,2023-12-17
+414,Chest Pain,Severe,"ECG, Troponin",Gastroenteritis,2024-01-06
+415,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Hypertension,2024-12-01
+416,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Viral Infection,2024-10-07
+417,"Headache, Fever",Moderate,"CBC, CRP",Hypertension,2023-03-13
+418,"Headache, Vomiting",Severe,"CBC, Electrolytes",Respiratory Infection,2024-10-31
+419,Joint Pain,Mild,ESR,Gastroenteritis,2025-03-20
+420,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Gastroenteritis,2024-02-04
+421,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Cardiac Condition,2023-09-23
+422,"Headache, Fever",Moderate,"CBC, CRP",Anemia,2023-07-01
+423,Skin Rash,Mild,CBC,Migraine,2023-07-25
+424,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Arthritis,2024-06-26
+425,Skin Rash,Mild,CBC,Cardiac Condition,2024-02-14
+426,Joint Pain,Mild,ESR,Migraine,2024-06-12
+427,"Fever, Cough",Mild,CBC,Migraine,2025-04-03
+428,Dizziness,Mild,"BP Measurement, Blood Sugar",Arthritis,2025-01-02
+429,Joint Pain,Mild,ESR,Diabetes Mellitus,2024-03-02
+430,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Diabetes Mellitus,2023-10-10
+431,Chest Pain,Severe,"ECG, Troponin",Viral Infection,2023-06-22
+432,Chest Pain,Severe,"ECG, Troponin",Viral Infection,2023-12-08
+433,Dizziness,Mild,"BP Measurement, Blood Sugar",Arthritis,2024-09-04
+434,Chest Pain,Severe,"ECG, Troponin",Allergic Reaction,2023-04-24
+435,Diarrhea,Mild,Stool Examination,Hypertension,2025-05-09
+436,"Headache, Fever",Moderate,"CBC, CRP",Allergic Reaction,2023-10-03
+437,Headache,Severe,"CBC, BP Measurement",Diabetes Mellitus,2024-05-11
+438,Diarrhea,Mild,Stool Examination,Arthritis,2023-12-20
+439,Headache,Severe,"CBC, BP Measurement",Gastroenteritis,2024-05-04
+440,Fatigue,Mild,CBC,Viral Infection,2023-01-21
+441,Skin Rash,Mild,CBC,Anemia,2023-02-03
+442,Joint Pain,Mild,ESR,Cardiac Condition,2024-08-26
+443,Diarrhea,Mild,Stool Examination,Gastroenteritis,2024-12-23
+444,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Migraine,2024-08-17
+445,Fatigue,Mild,CBC,Viral Infection,2023-09-26
+446,Abdominal Pain,Mild,CBC,Hypertension,2023-07-08
+447,Headache,Severe,"CBC, BP Measurement",Anemia,2024-09-03
+448,"Fever, Cough",Severe,"CBC, Chest X-Ray",Allergic Reaction,2023-02-07
+449,Fatigue,Mild,CBC,Cardiac Condition,2025-05-18
+450,"Fever, Cough",Severe,"CBC, Chest X-Ray",Arthritis,2024-09-23
+451,"Joint Pain, Swelling",Moderate,"ESR, CRP",Diabetes Mellitus,2025-03-20
+452,Headache,Mild,"BP Measurement, Vision Check",Migraine,2023-09-23
+453,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Migraine,2025-03-23
+454,"Joint Pain, Swelling",Moderate,"ESR, CRP",Gastroenteritis,2024-01-25
+455,Joint Pain,Mild,ESR,Respiratory Infection,2025-03-13
+456,Fatigue,Mild,CBC,Migraine,2024-05-12
+457,Abdominal Pain,Mild,CBC,Diabetes Mellitus,2024-06-29
+458,Abdominal Pain,Mild,CBC,Diabetes Mellitus,2023-01-01
+459,"Fever, Cough",Severe,"CBC, Chest X-Ray",Respiratory Infection,2024-12-25
+460,Diarrhea,Mild,Stool Examination,Allergic Reaction,2023-06-18
+461,Headache,Mild,"BP Measurement, Vision Check",Cardiac Condition,2023-01-16
+462,Joint Pain,Mild,ESR,Hypertension,2023-03-15
+463,"Fever, Cough",Mild,CBC,Anemia,2023-09-24
+464,Headache,Severe,"CBC, BP Measurement",Anemia,2024-10-21
+465,"Skin Rash, Fever",Moderate,"CBC, CRP",Diabetes Mellitus,2024-05-04
+466,Chest Pain,Severe,"ECG, Troponin",Diabetes Mellitus,2024-01-10
+467,Joint Pain,Mild,ESR,Gastroenteritis,2023-02-22
+468,"Fever, Cough",Mild,CBC,Anemia,2024-10-25
+469,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Hypertension,2024-03-04
+470,Fatigue,Mild,CBC,Hypertension,2024-01-04
+471,Diarrhea,Mild,Stool Examination,Gastroenteritis,2023-08-01
+472,Dizziness,Mild,"BP Measurement, Blood Sugar",Anemia,2025-06-13
+473,Abdominal Pain,Mild,CBC,Cardiac Condition,2023-02-03
+474,Fatigue,Mild,CBC,Diabetes Mellitus,2024-06-25
+475,Fatigue,Mild,CBC,Cardiac Condition,2024-08-14
+476,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Diabetes Mellitus,2024-10-23
+477,Dizziness,Mild,"BP Measurement, Blood Sugar",Gastroenteritis,2023-12-14
+478,"Fever, Cough",Mild,CBC,Cardiac Condition,2023-01-10
+479,Dizziness,Mild,"BP Measurement, Blood Sugar",Viral Infection,2024-08-10
+480,Headache,Severe,"CBC, BP Measurement",Respiratory Infection,2023-06-10
+481,Joint Pain,Mild,ESR,Arthritis,2024-04-09
+482,"Joint Pain, Swelling",Moderate,"ESR, CRP",Anemia,2025-05-01
+483,"Joint Pain, Swelling",Moderate,"ESR, CRP",Arthritis,2024-03-22
+484,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Anemia,2024-06-27
+485,"Joint Pain, Swelling",Moderate,"ESR, CRP",Cardiac Condition,2023-02-13
+486,Abdominal Pain,Mild,CBC,Respiratory Infection,2023-05-02
+487,Skin Rash,Mild,CBC,Cardiac Condition,2024-03-12
+488,Abdominal Pain,Mild,CBC,Hypertension,2024-03-12
+489,"Headache, Vomiting",Severe,"CBC, Electrolytes",Hypertension,2023-01-19
+490,Fatigue,Mild,CBC,Diabetes Mellitus,2023-11-09
+491,Joint Pain,Mild,ESR,Anemia,2023-03-10
+492,Abdominal Pain,Mild,CBC,Gastroenteritis,2024-04-18
+493,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Respiratory Infection,2023-06-29
+494,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Gastroenteritis,2024-12-12
+495,Joint Pain,Mild,ESR,Diabetes Mellitus,2025-04-11
+496,"Joint Pain, Swelling",Moderate,"ESR, CRP",Anemia,2024-09-09
+497,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Allergic Reaction,2024-05-17
+498,Dizziness,Mild,"BP Measurement, Blood Sugar",Migraine,2024-01-21
+499,"Fever, Cough",Severe,"CBC, Chest X-Ray",Migraine,2023-12-28
+500,"Fever, Cough",Mild,CBC,Respiratory Infection,2025-02-24
+501,"Skin Rash, Fever",Moderate,"CBC, CRP",Hypertension,2024-07-18
+502,Joint Pain,Mild,ESR,Arthritis,2023-11-19
+503,"Headache, Fever",Moderate,"CBC, CRP",Diabetes Mellitus,2024-01-23
+504,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Allergic Reaction,2024-09-20
+505,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Cardiac Condition,2023-02-28
+506,Abdominal Pain,Mild,CBC,Gastroenteritis,2023-11-03
+507,Skin Rash,Mild,CBC,Gastroenteritis,2024-09-06
+508,Headache,Mild,"BP Measurement, Vision Check",Anemia,2024-11-03
+509,Headache,Mild,"BP Measurement, Vision Check",Arthritis,2023-11-07
+510,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Migraine,2025-03-24
+511,"Fever, Cough",Severe,"CBC, Chest X-Ray",Migraine,2023-02-01
+512,Chest Pain,Severe,"ECG, Troponin",Diabetes Mellitus,2024-12-12
+513,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Migraine,2024-09-21
+514,Diarrhea,Mild,Stool Examination,Anemia,2024-09-28
+515,Chest Pain,Severe,"ECG, Troponin",Migraine,2024-03-29
+516,Headache,Mild,"BP Measurement, Vision Check",Allergic Reaction,2023-03-22
+517,Joint Pain,Mild,ESR,Arthritis,2024-09-19
+518,Headache,Severe,"CBC, BP Measurement",Anemia,2024-05-09
+519,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Allergic Reaction,2023-07-22
+520,"Fever, Cough",Mild,CBC,Viral Infection,2023-03-01
+521,"Skin Rash, Fever",Moderate,"CBC, CRP",Gastroenteritis,2023-05-12
+522,Chest Pain,Severe,"ECG, Troponin",Hypertension,2025-03-06
+523,Dizziness,Mild,"BP Measurement, Blood Sugar",Cardiac Condition,2023-04-09
+524,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Anemia,2024-02-26
+525,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Arthritis,2023-03-10
+526,"Skin Rash, Fever",Moderate,"CBC, CRP",Hypertension,2025-02-24
+527,Skin Rash,Mild,CBC,Cardiac Condition,2024-04-07
+528,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Hypertension,2024-10-19
+529,Headache,Severe,"CBC, BP Measurement",Arthritis,2023-08-16
+530,Headache,Severe,"CBC, BP Measurement",Anemia,2023-11-09
+531,Joint Pain,Mild,ESR,Respiratory Infection,2025-05-16
+532,"Headache, Fever",Moderate,"CBC, CRP",Hypertension,2024-10-24
+533,Skin Rash,Mild,CBC,Gastroenteritis,2024-01-29
+534,Skin Rash,Mild,CBC,Migraine,2024-09-06
+535,Headache,Severe,"CBC, BP Measurement",Hypertension,2023-08-20
+536,Joint Pain,Mild,ESR,Hypertension,2025-02-18
+537,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Migraine,2025-05-24
+538,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Viral Infection,2025-05-17
+539,"Fever, Cough",Mild,CBC,Gastroenteritis,2024-07-18
+540,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Viral Infection,2025-06-05
+541,"Fever, Cough",Mild,CBC,Hypertension,2023-12-22
+542,"Headache, Vomiting",Severe,"CBC, Electrolytes",Respiratory Infection,2024-02-06
+543,"Headache, Vomiting",Severe,"CBC, Electrolytes",Anemia,2023-12-26
+544,Headache,Severe,"CBC, BP Measurement",Diabetes Mellitus,2023-05-27
+545,"Fever, Cough",Severe,"CBC, Chest X-Ray",Anemia,2024-04-14
+546,Dizziness,Mild,"BP Measurement, Blood Sugar",Respiratory Infection,2024-06-05
+547,"Headache, Vomiting",Severe,"CBC, Electrolytes",Hypertension,2024-04-02
+548,"Skin Rash, Fever",Moderate,"CBC, CRP",Allergic Reaction,2023-06-13
+549,"Fever, Cough",Mild,CBC,Viral Infection,2025-03-26
+550,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Migraine,2024-03-20
+551,"Headache, Fever",Moderate,"CBC, CRP",Hypertension,2025-03-19
+552,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Hypertension,2025-05-24
+553,"Headache, Fever",Moderate,"CBC, CRP",Diabetes Mellitus,2024-01-09
+554,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Allergic Reaction,2024-05-27
+555,Joint Pain,Mild,ESR,Gastroenteritis,2023-07-04
+556,Joint Pain,Mild,ESR,Hypertension,2023-03-06
+557,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Anemia,2024-03-21
+558,"Fever, Cough",Mild,CBC,Arthritis,2024-09-13
+559,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Viral Infection,2024-10-31
+560,Fatigue,Mild,CBC,Cardiac Condition,2023-10-03
+561,Chest Pain,Severe,"ECG, Troponin",Arthritis,2024-09-23
+562,Diarrhea,Mild,Stool Examination,Cardiac Condition,2024-03-24
+563,"Fever, Cough",Severe,"CBC, Chest X-Ray",Diabetes Mellitus,2023-03-30
+564,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Respiratory Infection,2024-01-11
+565,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Migraine,2024-08-01
+566,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Allergic Reaction,2023-05-02
+567,Fatigue,Mild,CBC,Diabetes Mellitus,2023-07-18
+568,"Headache, Vomiting",Severe,"CBC, Electrolytes",Migraine,2023-08-26
+569,Headache,Mild,"BP Measurement, Vision Check",Allergic Reaction,2023-12-12
+570,Headache,Severe,"CBC, BP Measurement",Respiratory Infection,2025-02-14
+571,"Headache, Vomiting",Severe,"CBC, Electrolytes",Cardiac Condition,2025-04-14
+572,Abdominal Pain,Mild,CBC,Cardiac Condition,2024-06-07
+573,Dizziness,Mild,"BP Measurement, Blood Sugar",Cardiac Condition,2023-05-08
+574,Chest Pain,Severe,"ECG, Troponin",Hypertension,2025-03-16
+575,Dizziness,Mild,"BP Measurement, Blood Sugar",Respiratory Infection,2023-01-04
+576,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Allergic Reaction,2024-10-04
+577,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Anemia,2024-03-23
+578,Headache,Mild,"BP Measurement, Vision Check",Diabetes Mellitus,2024-06-11
+579,"Joint Pain, Swelling",Moderate,"ESR, CRP",Respiratory Infection,2025-04-05
+580,Chest Pain,Severe,"ECG, Troponin",Respiratory Infection,2025-03-29
+581,"Fever, Cough",Mild,CBC,Hypertension,2023-07-29
+582,"Fever, Cough",Mild,CBC,Diabetes Mellitus,2023-05-24
+583,"Fever, Cough",Mild,CBC,Hypertension,2024-01-16
+584,"Fever, Cough",Severe,"CBC, Chest X-Ray",Allergic Reaction,2024-02-03
+585,"Joint Pain, Swelling",Moderate,"ESR, CRP",Respiratory Infection,2023-01-31
+586,Skin Rash,Mild,CBC,Migraine,2025-05-21
+587,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Arthritis,2024-08-05
+588,"Headache, Fever",Moderate,"CBC, CRP",Respiratory Infection,2023-04-21
+589,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Anemia,2024-01-03
+590,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Diabetes Mellitus,2024-05-27
+591,"Skin Rash, Fever",Moderate,"CBC, CRP",Allergic Reaction,2024-11-14
+592,Joint Pain,Mild,ESR,Anemia,2023-05-03
+593,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Viral Infection,2024-08-17
+594,Headache,Severe,"CBC, BP Measurement",Arthritis,2024-10-09
+595,Headache,Mild,"BP Measurement, Vision Check",Cardiac Condition,2025-06-07
+596,"Fever, Cough",Mild,CBC,Viral Infection,2024-11-05
+597,"Fever, Cough",Severe,"CBC, Chest X-Ray",Hypertension,2024-12-18
+598,Fatigue,Mild,CBC,Hypertension,2023-12-06
+599,Dizziness,Mild,"BP Measurement, Blood Sugar",Cardiac Condition,2025-01-26
+600,"Fever, Cough",Mild,CBC,Diabetes Mellitus,2025-04-04
+601,Skin Rash,Mild,CBC,Hypertension,2023-11-22
+602,Diarrhea,Mild,Stool Examination,Cardiac Condition,2023-01-01
+603,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Viral Infection,2024-09-09
+604,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Respiratory Infection,2024-01-16
+605,"Headache, Vomiting",Severe,"CBC, Electrolytes",Allergic Reaction,2024-06-23
+606,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Migraine,2023-11-29
+607,Abdominal Pain,Mild,CBC,Viral Infection,2024-06-11
+608,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Respiratory Infection,2024-12-22
+609,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Arthritis,2023-08-15
+610,"Headache, Fever",Moderate,"CBC, CRP",Migraine,2023-09-01
+611,Headache,Mild,"BP Measurement, Vision Check",Viral Infection,2023-05-10
+612,"Headache, Fever",Moderate,"CBC, CRP",Viral Infection,2024-05-11
+613,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Allergic Reaction,2023-11-09
+614,Diarrhea,Mild,Stool Examination,Arthritis,2024-02-19
+615,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Anemia,2023-06-02
+616,Dizziness,Mild,"BP Measurement, Blood Sugar",Migraine,2024-08-03
+617,Chest Pain,Severe,"ECG, Troponin",Cardiac Condition,2024-08-28
+618,"Headache, Fever",Moderate,"CBC, CRP",Allergic Reaction,2023-09-13
+619,Joint Pain,Mild,ESR,Gastroenteritis,2023-09-07
+620,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Migraine,2023-02-04
+621,"Headache, Fever",Moderate,"CBC, CRP",Arthritis,2023-08-17
+622,Diarrhea,Mild,Stool Examination,Arthritis,2023-01-20
+623,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Gastroenteritis,2024-06-08
+624,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Anemia,2023-06-09
+625,Skin Rash,Mild,CBC,Migraine,2024-04-09
+626,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Allergic Reaction,2023-08-27
+627,Headache,Mild,"BP Measurement, Vision Check",Cardiac Condition,2023-06-04
+628,"Headache, Vomiting",Severe,"CBC, Electrolytes",Migraine,2024-05-18
+629,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Migraine,2023-03-25
+630,Dizziness,Mild,"BP Measurement, Blood Sugar",Respiratory Infection,2023-02-18
+631,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Viral Infection,2023-10-07
+632,"Fever, Cough",Severe,"CBC, Chest X-Ray",Migraine,2023-08-19
+633,Dizziness,Mild,"BP Measurement, Blood Sugar",Anemia,2023-04-13
+634,"Joint Pain, Swelling",Moderate,"ESR, CRP",Hypertension,2023-11-07
+635,"Joint Pain, Swelling",Moderate,"ESR, CRP",Respiratory Infection,2023-08-23
+636,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Migraine,2023-01-07
+637,"Skin Rash, Fever",Moderate,"CBC, CRP",Arthritis,2023-10-16
+638,Joint Pain,Mild,ESR,Allergic Reaction,2024-04-30
+639,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Cardiac Condition,2023-08-10
+640,Dizziness,Mild,"BP Measurement, Blood Sugar",Allergic Reaction,2024-08-26
+641,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Gastroenteritis,2023-10-03
+642,Dizziness,Mild,"BP Measurement, Blood Sugar",Respiratory Infection,2023-12-18
+643,"Skin Rash, Fever",Moderate,"CBC, CRP",Cardiac Condition,2024-05-20
+644,Headache,Severe,"CBC, BP Measurement",Anemia,2023-07-27
+645,"Skin Rash, Fever",Moderate,"CBC, CRP",Gastroenteritis,2024-07-04
+646,"Headache, Fever",Moderate,"CBC, CRP",Gastroenteritis,2023-11-11
+647,"Fever, Cough",Severe,"CBC, Chest X-Ray",Arthritis,2023-11-04
+648,"Joint Pain, Swelling",Moderate,"ESR, CRP",Cardiac Condition,2023-05-03
+649,"Headache, Fever",Moderate,"CBC, CRP",Cardiac Condition,2024-02-03
+650,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Hypertension,2024-05-21
+651,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Gastroenteritis,2024-09-25
+652,"Skin Rash, Fever",Moderate,"CBC, CRP",Viral Infection,2023-07-05
+653,"Headache, Fever",Moderate,"CBC, CRP",Anemia,2025-04-21
+654,Diarrhea,Mild,Stool Examination,Viral Infection,2025-01-27
+655,Diarrhea,Mild,Stool Examination,Anemia,2023-03-27
+656,Joint Pain,Mild,ESR,Gastroenteritis,2024-09-12
+657,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Allergic Reaction,2025-04-23
+658,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Anemia,2024-04-16
+659,Headache,Severe,"CBC, BP Measurement",Migraine,2023-09-20
+660,"Joint Pain, Swelling",Moderate,"ESR, CRP",Hypertension,2023-04-03
+661,Diarrhea,Mild,Stool Examination,Diabetes Mellitus,2023-12-19
+662,Abdominal Pain,Mild,CBC,Migraine,2023-09-05
+663,Headache,Severe,"CBC, BP Measurement",Anemia,2023-02-25
+664,Headache,Mild,"BP Measurement, Vision Check",Diabetes Mellitus,2024-04-13
+665,Dizziness,Mild,"BP Measurement, Blood Sugar",Gastroenteritis,2023-03-14
+666,"Headache, Vomiting",Severe,"CBC, Electrolytes",Hypertension,2023-10-02
+667,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Migraine,2023-06-28
+668,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Anemia,2024-07-23
+669,"Headache, Fever",Moderate,"CBC, CRP",Hypertension,2024-02-22
+670,"Fever, Cough",Severe,"CBC, Chest X-Ray",Gastroenteritis,2023-03-02
+671,"Fever, Cough",Mild,CBC,Respiratory Infection,2024-10-23
+672,Headache,Severe,"CBC, BP Measurement",Respiratory Infection,2023-02-16
+673,"Fever, Cough",Mild,CBC,Cardiac Condition,2023-04-13
+674,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Migraine,2025-01-31
+675,Headache,Severe,"CBC, BP Measurement",Respiratory Infection,2023-08-20
+676,"Headache, Vomiting",Severe,"CBC, Electrolytes",Respiratory Infection,2025-04-20
+677,"Fever, Cough",Severe,"CBC, Chest X-Ray",Diabetes Mellitus,2025-05-05
+678,Diarrhea,Mild,Stool Examination,Allergic Reaction,2025-03-23
+679,"Skin Rash, Fever",Moderate,"CBC, CRP",Diabetes Mellitus,2023-12-02
+680,Skin Rash,Mild,CBC,Arthritis,2025-04-18
+681,Fatigue,Mild,CBC,Viral Infection,2025-06-03
+682,Headache,Severe,"CBC, BP Measurement",Migraine,2024-05-29
+683,Headache,Mild,"BP Measurement, Vision Check",Viral Infection,2024-03-23
+684,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Respiratory Infection,2024-07-16
+685,"Fever, Cough",Severe,"CBC, Chest X-Ray",Arthritis,2025-02-24
+686,Dizziness,Mild,"BP Measurement, Blood Sugar",Anemia,2023-01-13
+687,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Anemia,2025-01-13
+688,"Joint Pain, Swelling",Moderate,"ESR, CRP",Respiratory Infection,2025-02-21
+689,"Fever, Cough",Severe,"CBC, Chest X-Ray",Gastroenteritis,2024-05-31
+690,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Gastroenteritis,2025-04-27
+691,"Headache, Vomiting",Severe,"CBC, Electrolytes",Anemia,2024-11-22
+692,Dizziness,Mild,"BP Measurement, Blood Sugar",Respiratory Infection,2024-10-04
+693,"Skin Rash, Fever",Moderate,"CBC, CRP",Arthritis,2024-11-26
+694,"Headache, Vomiting",Severe,"CBC, Electrolytes",Viral Infection,2025-04-22
+695,"Headache, Vomiting",Severe,"CBC, Electrolytes",Diabetes Mellitus,2023-10-08
+696,"Headache, Fever",Moderate,"CBC, CRP",Allergic Reaction,2023-12-24
+697,"Fever, Cough",Mild,CBC,Viral Infection,2024-10-19
+698,Skin Rash,Mild,CBC,Hypertension,2025-02-27
+699,Diarrhea,Mild,Stool Examination,Migraine,2025-02-23
+700,"Headache, Fever",Moderate,"CBC, CRP",Anemia,2023-05-18
+701,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Anemia,2023-07-05
+702,Abdominal Pain,Mild,CBC,Migraine,2024-08-17
+703,"Headache, Vomiting",Severe,"CBC, Electrolytes",Anemia,2024-10-14
+704,"Skin Rash, Fever",Moderate,"CBC, CRP",Gastroenteritis,2023-02-22
+705,Dizziness,Mild,"BP Measurement, Blood Sugar",Anemia,2023-01-18
+706,"Headache, Vomiting",Severe,"CBC, Electrolytes",Gastroenteritis,2024-09-03
+707,Dizziness,Mild,"BP Measurement, Blood Sugar",Gastroenteritis,2024-11-24
+708,"Headache, Vomiting",Severe,"CBC, Electrolytes",Arthritis,2024-03-26
+709,"Joint Pain, Swelling",Moderate,"ESR, CRP",Hypertension,2023-01-22
+710,Chest Pain,Severe,"ECG, Troponin",Hypertension,2024-08-08
+711,Headache,Mild,"BP Measurement, Vision Check",Diabetes Mellitus,2025-01-05
+712,"Headache, Vomiting",Severe,"CBC, Electrolytes",Anemia,2023-07-04
+713,Abdominal Pain,Mild,CBC,Arthritis,2025-03-18
+714,Chest Pain,Severe,"ECG, Troponin",Respiratory Infection,2023-06-30
+715,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Diabetes Mellitus,2025-03-24
+716,Diarrhea,Mild,Stool Examination,Respiratory Infection,2023-09-27
+717,Diarrhea,Mild,Stool Examination,Gastroenteritis,2023-05-16
+718,"Skin Rash, Fever",Moderate,"CBC, CRP",Arthritis,2024-09-26
+719,"Fever, Cough",Mild,CBC,Gastroenteritis,2024-09-04
+720,"Headache, Vomiting",Severe,"CBC, Electrolytes",Gastroenteritis,2024-01-02
+721,Joint Pain,Mild,ESR,Allergic Reaction,2024-03-08
+722,Dizziness,Mild,"BP Measurement, Blood Sugar",Respiratory Infection,2023-12-16
+723,"Fever, Cough",Mild,CBC,Diabetes Mellitus,2024-07-05
+724,Dizziness,Mild,"BP Measurement, Blood Sugar",Diabetes Mellitus,2023-03-14
+725,Abdominal Pain,Mild,CBC,Diabetes Mellitus,2023-03-09
+726,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Respiratory Infection,2024-10-28
+727,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Diabetes Mellitus,2023-08-25
+728,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Migraine,2024-08-29
+729,"Skin Rash, Fever",Moderate,"CBC, CRP",Migraine,2023-01-28
+730,Chest Pain,Severe,"ECG, Troponin",Respiratory Infection,2023-06-15
+731,"Fever, Cough",Mild,CBC,Diabetes Mellitus,2024-03-07
+732,Diarrhea,Mild,Stool Examination,Diabetes Mellitus,2025-06-15
+733,Abdominal Pain,Mild,CBC,Arthritis,2023-02-07
+734,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Cardiac Condition,2024-10-03
+735,"Headache, Vomiting",Severe,"CBC, Electrolytes",Gastroenteritis,2024-11-07
+736,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Hypertension,2023-10-09
+737,"Skin Rash, Fever",Moderate,"CBC, CRP",Allergic Reaction,2023-07-25
+738,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Anemia,2024-08-30
+739,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Migraine,2025-03-26
+740,"Headache, Vomiting",Severe,"CBC, Electrolytes",Allergic Reaction,2025-04-22
+741,"Joint Pain, Swelling",Moderate,"ESR, CRP",Gastroenteritis,2023-06-29
+742,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Cardiac Condition,2024-02-23
+743,"Headache, Fever",Moderate,"CBC, CRP",Viral Infection,2024-07-02
+744,"Skin Rash, Fever",Moderate,"CBC, CRP",Diabetes Mellitus,2024-07-20
+745,Fatigue,Mild,CBC,Anemia,2024-05-07
+746,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Allergic Reaction,2023-10-02
+747,"Headache, Vomiting",Severe,"CBC, Electrolytes",Cardiac Condition,2025-01-18
+748,Abdominal Pain,Mild,CBC,Diabetes Mellitus,2024-03-16
+749,"Joint Pain, Swelling",Moderate,"ESR, CRP",Allergic Reaction,2024-12-21
+750,Skin Rash,Mild,CBC,Viral Infection,2023-09-02
+751,Dizziness,Mild,"BP Measurement, Blood Sugar",Hypertension,2023-09-24
+752,Headache,Mild,"BP Measurement, Vision Check",Respiratory Infection,2024-05-24
+753,Headache,Severe,"CBC, BP Measurement",Allergic Reaction,2023-06-21
+754,Headache,Severe,"CBC, BP Measurement",Migraine,2025-01-12
+755,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Allergic Reaction,2024-07-08
+756,Headache,Mild,"BP Measurement, Vision Check",Arthritis,2023-06-14
+757,Abdominal Pain,Mild,CBC,Arthritis,2023-09-29
+758,Headache,Severe,"CBC, BP Measurement",Gastroenteritis,2024-11-19
+759,"Joint Pain, Swelling",Moderate,"ESR, CRP",Cardiac Condition,2023-06-15
+760,"Fever, Cough",Mild,CBC,Anemia,2023-03-29
+761,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Cardiac Condition,2024-04-03
+762,Diarrhea,Mild,Stool Examination,Allergic Reaction,2024-05-27
+763,Abdominal Pain,Mild,CBC,Viral Infection,2023-04-24
+764,"Fever, Cough",Severe,"CBC, Chest X-Ray",Viral Infection,2023-10-12
+765,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Gastroenteritis,2023-07-18
+766,Dizziness,Mild,"BP Measurement, Blood Sugar",Gastroenteritis,2024-05-24
+767,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Gastroenteritis,2023-06-21
+768,Diarrhea,Mild,Stool Examination,Allergic Reaction,2023-05-25
+769,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Migraine,2024-07-04
+770,"Joint Pain, Swelling",Moderate,"ESR, CRP",Allergic Reaction,2024-05-05
+771,"Joint Pain, Swelling",Moderate,"ESR, CRP",Anemia,2023-06-03
+772,Abdominal Pain,Mild,CBC,Allergic Reaction,2025-04-17
+773,Chest Pain,Severe,"ECG, Troponin",Hypertension,2024-10-01
+774,"Headache, Vomiting",Severe,"CBC, Electrolytes",Respiratory Infection,2023-11-28
+775,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Viral Infection,2023-12-07
+776,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Arthritis,2024-05-12
+777,"Skin Rash, Fever",Moderate,"CBC, CRP",Arthritis,2023-10-05
+778,"Fever, Cough",Mild,CBC,Hypertension,2024-07-13
+779,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Respiratory Infection,2023-04-30
+780,"Fever, Cough",Severe,"CBC, Chest X-Ray",Cardiac Condition,2024-07-05
+781,"Fever, Cough",Mild,CBC,Diabetes Mellitus,2023-11-09
+782,"Fever, Cough",Severe,"CBC, Chest X-Ray",Viral Infection,2023-03-07
+783,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Hypertension,2024-09-25
+784,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Migraine,2025-02-21
+785,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Cardiac Condition,2023-07-19
+786,"Joint Pain, Swelling",Moderate,"ESR, CRP",Hypertension,2023-08-13
+787,"Joint Pain, Swelling",Moderate,"ESR, CRP",Diabetes Mellitus,2023-04-12
+788,"Headache, Fever",Moderate,"CBC, CRP",Cardiac Condition,2024-01-18
+789,"Fever, Cough",Severe,"CBC, Chest X-Ray",Hypertension,2024-10-10
+790,Diarrhea,Mild,Stool Examination,Arthritis,2025-06-12
+791,"Fever, Cough",Mild,CBC,Diabetes Mellitus,2023-06-26
+792,Dizziness,Mild,"BP Measurement, Blood Sugar",Migraine,2024-05-21
+793,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Cardiac Condition,2023-08-01
+794,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Allergic Reaction,2024-03-10
+795,"Fever, Cough",Severe,"CBC, Chest X-Ray",Gastroenteritis,2024-06-15
+796,"Headache, Vomiting",Severe,"CBC, Electrolytes",Gastroenteritis,2023-03-28
+797,"Joint Pain, Swelling",Moderate,"ESR, CRP",Allergic Reaction,2023-09-13
+798,"Fever, Cough",Severe,"CBC, Chest X-Ray",Respiratory Infection,2023-10-03
+799,Headache,Mild,"BP Measurement, Vision Check",Hypertension,2024-02-07
+800,Abdominal Pain,Mild,CBC,Viral Infection,2024-12-13
+801,Headache,Mild,"BP Measurement, Vision Check",Gastroenteritis,2024-09-20
+802,"Fever, Cough",Mild,CBC,Respiratory Infection,2024-09-03
+803,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Diabetes Mellitus,2023-05-09
+804,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Hypertension,2024-01-10
+805,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Gastroenteritis,2023-12-03
+806,"Fever, Cough",Mild,CBC,Anemia,2024-04-28
+807,"Headache, Vomiting",Severe,"CBC, Electrolytes",Arthritis,2025-04-29
+808,"Headache, Fever",Moderate,"CBC, CRP",Arthritis,2024-10-10
+809,"Headache, Vomiting",Severe,"CBC, Electrolytes",Arthritis,2024-11-27
+810,Chest Pain,Severe,"ECG, Troponin",Cardiac Condition,2025-05-25
+811,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Migraine,2025-02-01
+812,Headache,Mild,"BP Measurement, Vision Check",Hypertension,2024-08-21
+813,"Skin Rash, Fever",Moderate,"CBC, CRP",Cardiac Condition,2023-03-19
+814,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Migraine,2024-01-15
+815,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Allergic Reaction,2023-12-02
+816,Abdominal Pain,Mild,CBC,Viral Infection,2023-02-15
+817,"Headache, Vomiting",Severe,"CBC, Electrolytes",Hypertension,2023-10-08
+818,"Headache, Fever",Moderate,"CBC, CRP",Migraine,2024-05-05
+819,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Diabetes Mellitus,2023-08-05
+820,"Joint Pain, Swelling",Moderate,"ESR, CRP",Cardiac Condition,2025-04-18
+821,Headache,Severe,"CBC, BP Measurement",Cardiac Condition,2024-10-24
+822,Headache,Severe,"CBC, BP Measurement",Cardiac Condition,2025-04-28
+823,Dizziness,Mild,"BP Measurement, Blood Sugar",Allergic Reaction,2023-09-05
+824,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Arthritis,2025-05-19
+825,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Hypertension,2025-04-25
+826,Headache,Severe,"CBC, BP Measurement",Diabetes Mellitus,2024-05-04
+827,Abdominal Pain,Mild,CBC,Diabetes Mellitus,2024-11-10
+828,"Fever, Cough",Mild,CBC,Hypertension,2024-01-10
+829,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Migraine,2025-02-08
+830,"Joint Pain, Swelling",Moderate,"ESR, CRP",Gastroenteritis,2024-01-07
+831,Fatigue,Mild,CBC,Anemia,2024-06-27
+832,"Headache, Vomiting",Severe,"CBC, Electrolytes",Hypertension,2025-06-02
+833,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Arthritis,2023-02-22
+834,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Anemia,2023-03-17
+835,Abdominal Pain,Mild,CBC,Hypertension,2025-03-13
+836,Joint Pain,Mild,ESR,Arthritis,2024-08-19
+837,"Headache, Fever",Moderate,"CBC, CRP",Arthritis,2024-02-25
+838,"Skin Rash, Fever",Moderate,"CBC, CRP",Gastroenteritis,2023-09-24
+839,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Cardiac Condition,2024-03-15
+840,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Anemia,2025-02-28
+841,Headache,Severe,"CBC, BP Measurement",Cardiac Condition,2023-04-20
+842,"Skin Rash, Fever",Moderate,"CBC, CRP",Diabetes Mellitus,2023-04-24
+843,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Respiratory Infection,2024-10-24
+844,Headache,Severe,"CBC, BP Measurement",Migraine,2023-08-27
+845,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Hypertension,2023-06-12
+846,"Headache, Fever",Moderate,"CBC, CRP",Gastroenteritis,2024-01-27
+847,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Gastroenteritis,2023-10-08
+848,Dizziness,Mild,"BP Measurement, Blood Sugar",Viral Infection,2023-09-28
+849,Skin Rash,Mild,CBC,Respiratory Infection,2024-09-14
+850,"Fever, Cough",Severe,"CBC, Chest X-Ray",Allergic Reaction,2024-04-05
+851,Diarrhea,Mild,Stool Examination,Migraine,2024-08-22
+852,"Headache, Vomiting",Severe,"CBC, Electrolytes",Cardiac Condition,2023-05-29
+853,Fatigue,Mild,CBC,Respiratory Infection,2025-05-31
+854,"Headache, Fever",Moderate,"CBC, CRP",Viral Infection,2024-12-10
+855,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Diabetes Mellitus,2023-02-13
+856,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Viral Infection,2024-04-18
+857,Skin Rash,Mild,CBC,Allergic Reaction,2024-08-17
+858,Diarrhea,Mild,Stool Examination,Migraine,2024-10-23
+859,"Fever, Cough",Severe,"CBC, Chest X-Ray",Hypertension,2023-03-18
+860,"Headache, Fever",Moderate,"CBC, CRP",Hypertension,2024-10-06
+861,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Migraine,2025-01-30
+862,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Allergic Reaction,2023-05-10
+863,Fatigue,Mild,CBC,Anemia,2023-04-14
+864,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Viral Infection,2023-04-25
+865,Joint Pain,Mild,ESR,Hypertension,2025-04-17
+866,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Hypertension,2023-02-07
+867,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Migraine,2023-05-02
+868,Headache,Severe,"CBC, BP Measurement",Respiratory Infection,2024-08-16
+869,Skin Rash,Mild,CBC,Viral Infection,2023-01-17
+870,Dizziness,Mild,"BP Measurement, Blood Sugar",Arthritis,2023-10-20
+871,Diarrhea,Mild,Stool Examination,Diabetes Mellitus,2025-05-03
+872,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Gastroenteritis,2023-03-26
+873,Dizziness,Mild,"BP Measurement, Blood Sugar",Cardiac Condition,2024-08-30
+874,Fatigue,Mild,CBC,Arthritis,2024-09-11
+875,"Fever, Cough",Mild,CBC,Cardiac Condition,2024-02-08
+876,"Joint Pain, Swelling",Moderate,"ESR, CRP",Respiratory Infection,2024-03-18
+877,Headache,Mild,"BP Measurement, Vision Check",Anemia,2024-08-23
+878,"Joint Pain, Swelling",Moderate,"ESR, CRP",Cardiac Condition,2023-06-02
+879,"Headache, Vomiting",Severe,"CBC, Electrolytes",Hypertension,2024-07-30
+880,Fatigue,Mild,CBC,Diabetes Mellitus,2024-05-22
+881,Joint Pain,Mild,ESR,Cardiac Condition,2023-06-24
+882,"Headache, Fever",Moderate,"CBC, CRP",Cardiac Condition,2025-06-16
+883,"Skin Rash, Fever",Moderate,"CBC, CRP",Anemia,2023-06-04
+884,Diarrhea,Mild,Stool Examination,Migraine,2024-07-05
+885,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Viral Infection,2023-08-17
+886,"Headache, Vomiting",Severe,"CBC, Electrolytes",Cardiac Condition,2024-07-16
+887,Chest Pain,Severe,"ECG, Troponin",Hypertension,2024-09-06
+888,"Joint Pain, Swelling",Moderate,"ESR, CRP",Diabetes Mellitus,2024-11-13
+889,"Skin Rash, Fever",Moderate,"CBC, CRP",Allergic Reaction,2024-05-13
+890,"Headache, Fever",Moderate,"CBC, CRP",Diabetes Mellitus,2025-01-16
+891,Headache,Severe,"CBC, BP Measurement",Gastroenteritis,2025-01-17
+892,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Cardiac Condition,2024-04-15
+893,Skin Rash,Mild,CBC,Viral Infection,2024-07-19
+894,Diarrhea,Mild,Stool Examination,Anemia,2024-04-18
+895,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Migraine,2024-07-07
+896,Dizziness,Mild,"BP Measurement, Blood Sugar",Cardiac Condition,2024-01-05
+897,Headache,Severe,"CBC, BP Measurement",Migraine,2025-06-09
+898,Joint Pain,Mild,ESR,Diabetes Mellitus,2024-02-04
+899,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Anemia,2023-09-13
+900,"Headache, Vomiting",Severe,"CBC, Electrolytes",Hypertension,2023-08-26
+901,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Anemia,2024-04-07
+902,"Headache, Vomiting",Severe,"CBC, Electrolytes",Gastroenteritis,2025-02-28
+903,"Headache, Fever",Moderate,"CBC, CRP",Hypertension,2024-02-04
+904,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Arthritis,2023-07-12
+905,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Anemia,2025-04-25
+906,Headache,Severe,"CBC, BP Measurement",Respiratory Infection,2023-08-21
+907,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Diabetes Mellitus,2024-05-20
+908,"Fever, Cough",Severe,"CBC, Chest X-Ray",Anemia,2024-02-04
+909,Fatigue,Mild,CBC,Diabetes Mellitus,2023-07-24
+910,"Headache, Fever",Moderate,"CBC, CRP",Diabetes Mellitus,2025-04-15
+911,Diarrhea,Mild,Stool Examination,Respiratory Infection,2025-04-05
+912,Dizziness,Mild,"BP Measurement, Blood Sugar",Cardiac Condition,2025-03-29
+913,Skin Rash,Mild,CBC,Viral Infection,2025-01-02
+914,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Viral Infection,2023-08-10
+915,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Allergic Reaction,2023-11-24
+916,"Headache, Fever",Moderate,"CBC, CRP",Viral Infection,2024-04-18
+917,"Joint Pain, Swelling",Moderate,"ESR, CRP",Diabetes Mellitus,2024-05-08
+918,Abdominal Pain,Mild,CBC,Anemia,2024-02-14
+919,Skin Rash,Mild,CBC,Cardiac Condition,2025-05-06
+920,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Viral Infection,2025-04-02
+921,"Headache, Fever",Moderate,"CBC, CRP",Respiratory Infection,2023-10-13
+922,Diarrhea,Mild,Stool Examination,Hypertension,2023-01-19
+923,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Gastroenteritis,2024-01-12
+924,Diarrhea,Mild,Stool Examination,Cardiac Condition,2024-07-12
+925,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Anemia,2024-04-11
+926,Headache,Severe,"CBC, BP Measurement",Hypertension,2024-03-28
+927,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Diabetes Mellitus,2025-02-20
+928,"Headache, Fever",Moderate,"CBC, CRP",Hypertension,2025-06-15
+929,Joint Pain,Mild,ESR,Respiratory Infection,2023-12-09
+930,"Skin Rash, Fever",Moderate,"CBC, CRP",Gastroenteritis,2023-11-28
+931,"Headache, Vomiting",Severe,"CBC, Electrolytes",Cardiac Condition,2024-01-02
+932,"Headache, Vomiting",Severe,"CBC, Electrolytes",Anemia,2023-05-27
+933,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Gastroenteritis,2024-06-27
+934,Abdominal Pain,Mild,CBC,Respiratory Infection,2023-11-11
+935,Joint Pain,Mild,ESR,Anemia,2024-09-29
+936,Joint Pain,Mild,ESR,Viral Infection,2023-06-18
+937,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Cardiac Condition,2024-08-28
+938,"Skin Rash, Fever",Moderate,"CBC, CRP",Diabetes Mellitus,2025-01-20
+939,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Gastroenteritis,2024-08-26
+940,"Joint Pain, Swelling",Moderate,"ESR, CRP",Arthritis,2024-08-07
+941,"Joint Pain, Swelling",Moderate,"ESR, CRP",Hypertension,2025-02-18
+942,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Respiratory Infection,2023-04-01
+943,"Joint Pain, Swelling",Moderate,"ESR, CRP",Viral Infection,2023-05-07
+944,"Joint Pain, Swelling",Moderate,"ESR, CRP",Allergic Reaction,2024-07-06
+945,"Headache, Vomiting",Severe,"CBC, Electrolytes",Gastroenteritis,2023-08-07
+946,"Headache, Fever",Moderate,"CBC, CRP",Gastroenteritis,2025-04-22
+947,Joint Pain,Mild,ESR,Cardiac Condition,2024-09-17
+948,Skin Rash,Mild,CBC,Allergic Reaction,2023-02-28
+949,"Fatigue, Weight Loss",Moderate,"CBC, Thyroid Profile",Allergic Reaction,2024-05-19
+950,"Fever, Cough",Severe,"CBC, Chest X-Ray",Gastroenteritis,2023-02-12
+951,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Viral Infection,2023-03-09
+952,Abdominal Pain,Mild,CBC,Cardiac Condition,2023-12-28
+953,Chest Pain,Severe,"ECG, Troponin",Migraine,2025-02-28
+954,Skin Rash,Mild,CBC,Cardiac Condition,2023-07-15
+955,Headache,Mild,"BP Measurement, Vision Check",Cardiac Condition,2024-01-16
+956,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Viral Infection,2023-11-13
+957,Fatigue,Mild,CBC,Anemia,2023-05-12
+958,Chest Pain,Severe,"ECG, Troponin",Cardiac Condition,2024-01-15
+959,"Headache, Vomiting",Severe,"CBC, Electrolytes",Gastroenteritis,2025-02-19
+960,Fatigue,Mild,CBC,Migraine,2023-07-24
+961,Headache,Mild,"BP Measurement, Vision Check",Migraine,2023-05-25
+962,Chest Pain,Severe,"ECG, Troponin",Diabetes Mellitus,2024-08-21
+963,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Diabetes Mellitus,2025-03-05
+964,"Fever, Cough",Mild,CBC,Anemia,2025-06-09
+965,"Headache, Fever",Moderate,"CBC, CRP",Allergic Reaction,2024-04-25
+966,"Headache, Fever",Moderate,"CBC, CRP",Anemia,2024-04-21
+967,"Chest Pain, Shortness of Breath",Emergency,"ECG, Troponin, Chest X-Ray",Anemia,2023-11-06
+968,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Migraine,2023-10-29
+969,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Arthritis,2024-12-11
+970,"Joint Pain, Swelling",Moderate,"ESR, CRP",Hypertension,2023-09-21
+971,"Joint Pain, Swelling",Moderate,"ESR, CRP",Viral Infection,2023-12-24
+972,Abdominal Pain,Mild,CBC,Diabetes Mellitus,2024-01-29
+973,Headache,Severe,"CBC, BP Measurement",Cardiac Condition,2025-03-22
+974,"Headache, Vomiting",Severe,"CBC, Electrolytes",Anemia,2023-11-08
+975,Headache,Mild,"BP Measurement, Vision Check",Respiratory Infection,2025-01-25
+976,Headache,Severe,"CBC, BP Measurement",Arthritis,2023-08-13
+977,"Skin Rash, Fever",Moderate,"CBC, CRP",Migraine,2024-09-19
+978,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Arthritis,2024-03-12
+979,"Fever, Cough",Severe,"CBC, Chest X-Ray",Hypertension,2023-05-29
+980,"Headache, Vomiting",Severe,"CBC, Electrolytes",Respiratory Infection,2023-03-11
+981,"Joint Pain, Swelling",Moderate,"ESR, CRP",Respiratory Infection,2024-11-01
+982,"Headache, Vomiting",Severe,"CBC, Electrolytes",Gastroenteritis,2023-04-06
+983,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Diabetes Mellitus,2024-08-05
+984,"Joint Pain, Swelling",Moderate,"ESR, CRP",Viral Infection,2024-10-16
+985,"Diarrhea, Dehydration",Moderate,"Electrolytes, CBC",Arthritis,2024-09-11
+986,"Fever, Cough",Severe,"CBC, Chest X-Ray",Anemia,2025-05-10
+987,"Frequent Urination, Thirst",Moderate,"Blood Sugar, HbA1c",Cardiac Condition,2023-10-25
+988,Abdominal Pain,Mild,CBC,Arthritis,2023-01-04
+989,Abdominal Pain,Mild,CBC,Allergic Reaction,2025-02-23
+990,"Abdominal Pain, Vomiting",Moderate,"CBC, Ultrasound Abdomen",Migraine,2024-07-08
+991,"Joint Pain, Swelling",Moderate,"ESR, CRP",Gastroenteritis,2024-09-13
+992,"Joint Pain, Swelling",Moderate,"ESR, CRP",Anemia,2024-01-17
+993,Chest Pain,Severe,"ECG, Troponin",Hypertension,2025-05-06
+994,"Headache, Fever",Moderate,"CBC, CRP",Migraine,2023-03-21
+995,Joint Pain,Mild,ESR,Anemia,2023-12-06
+996,Diarrhea,Mild,Stool Examination,Anemia,2023-11-09
+997,Chest Pain,Severe,"ECG, Troponin",Arthritis,2024-05-01
+998,"Fever, Cough",Severe,"CBC, Chest X-Ray",Arthritis,2024-01-26
+999,"Joint Pain, Swelling",Moderate,"ESR, CRP",Hypertension,2024-01-30
+1000,Headache,Severe,"CBC, BP Measurement",Hypertension,2024-06-04
