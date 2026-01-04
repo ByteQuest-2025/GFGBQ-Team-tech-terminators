@@ -11,9 +11,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-# For Hackathon: If using Google Maps, add this to your .env. 
-# If using Geoapify (free alternative), add GEOAPIFY_API_KEY.
 GOOGLE_MAPS_API_KEY = os.getenv("GOOGLE_MAPS_API_KEY") 
+GEOAPIFY_API_KEY = os.getenv("GEOAPIFY_API_KEY")
 
 if not GEMINI_API_KEY:
     raise RuntimeError("GEMINI_API_KEY not found in .env file")
@@ -23,7 +22,7 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 # -------------------- DATA PREPROCESSING --------------------
 @st.cache_data
 def load_and_preprocess_data():
-    # Load the new expanded dataset
+    """Load and preprocess the disease dataset"""
     df = pd.read_csv("DiseaseAndSymptoms.csv")
     
     # Clean up whitespace in headers and labels
@@ -49,6 +48,7 @@ df = load_and_preprocess_data()
 # -------------------- AI MODELS & EMBEDDINGS --------------------
 @st.cache_resource
 def load_models():
+    """Load sentence transformer models"""
     # Fast model for quick semantic search
     fast = SentenceTransformer("all-MiniLM-L6-v2")
     # Expert model for medical nuance
@@ -59,6 +59,7 @@ fast_model, expert_model = load_models()
 
 @st.cache_resource
 def load_embeddings():
+    """Pre-compute embeddings for the dataset"""
     # Encode the merged symptom text for the whole dataset
     fast_emb = fast_model.encode(df["text"].tolist(), convert_to_tensor=True)
     expert_emb = expert_model.encode(df["text"].tolist(), convert_to_tensor=True)
@@ -66,7 +67,7 @@ def load_embeddings():
 
 fast_embeddings, expert_embeddings = load_embeddings()
 
-# -------------------- SPECIALIST MAPPING (41 DISEASES) --------------------
+# -------------------- SPECIALIST MAPPING --------------------
 specialist_map = {
     "Fungal infection": "Dermatologist",
     "Allergy": "Allergist",
@@ -192,23 +193,74 @@ def get_medicine_details(disease: str):
     return None
 
 def get_gemini_reasoning(user_data, user_input, candidates):
-    """Uses Gemini to provide clinical analysis of BERT's findings."""
-    prompt = f"""
-    ROLE: Senior Clinical Diagnostic Assistant
-    PATIENT PROFILE: Age {user_data.get('age')}, Gender {user_data.get('gender')}, History: {user_data.get('chronic')}
-    SYMPTOMS REPORTED: "{user_input}"
-    AI PREDICTIONS (Top 3): {candidates}
-
-    TASK:
-    1. Explain which prediction is most likely given the patient's profile.
-    2. Flag clinical 'Red Flags' (e.g. Heart Attack signs).
-    3. Keep it professional and empathetic.
     """
+    Enhanced clinical reasoning that incorporates laboratory vitals 
+    to validate or flag discrepancies with BERT predictions.
+    """
+    # Safely extract lab results
+    labs = user_data.get('labs', {})
+    blood_sugar = labs.get('blood_sugar', 100)
+    bp = labs.get('systolic_bp', 120)
+    spo2 = labs.get('spo2', 98)
+    
+    # Build detailed lab summary
+    lab_summary = f"""
+    - Blood Glucose: {blood_sugar} mg/dL {'🚨 CRITICAL HIGH' if blood_sugar > 200 else '✓ Normal' if blood_sugar <= 140 else '⚠️ Elevated'}
+    - Systolic BP: {bp} mmHg {'⚠️ HYPERTENSIVE' if bp >= 140 else '✓ Normal' if bp <= 120 else '⚠️ Elevated'}
+    - Oxygen Saturation: {spo2}% {'🚨 CRITICAL LOW' if spo2 < 92 else '⚠️ Low' if spo2 < 95 else '✓ Normal'}
+    """
+    
+    prompt = f"""
+    ROLE: Senior Clinical Diagnostic Assistant performing multimodal medical analysis
+    
+    PATIENT PROFILE:
+    - Age: {user_data.get('age')} years
+    - Gender: {user_data.get('gender')}
+    - Weight: {user_data.get('weight')} kg
+    - Chronic Conditions: {', '.join(user_data.get('chronic', ['None']))}
+    - Known Allergies: {', '.join(user_data.get('allergies', ['None']))}
+    
+    LABORATORY VITALS:
+    {lab_summary}
+    
+    SYMPTOMS REPORTED: "{user_input}"
+    
+    AI MODEL PREDICTIONS (BERT-based semantic matching):
+    {', '.join([f"{c['label']} ({c['confidence']}%)" for c in candidates])}
+
+    CLINICAL ANALYSIS TASKS:
+    
+    1. **Vital-Symptom Correlation**: Cross-reference the lab vitals with both the reported symptoms AND the AI predictions.
+       - Does high blood sugar (>200) align with diabetes-related predictions?
+       - Does elevated BP (>140) support hypertension or related cardiovascular conditions?
+       - Does low SpO2 (<95%) indicate respiratory distress that matches the symptom profile?
+    
+    2. **Red Flag Detection**: Identify any CRITICAL discrepancies:
+       - Normal symptoms but dangerous vitals (e.g., SpO2 <92%, BP >180, Glucose >400)
+       - Mismatch between predictions and vitals (e.g., AI suggests common cold but SpO2 is 88%)
+       - Life-threatening combinations requiring immediate care
+    
+    3. **Clinical Reasoning**: Explain which of the 3 predictions is MOST LIKELY given:
+       - The symptom description
+       - The laboratory values
+       - The patient's age and chronic history
+    
+    4. **Actionable Recommendations**: 
+       - If vitals are critical, flag URGENT CARE NEEDED regardless of symptom severity
+       - Suggest which specialist to see based on the most probable diagnosis
+       - Mention any immediate monitoring needed (e.g., continuous SpO2 monitoring)
+    
+    FORMAT: Use clear medical language but remain empathetic. Structure your response with numbered sections.
+    """
+    
     try:
-        response = client.models.generate_content(model="gemini-1.5-flash", contents=prompt)
+        response = client.models.generate_content(
+            model="gemini-1.5-flash", 
+            contents=prompt
+        )
         return response.text
     except Exception as e:
-        return f"Clinical analysis engine is currently offline: {str(e)}"
+        return f"⚠️ Clinical reasoning engine temporarily unavailable: {str(e)}\n\nPlease consult with a healthcare provider directly."
 
 def get_clarifying_questions(user_input, top_candidates):
     """Gemini generates 1 critical question to distinguish between top matches."""
@@ -221,14 +273,17 @@ def get_clarifying_questions(user_input, top_candidates):
 
 def get_nearby_doctors(disease_label, lat, lng):
     """Finds specialists nearby using Geoapify Places API."""
-    # 1. Get the specialist type from your mapping
+    # Get the specialist type from mapping
     specialist = specialist_map.get(disease_label, "General Physician")
     
-    # 2. Map specialists to Geoapify categories (Geoapify uses specific category strings)
-    # Categories: healthcare.hospital, healthcare.clinic_or_praxis, healthcare.dentist
+    # Map specialists to Geoapify categories
     category = "healthcare.clinic_or_praxis"
     
-    api_key = os.getenv("GEOAPIFY_API_KEY")
+    api_key = GEOAPIFY_API_KEY
+    if not api_key:
+        print("Warning: GEOAPIFY_API_KEY not configured")
+        return []
+    
     # Geoapify URL format: filter by circle (lon,lat,radius)
     url = f"https://api.geoapify.com/v2/places?categories={category}&filter=circle:{lng},{lat},5000&limit=3&apiKey={api_key}"
     
@@ -236,16 +291,16 @@ def get_nearby_doctors(disease_label, lat, lng):
         response = requests.get(url).json()
         doctors = []
         
-        # 3. Parse Geoapify's GeoJSON structure
+        # Parse Geoapify's GeoJSON structure
         for feature in response.get('features', []):
             prop = feature['properties']
             doctors.append({
                 "name": prop.get('name', f"{specialist} Clinic"),
                 "address": prop.get('address_line2', 'Address unavailable'),
-                "rating": "N/A",  # Geoapify's free tier doesn't usually provide user ratings
+                "rating": "N/A",
                 "specialty": specialist
             })
         return doctors
     except Exception as e:
         print(f"Location error: {e}")
-        return []   
+        return []

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diagnosense - Medical AI Support</title>
+    <title>AgenticDiagno - Medical AI Support</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link
@@ -91,6 +91,21 @@
           transform: translateY(0);
         }
       }
+
+      @keyframes animate-fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: animate-fade-in 0.3s ease-out;
+      }
     </style>
   </head>
   <body class="text-slate-800">
@@ -104,7 +119,7 @@
             </div>
             <div>
               <h1 class="text-xl font-bold text-slate-900 tracking-tight">
-                Diagnosense
+                AgenticDiagno
               </h1>
               <p class="text-xs text-slate-500 font-medium">
                 AI-Powered Medical Support
@@ -240,6 +255,144 @@
                     <option value="Asthma">Asthma</option>
                   </select>
                 </div>
+
+                <!-- Laboratory Vitals -->
+                <div class="col-span-1 md:col-span-2">
+                  <label class="block text-sm font-medium text-slate-700 mb-1"
+                    >🔬 Laboratory Vitals (Optional)</label
+                  >
+                  <p class="text-xs text-slate-500 mb-3">
+                    Leave at default if unavailable
+                  </p>
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                      <label
+                        class="block text-xs font-medium text-slate-600 mb-1"
+                        >Blood Glucose (mg/dL)</label
+                      >
+                      <input
+                        type="number"
+                        id="p-blood-sugar"
+                        min="0"
+                        max="600"
+                        value="100"
+                        class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all text-sm"
+                        placeholder="100"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-xs font-medium text-slate-600 mb-1"
+                        >Systolic BP (mmHg)</label
+                      >
+                      <input
+                        type="number"
+                        id="p-systolic-bp"
+                        min="0"
+                        max="250"
+                        value="120"
+                        class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all text-sm"
+                        placeholder="120"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-xs font-medium text-slate-600 mb-1"
+                        >Oxygen Saturation (%)</label
+                      >
+                      <input
+                        type="number"
+                        id="p-oxygen-level"
+                        min="0"
+                        max="100"
+                        value="98"
+                        class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all text-sm"
+                        placeholder="98"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Medical Report Upload (NEW SECTION) -->
+                <div
+                  class="col-span-1 md:col-span-3 mt-6 pt-6 border-t border-slate-200"
+                >
+                  <h3
+                    class="text-sm font-bold text-slate-700 uppercase tracking-wide mb-3"
+                  >
+                    📄 Upload Medical Report (Optional)
+                  </h3>
+                  <p class="text-xs text-slate-500 mb-3">
+                    For illiterate patients or those with existing lab reports.
+                    Upload PDF, image, or text file.
+                  </p>
+
+                  <div class="flex items-center gap-4">
+                    <label class="flex-1 cursor-pointer">
+                      <div
+                        class="border-2 border-dashed border-slate-300 rounded-xl p-6 text-center hover:border-teal-500 hover:bg-teal-50 transition-all"
+                      >
+                        <i
+                          class="fa-solid fa-cloud-upload text-3xl text-slate-400 mb-2"
+                        ></i>
+                        <p class="text-sm font-medium text-slate-600">
+                          Click to upload or drag file here
+                        </p>
+                        <p class="text-xs text-slate-400 mt-1">
+                          PDF, JPG, PNG (Max 10MB)
+                        </p>
+                      </div>
+                      <input
+                        type="file"
+                        id="medical-report-upload"
+                        accept=".pdf,.jpg,.jpeg,.png,.txt"
+                        class="hidden"
+                        onchange="handleFileUpload(event)"
+                      />
+                    </label>
+                  </div>
+
+                  <!-- File Preview Area -->
+                  <div
+                    id="file-preview"
+                    class="hidden mt-4 p-4 bg-teal-50 border border-teal-200 rounded-lg"
+                  >
+                    <div class="flex items-center justify-between">
+                      <div class="flex items-center gap-3">
+                        <i
+                          class="fa-solid fa-file-medical text-teal-600 text-xl"
+                        ></i>
+                        <div>
+                          <p
+                            class="text-sm font-semibold text-slate-800"
+                            id="file-name"
+                          >
+                            filename.pdf
+                          </p>
+                          <p class="text-xs text-slate-500" id="file-size">
+                            2.3 MB
+                          </p>
+                        </div>
+                      </div>
+                      <button
+                        onclick="removeFile()"
+                        class="text-red-500 hover:text-red-700 transition-colors"
+                      >
+                        <i class="fa-solid fa-times-circle text-xl"></i>
+                      </button>
+                    </div>
+                    <!-- AI Processing Status -->
+                    <div
+                      id="ai-processing"
+                      class="hidden mt-3 flex items-center gap-2 text-sm text-indigo-600"
+                    >
+                      <i
+                        class="fa-solid fa-wand-magic-sparkles animate-pulse"
+                      ></i>
+                      <span>AI is extracting medical data from report...</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div class="flex justify-end">
@@ -292,12 +445,16 @@
                 </h3>
                 <div class="flex bg-slate-100 rounded-lg p-1">
                   <button
-                    class="px-3 py-1 text-xs font-medium bg-white rounded shadow-sm text-teal-700"
+                    onclick="switchModelMode('Fast')"
+                    id="fast-model-btn"
+                    class="px-3 py-1 text-xs font-medium rounded shadow-sm transition-all"
                   >
                     Fast
                   </button>
                   <button
-                    class="px-3 py-1 text-xs font-medium text-slate-500 hover:text-slate-700"
+                    onclick="switchModelMode('Expert')"
+                    id="expert-model-btn"
+                    class="px-3 py-1 text-xs font-medium rounded shadow-sm transition-all"
                   >
                     Expert
                   </button>
@@ -1186,6 +1343,7 @@
       };
 
       // --- APP STATE ---
+      // --- APP STATE ---
       let appState = {
         page: "profile",
         userData: {},
@@ -1194,7 +1352,263 @@
         selectedBodyPart: null,
         lastReasoning: "",
         location: null, // Stores lat/lng
+        duration: "",
+        followUpResponse: "",
+        extractedReportData: null,
+        currentConflict: null,
+        modelMode: "Fast", // ADD THIS LINE: Track current model mode
       };
+
+      // --- FILE UPLOAD HANDLING ---
+      let uploadedFile = null;
+
+      async function handleFileUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        // Validate file size (10MB limit)
+        if (file.size > 10 * 1024 * 1024) {
+          alert("File too large. Please upload a file smaller than 10MB.");
+          return;
+        }
+
+        uploadedFile = file;
+
+        // Show file preview
+        const preview = document.getElementById("file-preview");
+        const fileName = document.getElementById("file-name");
+        const fileSize = document.getElementById("file-size");
+
+        fileName.textContent = file.name;
+        fileSize.textContent = (file.size / 1024 / 1024).toFixed(2) + " MB";
+        preview.classList.remove("hidden");
+
+        // Show AI processing indicator
+        const aiProcessing = document.getElementById("ai-processing");
+        aiProcessing.classList.remove("hidden");
+
+        // Process file with AI
+        try {
+          await processFileWithAI(file);
+          aiProcessing.innerHTML =
+            '<i class="fa-solid fa-check-circle"></i> <span>Medical data extracted successfully!</span>';
+          aiProcessing.classList.remove("text-indigo-600");
+          aiProcessing.classList.add("text-green-600");
+        } catch (error) {
+          aiProcessing.innerHTML =
+            '<i class="fa-solid fa-exclamation-circle"></i> <span>Error processing file. Please try again.</span>';
+          aiProcessing.classList.remove("text-indigo-600");
+          aiProcessing.classList.add("text-red-600");
+          console.error("File processing error:", error);
+        }
+      }
+
+      function removeFile() {
+        uploadedFile = null;
+        appState.extractedReportData = null;
+        document.getElementById("file-preview").classList.add("hidden");
+        document.getElementById("medical-report-upload").value = "";
+        document.getElementById("ai-processing").classList.add("hidden");
+      }
+
+      async function processFileWithAI(file) {
+        return new Promise(async (resolve, reject) => {
+          try {
+            const fileType = file.type;
+            let base64Data;
+
+            // Convert file to base64
+            const reader = new FileReader();
+            reader.onload = async function (e) {
+              base64Data = e.target.result.split(",")[1];
+
+              // Prepare AI API request
+              const messageContent = [];
+
+              // For images (JPG, PNG)
+              if (fileType.startsWith("image/")) {
+                messageContent.push({
+                  type: "image",
+                  source: {
+                    type: "base64",
+                    media_type: fileType,
+                    data: base64Data,
+                  },
+                });
+                messageContent.push({
+                  type: "text",
+                  text: `Analyze this medical report image and extract:
+1. Patient symptoms described
+2. Any laboratory values (blood sugar, BP, oxygen saturation, etc.)
+3. Any existing diagnoses mentioned
+4. Medications currently taking
+5. Doctor's observations or recommendations
+
+Format the response as JSON with keys: symptoms, lab_values, diagnoses, medications, notes`,
+                });
+              }
+              // For PDFs
+              else if (fileType === "application/pdf") {
+                messageContent.push({
+                  type: "document",
+                  source: {
+                    type: "base64",
+                    media_type: "application/pdf",
+                    data: base64Data,
+                  },
+                });
+                messageContent.push({
+                  type: "text",
+                  text: `Analyze this medical report PDF and extract:
+1. Patient symptoms described
+2. Any laboratory values (blood sugar, BP, oxygen saturation, hemoglobin, etc.)
+3. Any existing diagnoses mentioned
+4. Medications currently taking
+5. Doctor's observations or recommendations
+
+Format the response as JSON with keys: symptoms, lab_values, diagnoses, medications, notes`,
+                });
+              }
+              // For text files
+              else {
+                const textContent = await file.text();
+                messageContent.push({
+                  type: "text",
+                  text: `Analyze this medical report text and extract:
+
+${textContent}
+
+Extract:
+1. Patient symptoms described
+2. Any laboratory values (blood sugar, BP, oxygen saturation, etc.)
+3. Any existing diagnoses mentioned
+4. Medications currently taking
+5. Doctor's observations
+
+Format the response as JSON with keys: symptoms, lab_values, diagnoses, medications, notes`,
+                });
+              }
+
+              // Call Claude API (Mock for now - replace with actual API)
+              try {
+                const aiResponse = await callClaudeAPIForReport(messageContent);
+                appState.extractedReportData = aiResponse;
+
+                // Auto-populate form fields
+                autoPopulateFromReport(aiResponse);
+
+                resolve(aiResponse);
+              } catch (apiError) {
+                reject(apiError);
+              }
+            };
+
+            reader.onerror = reject;
+
+            if (
+              fileType.startsWith("image/") ||
+              fileType === "application/pdf"
+            ) {
+              reader.readAsDataURL(file);
+            } else {
+              reader.readAsText(file);
+            }
+          } catch (error) {
+            reject(error);
+          }
+        });
+      }
+
+      // Mock AI API call - Replace with actual Claude API in production
+      async function callClaudeAPIForReport(messageContent) {
+        // Simulate API delay
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        // Mock response - In production, call actual Claude API
+        // const response = await fetch("https://api.anthropic.com/v1/messages", {
+        //   method: "POST",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify({
+        //     model: "claude-sonnet-4-20250514",
+        //     max_tokens: 1000,
+        //     messages: [{ role: "user", content: messageContent }]
+        //   })
+        // });
+
+        // Mock extracted data
+        return {
+          symptoms: "Fever, headache, body aches, fatigue for 3 days",
+          lab_values: {
+            blood_sugar: 145,
+            systolic_bp: 135,
+            spo2: 96,
+            hemoglobin: 12.5,
+          },
+          diagnoses: ["Viral fever", "Possible influenza"],
+          medications: ["Paracetamol 500mg", "Vitamin C"],
+          notes:
+            "Patient advised rest and hydration. Follow-up in 3 days if symptoms persist.",
+        };
+      }
+
+      function autoPopulateFromReport(reportData) {
+        if (!reportData) return;
+
+        // Auto-fill symptom description
+        if (reportData.symptoms) {
+          const symptomField = document.getElementById("symptom-input");
+          if (symptomField) {
+            symptomField.value = reportData.symptoms;
+            appState.symptoms = reportData.symptoms;
+          }
+        }
+
+        // Auto-fill lab values if available
+        if (reportData.lab_values) {
+          if (reportData.lab_values.blood_sugar) {
+            document.getElementById("p-blood-sugar").value =
+              reportData.lab_values.blood_sugar;
+          }
+          if (reportData.lab_values.systolic_bp) {
+            document.getElementById("p-systolic-bp").value =
+              reportData.lab_values.systolic_bp;
+          }
+          if (reportData.lab_values.spo2) {
+            document.getElementById("p-oxygen-level").value =
+              reportData.lab_values.spo2;
+          }
+        }
+
+        // Store for later use in diagnosis
+        appState.extractedReportData = reportData;
+
+        // Show success notification
+        showNotification(
+          "Medical report data extracted and auto-filled!",
+          "success"
+        );
+      }
+
+      function showNotification(message, type = "info") {
+        // Simple notification (you can enhance this)
+        const notification = document.createElement("div");
+        notification.className = `fixed top-20 right-4 z-50 px-6 py-3 rounded-lg shadow-lg text-white font-medium animate-fade-in ${
+          type === "success"
+            ? "bg-green-600"
+            : type === "error"
+            ? "bg-red-600"
+            : "bg-blue-600"
+        }`;
+        notification.innerHTML = `<i class="fa-solid fa-${
+          type === "success" ? "check" : "info"
+        }-circle mr-2"></i>${message}`;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+          notification.remove();
+        }, 4000);
+      }
 
       // --- BODY MAPPING DATA ---
       const bodyPartLogic = {
@@ -1280,6 +1694,12 @@
             diagnosis: [],
             symptoms: "",
             selectedBodyPart: null,
+            lastReasoning: "",
+            location: null,
+            duration: "",
+            followUpResponse: "",
+            extractedReportData: null,
+            currentConflict: null,
           };
 
           // Reset Body Map UI
@@ -1293,8 +1713,51 @@
 
           document.getElementById("symptom-input").value = "";
           document.getElementById("followup-input").value = "";
+
+          // Reset file upload
+          removeFile();
+
           switchPage("profile");
         }
+      }
+
+      // --- MODEL MODE SWITCHING ---
+      function switchModelMode(mode) {
+        appState.modelMode = mode;
+
+        // Update button styles
+        const fastBtn = document.getElementById("fast-model-btn");
+        const expertBtn = document.getElementById("expert-model-btn");
+
+        if (mode === "Fast") {
+          fastBtn.classList.add("bg-white", "text-teal-700", "font-semibold");
+          fastBtn.classList.remove("text-slate-500", "hover:text-slate-700");
+          expertBtn.classList.add("text-slate-500", "hover:text-slate-700");
+          expertBtn.classList.remove(
+            "bg-white",
+            "text-teal-700",
+            "font-semibold"
+          );
+        } else {
+          expertBtn.classList.add("bg-white", "text-teal-700", "font-semibold");
+          expertBtn.classList.remove("text-slate-500", "hover:text-slate-700");
+          fastBtn.classList.add("text-slate-500", "hover:text-slate-700");
+          fastBtn.classList.remove(
+            "bg-white",
+            "text-teal-700",
+            "font-semibold"
+          );
+        }
+
+        // Show mode indicator
+        showNotification(
+          `${mode} mode activated. ${
+            mode === "Expert"
+              ? "Using medical BERT model for nuanced analysis."
+              : "Using fast semantic search."
+          }`,
+          "info"
+        );
       }
 
       // --- FORM HANDLING ---
@@ -1315,6 +1778,9 @@
           weight: document.getElementById("p-weight").value,
           allergies: getAllOptions(document.getElementById("p-allergies")),
           chronic: getAllOptions(document.getElementById("p-chronic")),
+          blood_sugar: document.getElementById("p-blood-sugar").value,
+          systolic_bp: document.getElementById("p-systolic-bp").value,
+          oxygen_level: document.getElementById("p-oxygen-level").value,
         };
 
         // Trigger Geolocation
@@ -1374,9 +1840,13 @@
       // --- AI MOCKING LOGIC ---
 
       // Simple fuzzy search to simulate the "SentenceTransformer"
-      function getSimulatedDiagnosis(symptoms, selectedBodyPart) {
+      function getSimulatedDiagnosis(
+        symptoms,
+        selectedBodyPart,
+        modelMode = "Fast"
+      ) {
         const sym = symptoms.toLowerCase();
-        const candidates = [];
+        let candidates = [];
 
         // Keyword matching heuristics for 41 diseases
         const keywords = {
@@ -1515,6 +1985,28 @@
           candidates.push({ label: "Common Cold", score: 0.5 });
           candidates.push({ label: "Allergy", score: 0.4 });
           candidates.push({ label: "Viral Infection", score: 0.3 });
+        }
+
+        // --- MODEL MODE LOGIC ---
+        // Expert mode should be more accurate but slower in real implementation
+        if (modelMode === "Expert") {
+          // Expert mode adjustments:
+          // 1. Require more symptoms for a match
+          // 2. Boost confidence for high-probability matches
+          // 3. Reduce confidence for low-probability matches
+          candidates = candidates.map(function (candidate) {
+            if (candidate.score >= 3) {
+              // Expert mode boosts high-confidence matches
+              return { label: candidate.label, score: candidate.score * 1.2 };
+            } else if (candidate.score <= 1) {
+              // Expert mode reduces low-confidence matches
+              return { label: candidate.label, score: candidate.score * 0.8 };
+            }
+            return candidate;
+          });
+
+          // Sort again after adjustments
+          candidates.sort((a, b) => b.score - a.score);
         }
 
         // Sort by score
@@ -1673,7 +2165,7 @@
         const age = userData.age;
 
         // Plain text for PDF
-        const textContent = `Based on the patient's age (${age}) and reported symptoms ("${symptoms.substring(
+        let textContent = `Based on the patient's age (${age}) and reported symptoms ("${symptoms.substring(
           0,
           30
         )}..."), the symptoms align most closely with ${top}.
@@ -1682,6 +2174,25 @@ The high fever and specific pain markers reported are strong indicators. However
           topDiagnosis[1].label
         } cannot be ruled out without further observation of how the symptoms progress over the next 24 hours.`;
 
+        // If medical report was uploaded, include its context
+        if (appState.extractedReportData) {
+          const report = appState.extractedReportData;
+          textContent += `\n\n**Uploaded Medical Report Context:**\n`;
+          if (report.diagnoses && report.diagnoses.length > 0) {
+            textContent += `• Previous Diagnoses: ${report.diagnoses.join(
+              ", "
+            )}\n`;
+          }
+          if (report.medications && report.medications.length > 0) {
+            textContent += `• Current Medications: ${report.medications.join(
+              ", "
+            )}\n`;
+          }
+          if (report.notes) {
+            textContent += `• Doctor's Notes: ${report.notes}\n`;
+          }
+        }
+
         appState.lastReasoning = textContent;
 
         // HTML for Display
@@ -1689,20 +2200,42 @@ The high fever and specific pain markers reported are strong indicators. However
         const questions =
           followUpQuestions[top] || followUpQuestions["General"];
 
-        return `Based on the patient's age (${age}) and reported symptoms ("${symptoms.substring(
+        let htmlContent = `Based on the patient's age (${age}) and reported symptoms ("${symptoms.substring(
           0,
           30
         )}..."), the symptoms align most closely with **${top}**.
             
             The clinical presentation is strong. However, **${
               topDiagnosis[1].label
-            }** cannot be ruled out without further observation.
-            
-            <span class="font-semibold text-indigo-700 block mt-3 mb-1">Recommended Clinical Inquiries:</span>
+            }** cannot be ruled out without further observation.`;
+
+        // Add medical report context to HTML
+        if (appState.extractedReportData) {
+          const report = appState.extractedReportData;
+          htmlContent += `<br><br><span class="font-semibold text-teal-700">📄 Medical Report Context:</span><ul class="list-disc list-inside space-y-1 text-slate-700 mt-1">`;
+          if (report.diagnoses && report.diagnoses.length > 0) {
+            htmlContent += `<li>Previous Diagnoses: ${report.diagnoses.join(
+              ", "
+            )}</li>`;
+          }
+          if (report.medications && report.medications.length > 0) {
+            htmlContent += `<li>Current Medications: ${report.medications.join(
+              ", "
+            )}</li>`;
+          }
+          if (report.notes) {
+            htmlContent += `<li>Doctor's Notes: ${report.notes}</li>`;
+          }
+          htmlContent += `</ul>`;
+        }
+
+        htmlContent += `<br><span class="font-semibold text-indigo-700 block mt-3 mb-1">Recommended Clinical Inquiries:</span>
             <ul class="list-disc list-inside space-y-1 text-slate-700">
                 <li>${questions[0]}</li>
                 <li>${questions[1]}</li>
             </ul>`;
+
+        return htmlContent;
       }
 
       async function analyzeSymptoms() {
@@ -1720,11 +2253,88 @@ The high fever and specific pain markers reported are strong indicators. However
           '<i class="fa-solid fa-circle-notch fa-spin"></i> Running Models...';
         analyzeBtn.disabled = true;
 
-        // Simulate Network Delay
-        setTimeout(() => {
+        try {
+          // Call backend diagnosis API
+          const response = await fetch("http://localhost:5000/api/diagnosis", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              symptoms: input,
+              mode: appState.modelMode,
+              selectedBodyPart: appState.selectedBodyPart,
+            }),
+          });
+
+          if (!response.ok) throw new Error("Diagnosis API error");
+
+          const result = await response.json();
+          appState.diagnosis = result.diagnosis;
+
+          // Request reasoning from backend
+          const reasoningResp = await fetch(
+            "http://localhost:5000/api/reasoning",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                user_data: appState.userData,
+                symptoms: input,
+                candidates: appState.diagnosis,
+              }),
+            }
+          );
+
+          let reasoningText = "";
+          if (reasoningResp.ok) {
+            const reasoningJson = await reasoningResp.json();
+            reasoningText =
+              reasoningJson.reasoning || reasoningJson.error || "";
+          }
+
+          // Render Top 3
+          const container = document.getElementById("top-3-container");
+          container.innerHTML = "";
+
+          (appState.diagnosis || []).forEach((d, index) => {
+            const card = document.createElement("div");
+            card.className = `bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden`;
+
+            // Highlight top result
+            const highlight =
+              index === 0 ? "border-teal-500 ring-1 ring-teal-500" : "";
+            if (index === 0) card.classList.add(...highlight.split(" "));
+
+            card.innerHTML = `
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Option ${
+                              index + 1
+                            }</span>
+                            <span class="bg-slate-100 text-slate-700 text-xs font-bold px-2 py-1 rounded">${
+                              d.confidence
+                            }%</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-800">${
+                          d.label
+                        }</h4>
+                    `;
+            container.appendChild(card);
+          });
+
+          // Render reasoning (prefer backend; fallback to local generator)
+          document.getElementById("gemini-reasoning").innerHTML =
+            reasoningText ||
+            generateReasoning(appState.userData, input, appState.diagnosis);
+
+          // Transition Views
+          stepInitial.classList.add("hidden");
+          stepResults.classList.remove("hidden");
+        } catch (error) {
+          console.error("API Error:", error);
+          // Fallback to local mock logic
           appState.diagnosis = getSimulatedDiagnosis(
             input,
-            appState.selectedBodyPart
+            appState.selectedBodyPart,
+            appState.modelMode
           );
 
           // Render Top 3
@@ -1756,19 +2366,17 @@ The high fever and specific pain markers reported are strong indicators. However
             container.appendChild(card);
           });
 
-          // Render Reasoning
           document.getElementById("gemini-reasoning").innerHTML =
             generateReasoning(appState.userData, input, appState.diagnosis);
 
           // Transition Views
           stepInitial.classList.add("hidden");
           stepResults.classList.remove("hidden");
-
-          // Reset Button
+        } finally {
           analyzeBtn.innerHTML =
             '<i class="fa-solid fa-microscope"></i> Analyze Symptoms';
           analyzeBtn.disabled = false;
-        }, 1500);
+        }
       }
 
       function finalizeDiagnosis() {
@@ -1983,7 +2591,7 @@ The high fever and specific pain markers reported are strong indicators. However
         doc.setTextColor(255, 255, 255);
         doc.setFontSize(22);
         doc.setFont("helvetica", "bold");
-        doc.text("Diagnosense", margin, 25);
+        doc.text("AgenticDiagno", margin, 25);
 
         doc.setFontSize(10);
         doc.setFont("helvetica", "normal");
@@ -2022,6 +2630,36 @@ The high fever and specific pain markers reported are strong indicators. However
         });
 
         cursor += 35;
+
+        // Medical Report Upload Context
+        if (appState.extractedReportData) {
+          doc.setFontSize(10);
+          doc.setFont("helvetica", "bold");
+          doc.setTextColor(13, 148, 136);
+          doc.text("Uploaded Medical Report Data:", margin, cursor);
+          doc.setFont("helvetica", "normal");
+          doc.setTextColor(51, 65, 85);
+          cursor += 7;
+
+          const report = appState.extractedReportData;
+          if (report.diagnoses) {
+            doc.text(
+              `Previous Diagnoses: ${report.diagnoses.join(", ")}`,
+              margin + 5,
+              cursor
+            );
+            cursor += 6;
+          }
+          if (report.medications) {
+            doc.text(
+              `Current Medications: ${report.medications.join(", ")}`,
+              margin + 5,
+              cursor
+            );
+            cursor += 6;
+          }
+          cursor += 5;
+        }
 
         // 2. Symptoms & Timeline
         doc.setFontSize(14);
@@ -2234,12 +2872,18 @@ The high fever and specific pain markers reported are strong indicators. However
         );
 
         doc.save(
-          `Diagnosense_Report_${appState.userData.name.replace(
+          `AgenticDiagno_Report_${appState.userData.name.replace(
             /\s+/g,
             "_"
           )}.pdf`
         );
       }
+
+      // Initialize model mode on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize model mode buttons to Fast by default
+        switchModelMode("Fast");
+      });
     </script>
   </body>
 </html>

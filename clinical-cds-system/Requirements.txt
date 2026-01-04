@@ -3,3 +3,5 @@ torch
 pandas
 scikit-learn
 streamlit
+flask
+flask-cors
