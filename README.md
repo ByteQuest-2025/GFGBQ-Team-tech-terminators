@@ -21,16 +21,14 @@ Develop an AI-powered diagnostic support system designed to assist doctors in cl
 ## 👥 3. Team Name
 **Tech Terminators**
 
----
-
 ## 🔗 4. Deployed Link(Optional)
-> -
+> NA
 
 ## 🎬 5. 2-Minute Demonstration Video
-> 📺 
+> 📺 https://drive.google.com/drive/folders/1qQo92oHgmxTKtbAAtqOr66sP3sc-M6N9
 
 ## 📊 6. PPT Link
-> 📂 
+> 📂 https://drive.google.com/drive/folders/1qQo92oHgmxTKtbAAtqOr66sP3sc-M6N9
 
 ---
 
