@@ -1,1889 +1,1678 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diagnosense - Medical AI Support</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-      body {
-        font-family: "Inter", sans-serif;
-        background-color: #f3f4f6;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnosense - Medical AI Support</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-      .risk-meter-container {
-        position: relative;
-        height: 20px;
-        background: #e5e7eb;
-        border-radius: 10px;
-        overflow: hidden;
-        margin-top: 8px;
-      }
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #f3f4f6;
+    }
 
-      .risk-meter-fill {
-        height: 100%;
-        transition: width 1s ease-in-out, background-color 0.5s ease;
-      }
+    .risk-meter-container {
+      position: relative;
+      height: 20px;
+      background: #e5e7eb;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
 
-      /* Body Map Styles */
-      .body-part {
-        fill: #e2e8f0; /* slate-200 */
-        stroke: #cbd5e1; /* slate-300 */
-        stroke-width: 1;
-        transition: all 0.3s ease;
-        cursor: pointer;
-      }
-      .body-part:hover {
-        fill: #ccfbf1; /* teal-100 */
-        stroke: #0d9488; /* teal-600 */
-      }
-      .body-part.active {
-        fill: #0d9488; /* teal-600 */
-        stroke: #0f766e; /* teal-700 */
-      }
-      .body-text {
-        pointer-events: none;
-        font-size: 12px;
-        fill: #475569;
-        font-weight: 600;
-        text-anchor: middle;
+    .risk-meter-fill {
+      height: 100%;
+      transition: width 1s ease-in-out, background-color 0.5s ease;
+    }
+
+    /* Body Map Styles */
+    .body-part {
+      fill: #e2e8f0;
+      /* slate-200 */
+      stroke: #cbd5e1;
+      /* slate-300 */
+      stroke-width: 1;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .body-part:hover {
+      fill: #ccfbf1;
+      /* teal-100 */
+      stroke: #0d9488;
+      /* teal-600 */
+    }
+
+    .body-part.active {
+      fill: #0d9488;
+      /* teal-600 */
+      stroke: #0f766e;
+      /* teal-700 */
+    }
+
+    .body-text {
+      pointer-events: none;
+      font-size: 12px;
+      fill: #475569;
+      font-weight: 600;
+      text-anchor: middle;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .body-part-group:hover .body-text,
+    .body-part-group.active .body-text {
+      opacity: 1;
+    }
+
+    /* Custom scrollbar for text areas */
+    textarea::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    textarea::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    textarea::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    textarea::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
         opacity: 0;
-        transition: opacity 0.3s;
+        transform: translateY(10px);
       }
-      .body-part-group:hover .body-text,
-      .body-part-group.active .body-text {
+
+      to {
         opacity: 1;
+        transform: translateY(0);
       }
+    }
+  </style>
+</head>
 
-      /* Custom scrollbar for text areas */
-      textarea::-webkit-scrollbar {
-        width: 8px;
-      }
-      textarea::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-      textarea::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
-        border-radius: 4px;
-      }
-      textarea::-webkit-scrollbar-thumb:hover {
-        background: #94a3b8;
-      }
-
-      .fade-in {
-        animation: fadeIn 0.5s ease-in;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    </style>
-  </head>
-  <body class="text-slate-800">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-50">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-          <div class="flex items-center gap-3">
-            <div class="bg-teal-600 text-white p-2 rounded-lg">
-              <i class="fa-solid fa-user-doctor text-xl"></i>
-            </div>
-            <div>
-              <h1 class="text-xl font-bold text-slate-900 tracking-tight">
-                Diagnosense
-              </h1>
-              <p class="text-xs text-slate-500 font-medium">
-                AI-Powered Medical Support
-              </p>
-            </div>
+<body class="text-slate-800">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center gap-3">
+          <div class="bg-teal-600 text-white p-2 rounded-lg">
+            <i class="fa-solid fa-user-doctor text-xl"></i>
           </div>
-          <div class="flex items-center space-x-4">
-            <button
-              onclick="resetApp()"
-              class="text-sm text-slate-500 hover:text-teal-600 font-medium transition-colors"
-            >
-              <i class="fa-solid fa-rotate-right mr-1"></i> Reset
-            </button>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <!-- View: Profile -->
-      <div id="view-profile" class="fade-in">
-        <div
-          class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
-        >
-          <div
-            class="bg-slate-50 px-6 py-4 border-b border-slate-100 flex items-center gap-2"
-          >
-            <i class="fa-regular fa-id-card text-teal-600"></i>
-            <h2 class="text-lg font-semibold text-slate-800">
-              Patient Intake Form
-            </h2>
-          </div>
-
-          <div class="p-8">
-            <form id="profile-form" onsubmit="handleProfileSubmit(event)">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <!-- Name -->
-                <div class="col-span-1 md:col-span-2">
-                  <label class="block text-sm font-medium text-slate-700 mb-1"
-                    >Full Name</label
-                  >
-                  <input
-                    type="text"
-                    id="p-name"
-                    required
-                    class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"
-                    placeholder="John Doe"
-                  />
-                </div>
-
-                <!-- Age -->
-                <div>
-                  <label class="block text-sm font-medium text-slate-700 mb-1"
-                    >Age</label
-                  >
-                  <input
-                    type="number"
-                    id="p-age"
-                    min="1"
-                    max="120"
-                    value="25"
-                    required
-                    class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"
-                  />
-                </div>
-
-                <!-- Gender -->
-                <div>
-                  <label class="block text-sm font-medium text-slate-700 mb-1"
-                    >Gender</label
-                  >
-                  <select
-                    id="p-gender"
-                    class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all bg-white"
-                  >
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-
-                <!-- Weight -->
-                <div>
-                  <label class="block text-sm font-medium text-slate-700 mb-1"
-                    >Weight (kg)</label
-                  >
-                  <input
-                    type="number"
-                    id="p-weight"
-                    min="10"
-                    max="300"
-                    value="70"
-                    class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"
-                  />
-                </div>
-
-                <!-- Allergies -->
-                <div>
-                  <label class="block text-sm font-medium text-slate-700 mb-1"
-                    >Known Allergies</label
-                  >
-                  <select
-                    id="p-allergies"
-                    multiple
-                    class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all bg-white h-24"
-                  >
-                    <option value="None" selected>None</option>
-                    <option value="Penicillin">Penicillin</option>
-                    <option value="Sulfur">Sulfur</option>
-                    <option value="Aspirin">Aspirin</option>
-                    <option value="Peanuts">Peanuts</option>
-                  </select>
-                  <p class="text-xs text-slate-400 mt-1">
-                    Hold Ctrl/Cmd to select multiple
-                  </p>
-                </div>
-
-                <!-- Chronic Conditions -->
-                <div class="col-span-1 md:col-span-2">
-                  <label class="block text-sm font-medium text-slate-700 mb-1"
-                    >Chronic Conditions</label
-                  >
-                  <select
-                    id="p-chronic"
-                    multiple
-                    class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all bg-white h-24"
-                  >
-                    <option value="None" selected>None</option>
-                    <option value="Diabetes">Diabetes</option>
-                    <option value="Heart Disease">Heart Disease</option>
-                    <option value="Hypertension">Hypertension</option>
-                    <option value="Asthma">Asthma</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="flex justify-end">
-                <button
-                  type="submit"
-                  class="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-medium shadow-sm transition-colors flex items-center gap-2"
-                >
-                  Continue <i class="fa-solid fa-arrow-right"></i>
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <!-- View: Diagnosis (Container) -->
-      <div id="view-diagnosis" class="hidden">
-        <!-- Patient Header -->
-        <div class="flex justify-between items-center mb-6 fade-in">
           <div>
-            <h2
-              class="text-2xl font-bold text-slate-900 flex items-center gap-2"
-            >
-              <i class="fa-solid fa-user-injured text-teal-600"></i>
-              Medical Analysis
-            </h2>
-            <p class="text-slate-500" id="diagnosis-patient-name">
-              for Patient Name
+            <h1 class="text-xl font-bold text-slate-900 tracking-tight">
+              Diagnosense
+            </h1>
+            <p class="text-xs text-slate-500 font-medium">
+              AI-Powered Medical Support
             </p>
           </div>
-          <button
-            onclick="editProfile()"
-            class="text-sm bg-white border border-slate-300 text-slate-600 px-3 py-1.5 rounded-md hover:bg-slate-50 transition-colors"
-          >
-            <i class="fa-solid fa-pen mr-1"></i> Edit Profile
+        </div>
+        <div class="flex items-center space-x-4">
+          <button onclick="resetApp()" class="text-sm text-slate-500 hover:text-teal-600 font-medium transition-colors">
+            <i class="fa-solid fa-rotate-right mr-1"></i> Reset
           </button>
         </div>
+      </div>
+    </div>
+  </nav>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <!-- Main Logic Column -->
-          <div class="lg:col-span-3 space-y-6">
-            <!-- Step 1: Input & Body Map -->
-            <div
-              id="step-initial"
-              class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 fade-in"
-            >
-              <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-semibold text-slate-800">
-                  Symptom & Body Mapping
-                </h3>
-                <div class="flex bg-slate-100 rounded-lg p-1">
-                  <button
-                    class="px-3 py-1 text-xs font-medium bg-white rounded shadow-sm text-teal-700"
-                  >
-                    Fast
-                  </button>
-                  <button
-                    class="px-3 py-1 text-xs font-medium text-slate-500 hover:text-slate-700"
-                  >
-                    Expert
-                  </button>
-                </div>
+  <!-- Main Content -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- View: Profile -->
+    <div id="view-profile" class="fade-in">
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="bg-slate-50 px-6 py-4 border-b border-slate-100 flex items-center gap-2">
+          <i class="fa-regular fa-id-card text-teal-600"></i>
+          <h2 class="text-lg font-semibold text-slate-800">
+            Patient Intake Form
+          </h2>
+        </div>
+
+        <div class="p-8">
+          <form id="profile-form" onsubmit="handleProfileSubmit(event)">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <!-- Name -->
+              <div class="col-span-1 md:col-span-2">
+                <label class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+                <input type="text" id="p-name" required
+                  class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"
+                  placeholder="John Doe" />
               </div>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Body Map -->
-                <div class="flex flex-col items-center">
-                  <p class="text-xs text-slate-500 mb-2 font-medium">
-                    Select a focused body area (Optional)
-                  </p>
-                  <div
-                    class="relative h-64 w-48 bg-slate-50 rounded-xl border border-slate-100 p-2"
-                  >
-                    <svg
-                      viewBox="0 0 200 400"
-                      class="w-full h-full drop-shadow-sm"
-                    >
-                      <!-- Head -->
-                      <g
-                        class="body-part-group"
-                        onclick="toggleBodyPart('Head', this)"
-                      >
-                        <circle cx="100" cy="50" r="35" class="body-part" />
-                        <text
-                          x="100"
-                          y="55"
-                          class="body-text text-white"
-                          style="fill: white !important"
-                        >
-                          Head
-                        </text>
-                      </g>
+              <!-- Age -->
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Age</label>
+                <input type="number" id="p-age" min="1" max="120" value="25" required
+                  class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all" />
+              </div>
 
-                      <!-- Chest -->
-                      <g
-                        class="body-part-group"
-                        onclick="toggleBodyPart('Chest', this)"
-                      >
-                        <path
-                          d="M 65 90 Q 100 90 135 90 L 130 160 Q 100 160 70 160 Z"
-                          class="body-part"
-                        />
-                        <text
-                          x="100"
-                          y="130"
-                          class="body-text text-white"
-                          style="fill: white !important"
-                        >
-                          Chest
-                        </text>
-                      </g>
+              <!-- Gender -->
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Gender</label>
+                <select id="p-gender"
+                  class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all bg-white">
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
+                </select>
+              </div>
 
-                      <!-- Abdomen -->
-                      <g
-                        class="body-part-group"
-                        onclick="toggleBodyPart('Abdomen', this)"
-                      >
-                        <path
-                          d="M 70 165 Q 100 165 130 165 L 125 230 Q 100 240 75 230 Z"
-                          class="body-part"
-                        />
-                        <text
-                          x="100"
-                          y="200"
-                          class="body-text text-white"
-                          style="fill: white !important"
-                        >
-                          Abdomen
-                        </text>
-                      </g>
+              <!-- Weight -->
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Weight (kg)</label>
+                <input type="number" id="p-weight" min="10" max="300" value="70"
+                  class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all" />
+              </div>
 
-                      <!-- Arms -->
-                      <g
-                        class="body-part-group"
-                        onclick="toggleBodyPart('Joints', this)"
-                      >
-                        <path
-                          d="M 60 95 L 30 180"
-                          class="body-part"
-                          style="
-                            stroke-width: 12;
-                            fill: none;
-                            stroke-linecap: round;
-                          "
-                        />
-                        <path
-                          d="M 140 95 L 170 180"
-                          class="body-part"
-                          style="
-                            stroke-width: 12;
-                            fill: none;
-                            stroke-linecap: round;
-                          "
-                        />
-                        <text x="170" y="140" class="body-text text-slate-600">
-                          Joints
-                        </text>
-                      </g>
+              <!-- Allergies -->
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Known Allergies</label>
+                <select id="p-allergies" multiple
+                  class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all bg-white h-24">
+                  <option value="None" selected>None</option>
+                  <option value="Penicillin">Penicillin</option>
+                  <option value="Sulfur">Sulfur</option>
+                  <option value="Aspirin">Aspirin</option>
+                  <option value="Peanuts">Peanuts</option>
+                </select>
+                <p class="text-xs text-slate-400 mt-1">
+                  Hold Ctrl/Cmd to select multiple
+                </p>
+              </div>
 
-                      <!-- Legs -->
-                      <g
-                        class="body-part-group"
-                        onclick="toggleBodyPart('Skin', this)"
-                      >
-                        <path
-                          d="M 80 235 L 70 350"
-                          class="body-part"
-                          style="
-                            stroke-width: 14;
-                            fill: none;
-                            stroke-linecap: round;
-                          "
-                        />
-                        <path
-                          d="M 120 235 L 130 350"
-                          class="body-part"
-                          style="
-                            stroke-width: 14;
-                            fill: none;
-                            stroke-linecap: round;
-                          "
-                        />
-                        <text x="150" y="300" class="body-text text-slate-600">
-                          Skin
-                        </text>
-                      </g>
-                    </svg>
-                    <div class="absolute bottom-2 left-0 right-0 text-center">
-                      <span
-                        id="selected-part-label"
-                        class="text-xs font-bold text-teal-600 bg-teal-50 px-2 py-1 rounded-full hidden"
-                        >None Selected</span
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Input Area -->
-                <div class="flex flex-col relative">
-                  <label
-                    class="text-sm font-medium text-slate-700 mb-2 flex justify-between items-center"
-                  >
-                    Describe Symptoms
-                    <button
-                      onclick="toggleDictation()"
-                      id="mic-btn"
-                      class="text-slate-400 hover:text-teal-600 transition-colors text-xs flex items-center gap-1"
-                      title="Use Voice Input"
-                    >
-                      <i class="fa-solid fa-microphone"></i> Dictate
-                    </button>
-                  </label>
-                  <div class="relative flex-grow">
-                    <textarea
-                      id="symptom-input"
-                      class="w-full h-full p-4 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none resize-none transition-all text-slate-700 leading-relaxed min-h-[160px]"
-                      placeholder="E.g., I have a high fever, headache, and stiff neck..."
-                    ></textarea>
-                    <div
-                      id="listening-indicator"
-                      class="hidden absolute top-4 right-4 flex items-center gap-2 bg-red-50 text-red-600 px-3 py-1 rounded-full text-xs font-bold animate-pulse border border-red-200"
-                    >
-                      <div class="w-2 h-2 bg-red-600 rounded-full"></div>
-                      Listening...
-                    </div>
-                  </div>
-
-                  <div class="mt-4 flex justify-end">
-                    <button
-                      onclick="analyzeSymptoms()"
-                      id="analyze-btn"
-                      class="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-xl font-semibold shadow-md shadow-teal-100 transition-all flex items-center justify-center gap-2"
-                    >
-                      <i class="fa-solid fa-microscope"></i> Analyze Symptoms
-                    </button>
-                  </div>
-                </div>
+              <!-- Chronic Conditions -->
+              <div class="col-span-1 md:col-span-2">
+                <label class="block text-sm font-medium text-slate-700 mb-1">Chronic Conditions</label>
+                <select id="p-chronic" multiple
+                  class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all bg-white h-24">
+                  <option value="None" selected>None</option>
+                  <option value="Diabetes">Diabetes</option>
+                  <option value="Heart Disease">Heart Disease</option>
+                  <option value="Hypertension">Hypertension</option>
+                  <option value="Asthma">Asthma</option>
+                </select>
               </div>
             </div>
 
-            <!-- Step 2: Results & Reasoning -->
-            <div id="step-results" class="hidden space-y-6 fade-in">
-              <!-- Top 3 Cards -->
-              <div
-                class="grid grid-cols-1 md:grid-cols-3 gap-4"
-                id="top-3-container"
-              >
+            <div class="flex justify-end">
+              <button type="submit"
+                class="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-medium shadow-sm transition-colors flex items-center gap-2">
+                Continue <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- View: Diagnosis (Container) -->
+    <div id="view-diagnosis" class="hidden">
+      <!-- Patient Header -->
+      <div class="flex justify-between items-center mb-6 fade-in">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-user-injured text-teal-600"></i>
+            Medical Analysis
+          </h2>
+          <p class="text-slate-500" id="diagnosis-patient-name">
+            for Patient Name
+          </p>
+        </div>
+        <button onclick="editProfile()"
+          class="text-sm bg-white border border-slate-300 text-slate-600 px-3 py-1.5 rounded-md hover:bg-slate-50 transition-colors">
+          <i class="fa-solid fa-pen mr-1"></i> Edit Profile
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Main Logic Column -->
+        <div class="lg:col-span-3 space-y-6">
+          <!-- Step 1: Input & Body Map -->
+          <div id="step-initial" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 fade-in">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-lg font-semibold text-slate-800">
+                Symptom & Body Mapping
+              </h3>
+              <div class="flex bg-slate-100 rounded-lg p-1">
+                <button class="px-3 py-1 text-xs font-medium bg-white rounded shadow-sm text-teal-700">
+                  Fast
+                </button>
+                <button class="px-3 py-1 text-xs font-medium text-slate-500 hover:text-slate-700">
+                  Expert
+                </button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <!-- Body Map -->
+              <div class="flex flex-col items-center">
+                <p class="text-xs text-slate-500 mb-2 font-medium">
+                  Select a focused body area (Optional)
+                </p>
+                <div class="relative h-64 w-48 bg-slate-50 rounded-xl border border-slate-100 p-2">
+                  <svg viewBox="0 0 200 400" class="w-full h-full drop-shadow-sm">
+                    <!-- Head -->
+                    <g class="body-part-group" onclick="toggleBodyPart('Head', this)">
+                      <circle cx="100" cy="50" r="35" class="body-part" />
+                      <text x="100" y="55" class="body-text text-white" style="fill: white !important">
+                        Head
+                      </text>
+                    </g>
+
+                    <!-- Chest -->
+                    <g class="body-part-group" onclick="toggleBodyPart('Chest', this)">
+                      <path d="M 65 90 Q 100 90 135 90 L 130 160 Q 100 160 70 160 Z" class="body-part" />
+                      <text x="100" y="130" class="body-text text-white" style="fill: white !important">
+                        Chest
+                      </text>
+                    </g>
+
+                    <!-- Abdomen -->
+                    <g class="body-part-group" onclick="toggleBodyPart('Abdomen', this)">
+                      <path d="M 70 165 Q 100 165 130 165 L 125 230 Q 100 240 75 230 Z" class="body-part" />
+                      <text x="100" y="200" class="body-text text-white" style="fill: white !important">
+                        Abdomen
+                      </text>
+                    </g>
+
+                    <!-- Arms -->
+                    <g class="body-part-group" onclick="toggleBodyPart('Joints', this)">
+                      <path d="M 60 95 L 30 180" class="body-part" style="
+                            stroke-width: 12;
+                            fill: none;
+                            stroke-linecap: round;
+                          " />
+                      <path d="M 140 95 L 170 180" class="body-part" style="
+                            stroke-width: 12;
+                            fill: none;
+                            stroke-linecap: round;
+                          " />
+                      <text x="170" y="140" class="body-text text-slate-600">
+                        Joints
+                      </text>
+                    </g>
+
+                    <!-- Legs -->
+                    <g class="body-part-group" onclick="toggleBodyPart('Skin', this)">
+                      <path d="M 80 235 L 70 350" class="body-part" style="
+                            stroke-width: 14;
+                            fill: none;
+                            stroke-linecap: round;
+                          " />
+                      <path d="M 120 235 L 130 350" class="body-part" style="
+                            stroke-width: 14;
+                            fill: none;
+                            stroke-linecap: round;
+                          " />
+                      <text x="150" y="300" class="body-text text-slate-600">
+                        Skin
+                      </text>
+                    </g>
+                  </svg>
+                  <div class="absolute bottom-2 left-0 right-0 text-center">
+                    <span id="selected-part-label"
+                      class="text-xs font-bold text-teal-600 bg-teal-50 px-2 py-1 rounded-full hidden">None
+                      Selected</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Input Area -->
+              <div class="flex flex-col relative">
+                <label class="text-sm font-medium text-slate-700 mb-2 flex justify-between items-center">
+                  Describe Symptoms
+                  <button onclick="toggleDictation()" id="mic-btn"
+                    class="text-slate-400 hover:text-teal-600 transition-colors text-xs flex items-center gap-1"
+                    title="Use Voice Input">
+                    <i class="fa-solid fa-microphone"></i> Dictate
+                  </button>
+                </label>
+                <div class="relative flex-grow">
+                  <textarea id="symptom-input"
+                    class="w-full h-full p-4 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none resize-none transition-all text-slate-700 leading-relaxed min-h-[160px]"
+                    placeholder="E.g., I have a high fever, headache, and stiff neck..."></textarea>
+                  <div id="listening-indicator"
+                    class="hidden absolute top-4 right-4 flex items-center gap-2 bg-red-50 text-red-600 px-3 py-1 rounded-full text-xs font-bold animate-pulse border border-red-200">
+                    <div class="w-2 h-2 bg-red-600 rounded-full"></div>
+                    Listening...
+                  </div>
+                </div>
+
+                <div class="mt-4 flex justify-end">
+                  <button onclick="analyzeSymptoms()" id="analyze-btn"
+                    class="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-xl font-semibold shadow-md shadow-teal-100 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-microscope"></i> Analyze Symptoms
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Results & Reasoning -->
+          <div id="step-results" class="hidden space-y-6 fade-in">
+            <!-- Top 3 Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="top-3-container">
+              <!-- Injected by JS -->
+            </div>
+
+            <!-- Gemini Reasoning Mockup -->
+            <div class="bg-indigo-50 rounded-2xl border border-indigo-100 p-6 relative overflow-hidden">
+              <div class="absolute top-0 right-0 p-4 opacity-10">
+                <i class="fa-solid fa-brain text-6xl text-indigo-900"></i>
+              </div>
+              <h3 class="text-indigo-900 font-semibold mb-3 flex items-center gap-2">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> AI Clinician
+                Reasoning
+              </h3>
+              <div id="gemini-reasoning" class="text-indigo-800 text-sm leading-relaxed whitespace-pre-line">
                 <!-- Injected by JS -->
               </div>
-
-              <!-- Gemini Reasoning Mockup -->
-              <div
-                class="bg-indigo-50 rounded-2xl border border-indigo-100 p-6 relative overflow-hidden"
-              >
-                <div class="absolute top-0 right-0 p-4 opacity-10">
-                  <i class="fa-solid fa-brain text-6xl text-indigo-900"></i>
-                </div>
-                <h3
-                  class="text-indigo-900 font-semibold mb-3 flex items-center gap-2"
-                >
-                  <i class="fa-solid fa-wand-magic-sparkles"></i> AI Clinician
-                  Reasoning
-                </h3>
-                <div
-                  id="gemini-reasoning"
-                  class="text-indigo-800 text-sm leading-relaxed whitespace-pre-line"
-                >
-                  <!-- Injected by JS -->
-                </div>
-              </div>
-
-              <!-- Follow Up -->
-              <div
-                class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6"
-              >
-                <h3 class="text-lg font-semibold text-slate-800 mb-3">
-                  Follow-up Details
-                </h3>
-                <p class="text-sm text-slate-500 mb-3">
-                  Please answer the questions above to refine the diagnosis.
-                </p>
-                <textarea
-                  id="followup-input"
-                  class="w-full h-24 p-4 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 outline-none resize-none text-slate-700"
-                  placeholder="Enter your response..."
-                ></textarea>
-                <div class="mt-4 flex justify-end">
-                  <button
-                    onclick="finalizeDiagnosis()"
-                    class="bg-slate-800 hover:bg-slate-900 text-white px-6 py-2.5 rounded-lg font-medium shadow-sm transition-colors"
-                  >
-                    Finalize Diagnosis <i class="fa-solid fa-check ml-1"></i>
-                  </button>
-                </div>
-              </div>
             </div>
 
-            <!-- Step 3: Final Assessment -->
-            <div id="step-final" class="hidden fade-in">
-              <div
-                class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
-              >
-                <div
-                  class="bg-gradient-to-r from-teal-600 to-teal-800 px-8 py-6 text-white"
-                >
-                  <h2 class="text-2xl font-bold mb-1">Final Assessment</h2>
-                  <p class="text-teal-100 text-sm">
-                    Based on clinical models and symptom analysis
-                  </p>
+            <!-- Follow Up -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+              <h3 class="text-lg font-semibold text-slate-800 mb-3">
+                Follow-up Details
+              </h3>
+              <p class="text-sm text-slate-500 mb-3">
+                Please answer the questions above to refine the diagnosis.
+              </p>
+              <textarea id="followup-input"
+                class="w-full h-24 p-4 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 outline-none resize-none text-slate-700"
+                placeholder="Enter your response..."></textarea>
+              <div class="mt-4 flex justify-end">
+                <button onclick="finalizeDiagnosis()"
+                  class="bg-slate-800 hover:bg-slate-900 text-white px-6 py-2.5 rounded-lg font-medium shadow-sm transition-colors">
+                  Finalize Diagnosis <i class="fa-solid fa-check ml-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Final Assessment -->
+          <div id="step-final" class="hidden fade-in">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+              <div class="bg-gradient-to-r from-teal-600 to-teal-800 px-8 py-6 text-white">
+                <h2 class="text-2xl font-bold mb-1">Final Assessment</h2>
+                <p class="text-teal-100 text-sm">
+                  Based on clinical models and symptom analysis
+                </p>
+              </div>
+
+              <div class="p-8">
+                <!-- Diagnosis Header -->
+                <div class="flex items-start justify-between mb-8 pb-8 border-b border-slate-100">
+                  <div>
+                    <div class="text-sm text-slate-400 font-semibold uppercase tracking-wider mb-1">
+                      Most Likely Condition
+                    </div>
+                    <h3 class="text-3xl font-bold text-slate-900" id="final-condition-name">
+                      Condition Name
+                    </h3>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-3xl font-bold text-teal-600" id="final-confidence">
+                      0%
+                    </div>
+                    <div class="text-sm text-slate-400">Confidence</div>
+                  </div>
                 </div>
 
-                <div class="p-8">
-                  <!-- Diagnosis Header -->
-                  <div
-                    class="flex items-start justify-between mb-8 pb-8 border-b border-slate-100"
-                  >
-                    <div>
-                      <div
-                        class="text-sm text-slate-400 font-semibold uppercase tracking-wider mb-1"
-                      >
-                        Most Likely Condition
-                      </div>
-                      <h3
-                        class="text-3xl font-bold text-slate-900"
-                        id="final-condition-name"
-                      >
-                        Condition Name
+                <!-- Risk Meter -->
+                <div class="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
+                  <div class="flex justify-between items-end mb-2">
+                    <span class="font-semibold text-slate-700 flex items-center gap-2">
+                      <i class="fa-solid fa-gauge-high"></i> Risk Assessment
+                    </span>
+                    <span id="risk-text" class="text-sm font-bold px-3 py-1 rounded-full bg-slate-200">Unknown</span>
+                  </div>
+                  <div class="risk-meter-container w-full bg-slate-200 rounded-full h-4 relative">
+                    <div id="risk-bar" class="risk-meter-fill h-4 rounded-full"
+                      style="width: 0%; background-color: #94a3b8"></div>
+                  </div>
+                  <div class="flex justify-between text-xs text-slate-400 mt-2 font-medium">
+                    <span>Low</span>
+                    <span>Moderate</span>
+                    <span>High</span>
+                    <span>Critical</span>
+                  </div>
+                </div>
+
+                <!-- Contraindication Alert Banner -->
+                <div id="contraindication-banner"
+                  class="hidden mb-8 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg animate-pulse">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                      <i class="fa-solid fa-triangle-exclamation text-red-600 text-xl mt-0.5"></i>
+                    </div>
+                    <div class="ml-3">
+                      <h3 class="text-sm font-bold text-red-800 uppercase tracking-wide">
+                        Contraindication Detected
                       </h3>
+                      <p class="text-sm text-red-700 mt-1" id="contraindication-text">
+                        Patient has a known allergy that conflicts with this
+                        medication.
+                      </p>
                     </div>
-                    <div class="text-right">
-                      <div
-                        class="text-3xl font-bold text-teal-600"
-                        id="final-confidence"
-                      >
-                        0%
-                      </div>
-                      <div class="text-sm text-slate-400">Confidence</div>
+                  </div>
+                </div>
+
+                <!-- Medicine Details -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div class="space-y-6">
+                    <div>
+                      <h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-pills text-teal-500"></i>
+                        Recommended Medication
+                      </h4>
+                      <p id="med-name" class="text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                        Loading...
+                      </p>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-prescription text-teal-500"></i>
+                        Dosage
+                      </h4>
+                      <p id="med-dosage" class="text-slate-600 text-sm leading-relaxed">
+                        Loading...
+                      </p>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-stethoscope text-teal-500"></i>
+                        Clinical Use
+                      </h4>
+                      <p id="med-use" class="text-slate-600 text-sm leading-relaxed">
+                        Loading...
+                      </p>
                     </div>
                   </div>
 
-                  <!-- Risk Meter -->
-                  <div
-                    class="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200"
-                  >
-                    <div class="flex justify-between items-end mb-2">
-                      <span
-                        class="font-semibold text-slate-700 flex items-center gap-2"
-                      >
-                        <i class="fa-solid fa-gauge-high"></i> Risk Assessment
-                      </span>
-                      <span
-                        id="risk-text"
-                        class="text-sm font-bold px-3 py-1 rounded-full bg-slate-200"
-                        >Unknown</span
-                      >
+                  <div class="space-y-4">
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                      <h4 class="font-bold text-amber-800 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Side
+                        Effects
+                      </h4>
+                      <p id="med-side-effects" class="text-sm text-amber-900">
+                        Loading...
+                      </p>
                     </div>
-                    <div
-                      class="risk-meter-container w-full bg-slate-200 rounded-full h-4 relative"
-                    >
-                      <div
-                        id="risk-bar"
-                        class="risk-meter-fill h-4 rounded-full"
-                        style="width: 0%; background-color: #94a3b8"
-                      ></div>
-                    </div>
-                    <div
-                      class="flex justify-between text-xs text-slate-400 mt-2 font-medium"
-                    >
-                      <span>Low</span>
-                      <span>Moderate</span>
-                      <span>High</span>
-                      <span>Critical</span>
+                    <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+                      <h4 class="font-bold text-red-800 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-ban"></i> Warnings
+                      </h4>
+                      <p id="med-warnings" class="text-sm text-red-900">
+                        Loading...
+                      </p>
                     </div>
                   </div>
+                </div>
 
-                  <!-- Contraindication Alert Banner -->
-                  <div
-                    id="contraindication-banner"
-                    class="hidden mb-8 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg animate-pulse"
-                  >
-                    <div class="flex items-start">
-                      <div class="flex-shrink-0">
-                        <i
-                          class="fa-solid fa-triangle-exclamation text-red-600 text-xl mt-0.5"
-                        ></i>
-                      </div>
-                      <div class="ml-3">
-                        <h3
-                          class="text-sm font-bold text-red-800 uppercase tracking-wide"
-                        >
-                          Contraindication Detected
-                        </h3>
-                        <p
-                          class="text-sm text-red-700 mt-1"
-                          id="contraindication-text"
-                        >
-                          Patient has a known allergy that conflicts with this
-                          medication.
-                        </p>
-                      </div>
+                <!-- Doctor Recommendation Section -->
+                <div class="mt-8 pt-8 border-t border-slate-100">
+                  <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-user-doctor text-teal-600"></i>
+                    Recommended Specialists Nearby
+                  </h3>
+                  <p class="text-sm text-slate-500 mb-6">
+                    Based on your condition and current location.
+                  </p>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="doctor-list-container">
+                    <!-- Doctor cards injected here -->
+                    <div class="text-center text-slate-400 py-4 w-full col-span-2">
+                      <i class="fa-solid fa-circle-notch fa-spin"></i> Finding
+                      specialists...
                     </div>
                   </div>
+                </div>
 
-                  <!-- Medicine Details -->
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="space-y-6">
-                      <div>
-                        <h4
-                          class="font-semibold text-slate-900 mb-2 flex items-center gap-2"
-                        >
-                          <i class="fa-solid fa-pills text-teal-500"></i>
-                          Recommended Medication
-                        </h4>
-                        <p
-                          id="med-name"
-                          class="text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-100"
-                        >
-                          Loading...
-                        </p>
-                      </div>
-                      <div>
-                        <h4
-                          class="font-semibold text-slate-900 mb-2 flex items-center gap-2"
-                        >
-                          <i class="fa-solid fa-prescription text-teal-500"></i>
-                          Dosage
-                        </h4>
-                        <p
-                          id="med-dosage"
-                          class="text-slate-600 text-sm leading-relaxed"
-                        >
-                          Loading...
-                        </p>
-                      </div>
-                      <div>
-                        <h4
-                          class="font-semibold text-slate-900 mb-2 flex items-center gap-2"
-                        >
-                          <i class="fa-solid fa-stethoscope text-teal-500"></i>
-                          Clinical Use
-                        </h4>
-                        <p
-                          id="med-use"
-                          class="text-slate-600 text-sm leading-relaxed"
-                        >
-                          Loading...
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="space-y-4">
-                      <div
-                        class="bg-amber-50 border border-amber-200 rounded-xl p-4"
-                      >
-                        <h4
-                          class="font-bold text-amber-800 mb-2 flex items-center gap-2"
-                        >
-                          <i class="fa-solid fa-triangle-exclamation"></i> Side
-                          Effects
-                        </h4>
-                        <p id="med-side-effects" class="text-sm text-amber-900">
-                          Loading...
-                        </p>
-                      </div>
-                      <div
-                        class="bg-red-50 border border-red-200 rounded-xl p-4"
-                      >
-                        <h4
-                          class="font-bold text-red-800 mb-2 flex items-center gap-2"
-                        >
-                          <i class="fa-solid fa-ban"></i> Warnings
-                        </h4>
-                        <p id="med-warnings" class="text-sm text-red-900">
-                          Loading...
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Doctor Recommendation Section -->
-                  <div class="mt-8 pt-8 border-t border-slate-100">
-                    <h3
-                      class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2"
-                    >
-                      <i class="fa-solid fa-user-doctor text-teal-600"></i>
-                      Recommended Specialists Nearby
-                    </h3>
-                    <p class="text-sm text-slate-500 mb-6">
-                      Based on your condition and current location.
-                    </p>
-
-                    <div
-                      class="grid grid-cols-1 md:grid-cols-2 gap-4"
-                      id="doctor-list-container"
-                    >
-                      <!-- Doctor cards injected here -->
-                      <div
-                        class="text-center text-slate-400 py-4 w-full col-span-2"
-                      >
-                        <i class="fa-solid fa-circle-notch fa-spin"></i> Finding
-                        specialists...
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="mt-8 pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-center items-center gap-4"
-                  >
-                    <button
-                      onclick="downloadPDF()"
-                      class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-lg font-medium shadow-sm transition-colors flex items-center gap-2"
-                    >
-                      <i class="fa-solid fa-file-pdf"></i> Download Clinical
-                      Summary
-                    </button>
-                    <button
-                      onclick="resetApp()"
-                      class="text-slate-500 hover:text-teal-600 font-medium flex items-center gap-2 transition-colors"
-                    >
-                      <i class="fa-solid fa-rotate-right"></i> Start New
-                      Analysis
-                    </button>
-                  </div>
+                <div
+                  class="mt-8 pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-center items-center gap-4">
+                  <button onclick="downloadPDF()"
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-lg font-medium shadow-sm transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-file-pdf"></i> Download Clinical
+                    Summary
+                  </button>
+                  <button onclick="resetApp()"
+                    class="text-slate-500 hover:text-teal-600 font-medium flex items-center gap-2 transition-colors">
+                    <i class="fa-solid fa-rotate-right"></i> Start New
+                    Analysis
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Footer -->
-      <footer class="mt-12 text-center border-t border-slate-200 pt-8 pb-4">
-        <p
-          class="text-slate-400 text-sm flex items-center justify-center gap-2"
-        >
-          <i class="fa-solid fa-triangle-exclamation text-amber-500"></i>
-          Educational demo only. Not medical advice.
-        </p>
-      </footer>
-    </main>
+    <!-- Footer -->
+    <footer class="mt-12 text-center border-t border-slate-200 pt-8 pb-4">
+      <p class="text-slate-400 text-sm flex items-center justify-center gap-2">
+        <i class="fa-solid fa-triangle-exclamation text-amber-500"></i>
+        Educational demo only. Not medical advice.
+      </p>
+    </footer>
+  </main>
 
-    <!-- JavaScript Application Logic -->
-    <script>
-      // --- DATA STORE (Ported from model_logic.py) ---
+  <!-- JavaScript Application Logic -->
+  <script>
+    // --- DATA STORE (Ported from model_logic.py) ---
 
-      // Dynamic Follow-up Questions Database
-      const followUpQuestions = {
-        Psoriasis: [
-          "Have you noticed any triggers like stress or cold weather?",
-          "Is there a family history of skin conditions?",
-        ],
-        Diabetes: [
-          "Have you experienced increased thirst or frequent urination recently?",
-          "Have you noticed any unexplained weight loss?",
-        ],
-        Hypertension: [
-          "Do you experience headaches primarily in the morning?",
-          "Is there a family history of heart disease?",
-        ],
-        Malaria: [
-          "Have you traveled to a tropical area in the last 2 weeks?",
-          "Do you experience cycles of cold shivering followed by sweating?",
-        ],
-        "Common Cold": [
-          "Is the nasal discharge clear or colored?",
-          "Do you have a sore throat?",
-        ],
-        Pneumonia: [
-          "Are you experiencing shortness of breath even when resting?",
-          "Is your cough producing any phlegm (rust-colored or green)?",
-        ],
-        Migraine: [
-          "Is the headache pulsating or throbbing?",
-          "Do you feel nausea or sensitivity to light/sound?",
-        ],
-        Arthritis: [
-          "Is the joint stiffness worse in the morning?",
-          "Does the pain improve with movement?",
-        ],
-        Acne: [
-          "Does your skin feel particularly oily?",
-          "Are the breakouts related to your hormonal cycle?",
-        ],
-        Dengue: [
-          "Do you have pain behind your eyes?",
-          "Have you noticed any skin rashes or bleeding gums?",
-        ],
-        Jaundice: [
-          "Have you noticed pale stools or dark urine?",
-          "Do you have any abdominal pain on the right side?",
-        ],
-        "Urinary Tract Infection": [
-          "Do you feel a burning sensation when urinating?",
-          "Is your urine cloudy or strong-smelling?",
-        ],
-        GERD: [
-          "Does the pain get worse when you lie down?",
-          "Do you experience a sour taste in your mouth?",
-        ],
-        "Chronic cholestasis": [
-          "Do you have severe itching of the skin?",
-          "Is your urine very dark?",
-        ],
-        "Drug Reaction": [
-          "Did you start a new medication recently?",
-          "Is the rash widespread across your body?",
-        ],
-        "Peptic ulcer diseae": [
-          "Does eating relieve the pain or make it worse?",
-          "Do you have a burning sensation in the upper abdomen?",
-        ],
-        AIDS: [
-          "Have you experienced rapid, unexplained weight loss?",
-          "Do you have recurring fevers or night sweats?",
-        ],
-        Gastroenteritis: [
-          "Have you been vomiting frequently?",
-          "Are you able to keep fluids down?",
-        ],
-        "Bronchial Asthma": [
-          "Do you hear a whistling sound (wheezing) when breathing out?",
-          "Does exercise or cold air trigger your symptoms?",
-        ],
-        "Cervical spondylosis": [
-          "Does the pain radiate down your arm?",
-          "Do you feel numbness or tingling in your fingers?",
-        ],
-        "Paralysis (brain hemorrhage)": [
-          "Did the weakness happen suddenly on one side?",
-          "Do you have a severe, 'thunderclap' headache?",
-        ],
-        "Chicken pox": [
-          "Did the rash start on your chest/back and spread?",
-          "Are the spots at different stages (some blistered, some crusted)?",
-        ],
-        Typhoid: [
-          "Have you eaten outside food recently or drank untreated water?",
-          "Do you have a sustained high fever?",
-        ],
-        "hepatitis A": [
-          "Have you consumed contaminated food or water recently?",
-          "Do you have yellowish skin or eyes?",
-        ],
-        "Hepatitis B": [
-          "Have you had any exposure to infected blood?",
-          "Do you have chronic fatigue?",
-        ],
-        "Hepatitis C": [
-          "Do you have a history of blood transfusions?",
-          "Do you have joint pain along with fatigue?",
-        ],
-        "Hepatitis D": [
-          "Do you have a known history of Hepatitis B?",
-          "Have symptoms worsened rapidly?",
-        ],
-        "Hepatitis E": [
-          "Have you traveled to an area with poor sanitation?",
-          "Are you currently pregnant?",
-        ],
-        "Alcoholic hepatitis": [
-          "Do you consume alcohol frequently?",
-          "Have you noticed abdominal swelling?",
-        ],
-        Tuberculosis: [
-          "Have you had a cough for more than 3 weeks?",
-          "Do you experience night sweats or weight loss?",
-        ],
-        "Dimorphic hemmorhoids(piles)": [
-          "Do you notice bright red blood on tissue paper?",
-          "Do you experience pain or itching around the anal area?",
-        ],
-        "Heart attack": [
-          "Do you feel crushing pressure in your chest?",
-          "Does the pain radiate to your left arm or jaw?",
-        ],
-        "Varicose veins": [
-          "Do your legs feel heavy or achy at the end of the day?",
-          "Do you stand for long periods for work?",
-        ],
-        Hypothyroidism: [
-          "Do you feel constantly cold or tired?",
-          "Have you gained weight despite no change in diet?",
-        ],
-        Hyperthyroidism: [
-          "Do you feel anxious or have a racing heart?",
-          "Have you lost weight despite eating normally?",
-        ],
-        Hypoglycemia: [
-          "Do you feel shaky, dizzy, or sweaty?",
-          "When was your last meal?",
-        ],
-        Osteoarthristis: [
-          "Is the pain worse after activity?",
-          "Do your joints feel stiff after resting?",
-        ],
-        "(vertigo) Paroymsal Positional Vertigo": [
-          "Does the dizziness happen when you change head position?",
-          "Do you feel like the room is spinning?",
-        ],
-        Impetigo: [
-          "Do the sores have a honey-colored crust?",
-          "Did it start around the nose or mouth?",
-        ],
-        General: [
-          "Have these symptoms persisted for more than 3 days?",
-          "Is the pain localized to a specific area or radiating?",
-        ],
-      };
+    // Dynamic Follow-up Questions Database
+    const followUpQuestions = {
+      Psoriasis: [
+        "Have you noticed any triggers like stress or cold weather?",
+        "Is there a family history of skin conditions?",
+      ],
+      Diabetes: [
+        "Have you experienced increased thirst or frequent urination recently?",
+        "Have you noticed any unexplained weight loss?",
+      ],
+      Hypertension: [
+        "Do you experience headaches primarily in the morning?",
+        "Is there a family history of heart disease?",
+      ],
+      Malaria: [
+        "Have you traveled to a tropical area in the last 2 weeks?",
+        "Do you experience cycles of cold shivering followed by sweating?",
+      ],
+      "Common Cold": [
+        "Is the nasal discharge clear or colored?",
+        "Do you have a sore throat?",
+      ],
+      Pneumonia: [
+        "Are you experiencing shortness of breath even when resting?",
+        "Is your cough producing any phlegm (rust-colored or green)?",
+      ],
+      Migraine: [
+        "Is the headache pulsating or throbbing?",
+        "Do you feel nausea or sensitivity to light/sound?",
+      ],
+      Arthritis: [
+        "Is the joint stiffness worse in the morning?",
+        "Does the pain improve with movement?",
+      ],
+      Acne: [
+        "Does your skin feel particularly oily?",
+        "Are the breakouts related to your hormonal cycle?",
+      ],
+      Dengue: [
+        "Do you have pain behind your eyes?",
+        "Have you noticed any skin rashes or bleeding gums?",
+      ],
+      Jaundice: [
+        "Have you noticed pale stools or dark urine?",
+        "Do you have any abdominal pain on the right side?",
+      ],
+      "Urinary Tract Infection": [
+        "Do you feel a burning sensation when urinating?",
+        "Is your urine cloudy or strong-smelling?",
+      ],
+      GERD: [
+        "Does the pain get worse when you lie down?",
+        "Do you experience a sour taste in your mouth?",
+      ],
+      "Chronic cholestasis": [
+        "Do you have severe itching of the skin?",
+        "Is your urine very dark?",
+      ],
+      "Drug Reaction": [
+        "Did you start a new medication recently?",
+        "Is the rash widespread across your body?",
+      ],
+      "Peptic ulcer diseae": [
+        "Does eating relieve the pain or make it worse?",
+        "Do you have a burning sensation in the upper abdomen?",
+      ],
+      AIDS: [
+        "Have you experienced rapid, unexplained weight loss?",
+        "Do you have recurring fevers or night sweats?",
+      ],
+      Gastroenteritis: [
+        "Have you been vomiting frequently?",
+        "Are you able to keep fluids down?",
+      ],
+      "Bronchial Asthma": [
+        "Do you hear a whistling sound (wheezing) when breathing out?",
+        "Does exercise or cold air trigger your symptoms?",
+      ],
+      "Cervical spondylosis": [
+        "Does the pain radiate down your arm?",
+        "Do you feel numbness or tingling in your fingers?",
+      ],
+      "Paralysis (brain hemorrhage)": [
+        "Did the weakness happen suddenly on one side?",
+        "Do you have a severe, 'thunderclap' headache?",
+      ],
+      "Chicken pox": [
+        "Did the rash start on your chest/back and spread?",
+        "Are the spots at different stages (some blistered, some crusted)?",
+      ],
+      Typhoid: [
+        "Have you eaten outside food recently or drank untreated water?",
+        "Do you have a sustained high fever?",
+      ],
+      "hepatitis A": [
+        "Have you consumed contaminated food or water recently?",
+        "Do you have yellowish skin or eyes?",
+      ],
+      "Hepatitis B": [
+        "Have you had any exposure to infected blood?",
+        "Do you have chronic fatigue?",
+      ],
+      "Hepatitis C": [
+        "Do you have a history of blood transfusions?",
+        "Do you have joint pain along with fatigue?",
+      ],
+      "Hepatitis D": [
+        "Do you have a known history of Hepatitis B?",
+        "Have symptoms worsened rapidly?",
+      ],
+      "Hepatitis E": [
+        "Have you traveled to an area with poor sanitation?",
+        "Are you currently pregnant?",
+      ],
+      "Alcoholic hepatitis": [
+        "Do you consume alcohol frequently?",
+        "Have you noticed abdominal swelling?",
+      ],
+      Tuberculosis: [
+        "Have you had a cough for more than 3 weeks?",
+        "Do you experience night sweats or weight loss?",
+      ],
+      "Dimorphic hemmorhoids(piles)": [
+        "Do you notice bright red blood on tissue paper?",
+        "Do you experience pain or itching around the anal area?",
+      ],
+      "Heart attack": [
+        "Do you feel crushing pressure in your chest?",
+        "Does the pain radiate to your left arm or jaw?",
+      ],
+      "Varicose veins": [
+        "Do your legs feel heavy or achy at the end of the day?",
+        "Do you stand for long periods for work?",
+      ],
+      Hypothyroidism: [
+        "Do you feel constantly cold or tired?",
+        "Have you gained weight despite no change in diet?",
+      ],
+      Hyperthyroidism: [
+        "Do you feel anxious or have a racing heart?",
+        "Have you lost weight despite eating normally?",
+      ],
+      Hypoglycemia: [
+        "Do you feel shaky, dizzy, or sweaty?",
+        "When was your last meal?",
+      ],
+      Osteoarthristis: [
+        "Is the pain worse after activity?",
+        "Do your joints feel stiff after resting?",
+      ],
+      "(vertigo) Paroymsal Positional Vertigo": [
+        "Does the dizziness happen when you change head position?",
+        "Do you feel like the room is spinning?",
+      ],
+      Impetigo: [
+        "Do the sores have a honey-colored crust?",
+        "Did it start around the nose or mouth?",
+      ],
+      General: [
+        "Have these symptoms persisted for more than 3 days?",
+        "Is the pain localized to a specific area or radiating?",
+      ],
+    };
 
-      // Mapping allergies to potential drug conflicts
-      const allergyCrossReference = {
-        Penicillin: ["Amoxicillin", "Penicillin", "Ampicillin"],
-        Sulfur: ["Sulfamethoxazole", "Trimethoprim", "Sulfonamides"], // Often in UTI meds
-        Aspirin: ["Ibuprofen", "Naproxen", "Aspirin", "Salicylic Acid"], // NSAID cross-reactivity
-        Peanuts: [], // Usually food, but good to have structure
-      };
+    // Mapping allergies to potential drug conflicts
+    const allergyCrossReference = {
+      Penicillin: ["Amoxicillin", "Penicillin", "Ampicillin"],
+      Sulfur: ["Sulfamethoxazole", "Trimethoprim", "Sulfonamides"], // Often in UTI meds
+      Aspirin: ["Ibuprofen", "Naproxen", "Aspirin", "Salicylic Acid"], // NSAID cross-reactivity
+      Peanuts: [], // Usually food, but good to have structure
+    };
 
-      const detailedMedMap = {
-        Psoriasis: {
-          medicine: "Clobetasol (Topical Steroid)",
-          use_case: "Reducing skin inflammation and scaling.",
-          dosage:
-            "Adults: Apply thin layer 2x daily. Children: Use only mild versions (Hydrocortisone).",
-          side_effects: "Skin thinning, burning sensation.",
-          risk_level: "Low",
-          warnings: "Avoid eyes and broken skin.",
-        },
-        Diabetes: {
-          medicine: "Metformin",
-          use_case: "Lowering blood glucose levels.",
-          dosage:
-            "500mg-1000mg daily. Pediatric dosage requires specialist consultation.",
-          side_effects: "Nausea, diarrhea, metallic taste.",
-          risk_level: "High",
-          warnings: "Requires kidney function check before use.",
-        },
-        Hypertension: {
-          medicine: "Amlodipine / Lisinopril",
-          use_case: "Lowering high blood pressure.",
-          dosage:
-            "Adults: 5mg-10mg daily. Not recommended for children without Rx.",
-          side_effects: "Dizziness, swelling in ankles.",
-          risk_level: "Moderate",
-          warnings: "Monitor heart rate regularly.",
-        },
-        Malaria: {
-          medicine: "Artemether + Lumefantrine",
-          use_case: "Treating parasitic infection in the blood.",
-          dosage: "Based on body weight. Complete the full 3-day course.",
-          side_effects: "Loss of appetite, muscle pain.",
-          risk_level: "Critical",
-          warnings: "Seek hospital care if vomiting persists.",
-        },
-        "Varicose Veins": {
-          medicine: "Diosmin + Hesperidin",
-          use_case: "Improving blood circulation and reducing leg swelling.",
-          dosage: "Adults: 500mg twice daily. Not recommended for children.",
-          side_effects: "Stomach upset, headache, dizziness.",
-          risk_level: "Low",
-          warnings: "Consult doctor if pregnant or breastfeeding.",
-        },
-        Typhoid: {
-          medicine: "Azithromycin / Ceftriaxone",
-          use_case: "Treating bacterial infection (Salmonella typhi).",
-          dosage:
-            "Adults: 500mg daily for 7-14 days. Children: Weight-based dosing.",
-          side_effects: "Nausea, diarrhea, abdominal pain.",
-          risk_level: "Critical",
-          warnings:
-            "Complete full course. Seek immediate care if fever persists.",
-        },
-        "Chicken Pox": {
-          medicine: "Acyclovir",
-          use_case: "Reducing severity and duration of viral infection.",
-          dosage:
-            "Adults: 800mg 5x daily. Children: 20mg/kg 4x daily for 5 days.",
-          side_effects: "Nausea, headache, diarrhea.",
-          risk_level: "Moderate",
-          warnings: "Start within 24 hours of rash. Avoid scratching blisters.",
-        },
-        Impetigo: {
-          medicine: "Mupirocin (Topical Antibiotic)",
-          use_case: "Treating bacterial skin infection.",
-          dosage: "Apply to affected area 3x daily for 5-10 days.",
-          side_effects: "Burning, stinging, itching at application site.",
-          risk_level: "Low",
-          warnings: "Keep area clean. Wash hands frequently to prevent spread.",
-        },
-        Dengue: {
-          medicine: "Paracetamol (Supportive Care)",
-          use_case: "Managing fever and pain. No specific antiviral treatment.",
-          dosage: "Adults: 500mg-1000mg every 4-6 hours. Children: 10-15mg/kg.",
-          side_effects: "Generally safe at recommended doses.",
-          risk_level: "Critical",
-          warnings:
-            "AVOID aspirin and ibuprofen. Monitor platelet count. Seek hospital if bleeding occurs.",
-        },
-        "Fungal Infection": {
-          medicine: "Clotrimazole / Fluconazole",
-          use_case: "Treating fungal infections of skin, nails, or systemic.",
-          dosage:
-            "Topical: Apply 2x daily. Oral: 150mg single dose or as prescribed.",
-          side_effects: "Skin irritation (topical), nausea (oral).",
-          risk_level: "Low",
-          warnings: "Complete full treatment course even if symptoms improve.",
-        },
-        "Common Cold": {
-          medicine: "Paracetamol / Decongestants",
-          use_case: "Relieving symptoms like fever, congestion, body aches.",
-          dosage:
-            "Adults: 500mg-1000mg paracetamol every 4-6 hours. Children: Age-appropriate dosing.",
-          side_effects: "Drowsiness (decongestants), stomach upset.",
-          risk_level: "Very Low",
-          warnings:
-            "Rest and hydration are key. No antibiotics needed for viral infection.",
-        },
-        Pneumonia: {
-          medicine: "Amoxicillin / Azithromycin",
-          use_case: "Treating bacterial lung infection.",
-          dosage:
-            "Adults: 500mg-1000mg every 8 hours. Children: Weight-based dosing.",
-          side_effects: "Diarrhea, nausea, allergic reactions.",
-          risk_level: "High",
-          warnings:
-            "Seek immediate care if breathing difficulty worsens. Complete full antibiotic course.",
-        },
-        Hemorrhoids: {
-          medicine: "Hydrocortisone Cream / Fiber Supplements",
-          use_case: "Reducing inflammation and improving bowel movements.",
-          dosage:
-            "Topical: Apply 2-3x daily. Fiber: 20-30g daily with plenty of water.",
-          side_effects: "Mild burning (topical), bloating (fiber).",
-          risk_level: "Low",
-          warnings:
-            "If bleeding persists or severe pain, consult doctor immediately.",
-        },
-        Arthritis: {
-          medicine: "Ibuprofen / Naproxen (NSAIDs)",
-          use_case: "Reducing joint inflammation and pain.",
-          dosage:
-            "Adults: 400-800mg every 6-8 hours with food. Not for children without prescription.",
-          side_effects: "Stomach upset, increased bleeding risk.",
-          risk_level: "Moderate",
-          warnings:
-            "Long-term use requires monitoring. Avoid if history of ulcers.",
-        },
-        Acne: {
-          medicine: "Benzoyl Peroxide / Adapalene",
-          use_case: "Treating bacterial infection and unclogging pores.",
-          dosage:
-            "Apply thin layer once daily at night. Start with lower concentration.",
-          side_effects: "Dryness, redness, peeling.",
-          risk_level: "Very Low",
-          warnings: "Use sunscreen during day. Avoid eyes and lips.",
-        },
-        "Bronchial Asthma": {
-          medicine: "Salbutamol (Albuterol) Inhaler / Budesonide",
-          use_case: "Relieving airway constriction and reducing inflammation.",
-          dosage:
-            "Rescue: 2 puffs as needed. Maintenance: As prescribed by doctor.",
-          side_effects: "Tremors, increased heart rate, throat irritation.",
-          risk_level: "Moderate",
-          warnings:
-            "Always carry rescue inhaler. Seek emergency care if not improving.",
-        },
-        Migraine: {
-          medicine: "Sumatriptan / Ibuprofen",
-          use_case: "Treating acute migraine attacks and pain relief.",
-          dosage: "Sumatriptan: 50-100mg at onset. Ibuprofen: 400-600mg.",
-          side_effects: "Dizziness, drowsiness, tingling sensations.",
-          risk_level: "Moderate",
-          warnings:
-            "Rest in dark, quiet room. Avoid triggers. Seek care if vision changes.",
-        },
-        "Cervical Spondylosis": {
-          medicine: "Ibuprofen / Cyclobenzaprine (Muscle Relaxant)",
-          use_case: "Reducing neck pain and muscle spasms.",
-          dosage:
-            "Ibuprofen: 400-800mg 3x daily. Cyclobenzaprine: 5-10mg 3x daily.",
-          side_effects: "Drowsiness, dry mouth, dizziness.",
-          risk_level: "Low",
-          warnings:
-            "Physical therapy recommended. Avoid prolonged static postures.",
-        },
-        Jaundice: {
-          medicine: "Ursodeoxycholic acid (if applicable)",
-          use_case: "Supporting liver function and reducing bilirubin levels.",
-          dosage: "As prescribed based on specific condition and severity.",
-          side_effects: "Varies based on treatment.",
-          risk_level: "High",
-          warnings:
-            "Requires medical diagnosis. Monitor liver function tests. Avoid alcohol.",
-        },
-        "Urinary Tract Infection": {
-          medicine: "Nitrofurantoin / Trimethoprim",
-          use_case: "Treating bacterial infection in urinary tract.",
-          dosage:
-            "Adults: 100mg twice daily for 5-7 days. Children: Weight-based dosing.",
-          side_effects: "Nausea, headache, brown urine discoloration.",
-          risk_level: "Moderate",
-          warnings:
-            "Drink plenty of water. Complete full course. Seek care if fever or back pain.",
-        },
-        Allergy: {
-          medicine: "Cetirizine / Loratadine (Antihistamines)",
-          use_case:
-            "Relieving allergic symptoms like sneezing, itching, runny nose.",
-          dosage: "Adults: 10mg once daily. Children 6-12: 5mg once daily.",
-          side_effects:
-            "Drowsiness (less with newer antihistamines), dry mouth.",
-          risk_level: "Very Low",
-          warnings:
-            "Identify and avoid triggers. Carry epinephrine if severe allergies.",
-        },
-        GERD: {
-          medicine: "Omeprazole / Pantoprazole (PPIs)",
-          use_case: "Reducing stomach acid production and healing esophagus.",
-          dosage:
-            "Adults: 20-40mg once daily before breakfast. Children: Weight-based dosing.",
-          side_effects: "Headache, nausea, abdominal pain.",
-          risk_level: "Low",
-          warnings:
-            "Avoid trigger foods. Don't lie down immediately after eating.",
-        },
-        "Drug Reaction": {
-          medicine: "Diphenhydramine / Corticosteroids",
-          use_case: "Managing allergic reaction to medications.",
-          dosage:
-            "Mild: 25-50mg diphenhydramine every 4-6 hours. Severe: Immediate medical care.",
-          side_effects: "Drowsiness, dry mouth.",
-          risk_level: "High",
-          warnings:
-            "STOP the offending drug immediately. Seek emergency care if breathing difficulty or swelling.",
-        },
-        "Peptic Ulcer Disease": {
-          medicine: "Omeprazole + Amoxicillin + Clarithromycin",
-          use_case: "Treating H. pylori infection and reducing stomach acid.",
-          dosage: "As prescribed, typically 7-14 day course.",
-          side_effects: "Diarrhea, nausea, metallic taste.",
-          risk_level: "Moderate",
-          warnings:
-            "Avoid NSAIDs, alcohol, and smoking. Seek care if vomiting blood.",
-        },
-      };
+    const detailedMedMap = {
+      Psoriasis: {
+        medicine: "Clobetasol (Topical Steroid)",
+        use_case: "Reducing skin inflammation and scaling.",
+        dosage:
+          "Adults: Apply thin layer 2x daily. Children: Use only mild versions (Hydrocortisone).",
+        side_effects: "Skin thinning, burning sensation.",
+        risk_level: "Low",
+        warnings: "Avoid eyes and broken skin.",
+      },
+      Diabetes: {
+        medicine: "Metformin",
+        use_case: "Lowering blood glucose levels.",
+        dosage:
+          "500mg-1000mg daily. Pediatric dosage requires specialist consultation.",
+        side_effects: "Nausea, diarrhea, metallic taste.",
+        risk_level: "High",
+        warnings: "Requires kidney function check before use.",
+      },
+      Hypertension: {
+        medicine: "Amlodipine / Lisinopril",
+        use_case: "Lowering high blood pressure.",
+        dosage:
+          "Adults: 5mg-10mg daily. Not recommended for children without Rx.",
+        side_effects: "Dizziness, swelling in ankles.",
+        risk_level: "Moderate",
+        warnings: "Monitor heart rate regularly.",
+      },
+      Malaria: {
+        medicine: "Artemether + Lumefantrine",
+        use_case: "Treating parasitic infection in the blood.",
+        dosage: "Based on body weight. Complete the full 3-day course.",
+        side_effects: "Loss of appetite, muscle pain.",
+        risk_level: "Critical",
+        warnings: "Seek hospital care if vomiting persists.",
+      },
+      "Varicose Veins": {
+        medicine: "Diosmin + Hesperidin",
+        use_case: "Improving blood circulation and reducing leg swelling.",
+        dosage: "Adults: 500mg twice daily. Not recommended for children.",
+        side_effects: "Stomach upset, headache, dizziness.",
+        risk_level: "Low",
+        warnings: "Consult doctor if pregnant or breastfeeding.",
+      },
+      Typhoid: {
+        medicine: "Azithromycin / Ceftriaxone",
+        use_case: "Treating bacterial infection (Salmonella typhi).",
+        dosage:
+          "Adults: 500mg daily for 7-14 days. Children: Weight-based dosing.",
+        side_effects: "Nausea, diarrhea, abdominal pain.",
+        risk_level: "Critical",
+        warnings:
+          "Complete full course. Seek immediate care if fever persists.",
+      },
+      "Chicken Pox": {
+        medicine: "Acyclovir",
+        use_case: "Reducing severity and duration of viral infection.",
+        dosage:
+          "Adults: 800mg 5x daily. Children: 20mg/kg 4x daily for 5 days.",
+        side_effects: "Nausea, headache, diarrhea.",
+        risk_level: "Moderate",
+        warnings: "Start within 24 hours of rash. Avoid scratching blisters.",
+      },
+      Impetigo: {
+        medicine: "Mupirocin (Topical Antibiotic)",
+        use_case: "Treating bacterial skin infection.",
+        dosage: "Apply to affected area 3x daily for 5-10 days.",
+        side_effects: "Burning, stinging, itching at application site.",
+        risk_level: "Low",
+        warnings: "Keep area clean. Wash hands frequently to prevent spread.",
+      },
+      Dengue: {
+        medicine: "Paracetamol (Supportive Care)",
+        use_case: "Managing fever and pain. No specific antiviral treatment.",
+        dosage: "Adults: 500mg-1000mg every 4-6 hours. Children: 10-15mg/kg.",
+        side_effects: "Generally safe at recommended doses.",
+        risk_level: "Critical",
+        warnings:
+          "AVOID aspirin and ibuprofen. Monitor platelet count. Seek hospital if bleeding occurs.",
+      },
+      "Fungal Infection": {
+        medicine: "Clotrimazole / Fluconazole",
+        use_case: "Treating fungal infections of skin, nails, or systemic.",
+        dosage:
+          "Topical: Apply 2x daily. Oral: 150mg single dose or as prescribed.",
+        side_effects: "Skin irritation (topical), nausea (oral).",
+        risk_level: "Low",
+        warnings: "Complete full treatment course even if symptoms improve.",
+      },
+      "Common Cold": {
+        medicine: "Paracetamol / Decongestants",
+        use_case: "Relieving symptoms like fever, congestion, body aches.",
+        dosage:
+          "Adults: 500mg-1000mg paracetamol every 4-6 hours. Children: Age-appropriate dosing.",
+        side_effects: "Drowsiness (decongestants), stomach upset.",
+        risk_level: "Very Low",
+        warnings:
+          "Rest and hydration are key. No antibiotics needed for viral infection.",
+      },
+      Pneumonia: {
+        medicine: "Amoxicillin / Azithromycin",
+        use_case: "Treating bacterial lung infection.",
+        dosage:
+          "Adults: 500mg-1000mg every 8 hours. Children: Weight-based dosing.",
+        side_effects: "Diarrhea, nausea, allergic reactions.",
+        risk_level: "High",
+        warnings:
+          "Seek immediate care if breathing difficulty worsens. Complete full antibiotic course.",
+      },
+      Hemorrhoids: {
+        medicine: "Hydrocortisone Cream / Fiber Supplements",
+        use_case: "Reducing inflammation and improving bowel movements.",
+        dosage:
+          "Topical: Apply 2-3x daily. Fiber: 20-30g daily with plenty of water.",
+        side_effects: "Mild burning (topical), bloating (fiber).",
+        risk_level: "Low",
+        warnings:
+          "If bleeding persists or severe pain, consult doctor immediately.",
+      },
+      Arthritis: {
+        medicine: "Ibuprofen / Naproxen (NSAIDs)",
+        use_case: "Reducing joint inflammation and pain.",
+        dosage:
+          "Adults: 400-800mg every 6-8 hours with food. Not for children without prescription.",
+        side_effects: "Stomach upset, increased bleeding risk.",
+        risk_level: "Moderate",
+        warnings:
+          "Long-term use requires monitoring. Avoid if history of ulcers.",
+      },
+      Acne: {
+        medicine: "Benzoyl Peroxide / Adapalene",
+        use_case: "Treating bacterial infection and unclogging pores.",
+        dosage:
+          "Apply thin layer once daily at night. Start with lower concentration.",
+        side_effects: "Dryness, redness, peeling.",
+        risk_level: "Very Low",
+        warnings: "Use sunscreen during day. Avoid eyes and lips.",
+      },
+      "Bronchial Asthma": {
+        medicine: "Salbutamol (Albuterol) Inhaler / Budesonide",
+        use_case: "Relieving airway constriction and reducing inflammation.",
+        dosage:
+          "Rescue: 2 puffs as needed. Maintenance: As prescribed by doctor.",
+        side_effects: "Tremors, increased heart rate, throat irritation.",
+        risk_level: "Moderate",
+        warnings:
+          "Always carry rescue inhaler. Seek emergency care if not improving.",
+      },
+      Migraine: {
+        medicine: "Sumatriptan / Ibuprofen",
+        use_case: "Treating acute migraine attacks and pain relief.",
+        dosage: "Sumatriptan: 50-100mg at onset. Ibuprofen: 400-600mg.",
+        side_effects: "Dizziness, drowsiness, tingling sensations.",
+        risk_level: "Moderate",
+        warnings:
+          "Rest in dark, quiet room. Avoid triggers. Seek care if vision changes.",
+      },
+      "Cervical Spondylosis": {
+        medicine: "Ibuprofen / Cyclobenzaprine (Muscle Relaxant)",
+        use_case: "Reducing neck pain and muscle spasms.",
+        dosage:
+          "Ibuprofen: 400-800mg 3x daily. Cyclobenzaprine: 5-10mg 3x daily.",
+        side_effects: "Drowsiness, dry mouth, dizziness.",
+        risk_level: "Low",
+        warnings:
+          "Physical therapy recommended. Avoid prolonged static postures.",
+      },
+      Jaundice: {
+        medicine: "Ursodeoxycholic acid (if applicable)",
+        use_case: "Supporting liver function and reducing bilirubin levels.",
+        dosage: "As prescribed based on specific condition and severity.",
+        side_effects: "Varies based on treatment.",
+        risk_level: "High",
+        warnings:
+          "Requires medical diagnosis. Monitor liver function tests. Avoid alcohol.",
+      },
+      "Urinary Tract Infection": {
+        medicine: "Nitrofurantoin / Trimethoprim",
+        use_case: "Treating bacterial infection in urinary tract.",
+        dosage:
+          "Adults: 100mg twice daily for 5-7 days. Children: Weight-based dosing.",
+        side_effects: "Nausea, headache, brown urine discoloration.",
+        risk_level: "Moderate",
+        warnings:
+          "Drink plenty of water. Complete full course. Seek care if fever or back pain.",
+      },
+      Allergy: {
+        medicine: "Cetirizine / Loratadine (Antihistamines)",
+        use_case:
+          "Relieving allergic symptoms like sneezing, itching, runny nose.",
+        dosage: "Adults: 10mg once daily. Children 6-12: 5mg once daily.",
+        side_effects:
+          "Drowsiness (less with newer antihistamines), dry mouth.",
+        risk_level: "Very Low",
+        warnings:
+          "Identify and avoid triggers. Carry epinephrine if severe allergies.",
+      },
+      GERD: {
+        medicine: "Omeprazole / Pantoprazole (PPIs)",
+        use_case: "Reducing stomach acid production and healing esophagus.",
+        dosage:
+          "Adults: 20-40mg once daily before breakfast. Children: Weight-based dosing.",
+        side_effects: "Headache, nausea, abdominal pain.",
+        risk_level: "Low",
+        warnings:
+          "Avoid trigger foods. Don't lie down immediately after eating.",
+      },
+      "Drug Reaction": {
+        medicine: "Diphenhydramine / Corticosteroids",
+        use_case: "Managing allergic reaction to medications.",
+        dosage:
+          "Mild: 25-50mg diphenhydramine every 4-6 hours. Severe: Immediate medical care.",
+        side_effects: "Drowsiness, dry mouth.",
+        risk_level: "High",
+        warnings:
+          "STOP the offending drug immediately. Seek emergency care if breathing difficulty or swelling.",
+      },
+      "Peptic Ulcer Disease": {
+        medicine: "Omeprazole + Amoxicillin + Clarithromycin",
+        use_case: "Treating H. pylori infection and reducing stomach acid.",
+        dosage: "As prescribed, typically 7-14 day course.",
+        side_effects: "Diarrhea, nausea, metallic taste.",
+        risk_level: "Moderate",
+        warnings:
+          "Avoid NSAIDs, alcohol, and smoking. Seek care if vomiting blood.",
+      },
+    };
 
-      // --- APP STATE ---
-      let appState = {
-        page: "profile",
-        userData: {},
-        diagnosis: [],
-        symptoms: "",
-        selectedBodyPart: null,
-        lastReasoning: "",
-        location: null, // Stores lat/lng
-      };
+    // --- APP STATE ---
+    let appState = {
+      page: "profile",
+      userData: {},
+      diagnosis: [],
+      symptoms: "",
+      selectedBodyPart: null,
+      lastReasoning: "",
+      location: null, // Stores lat/lng
+    };
 
-      // --- BODY MAPPING DATA ---
-      const bodyPartLogic = {
-        Head: [
-          "Migraine",
-          "Common Cold",
-          "Cervical Spondylosis",
-          "Dengue",
-          "Hypertension",
-        ],
-        Chest: [
-          "Pneumonia",
-          "Bronchial Asthma",
-          "Heart Disease",
-          "GERD",
-          "Hypertension",
-        ],
-        Abdomen: [
-          "Diabetes",
-          "Typhoid",
-          "Jaundice",
-          "Urinary Tract Infection",
-          "Peptic Ulcer Disease",
-          "Hemorrhoids",
-          "GERD",
-        ],
-        Skin: [
-          "Psoriasis",
-          "Acne",
-          "Impetigo",
-          "Chicken Pox",
-          "Fungal Infection",
-          "Allergy",
-          "Varicose Veins",
-          "Drug Reaction",
-        ],
-        Joints: ["Arthritis", "Malaria", "Dengue", "Cervical Spondylosis"],
-      };
+    // --- BODY MAPPING DATA ---
+    const bodyPartLogic = {
+      Head: [
+        "Migraine",
+        "Common Cold",
+        "Cervical Spondylosis",
+        "Dengue",
+        "Hypertension",
+      ],
+      Chest: [
+        "Pneumonia",
+        "Bronchial Asthma",
+        "Heart Disease",
+        "GERD",
+        "Hypertension",
+      ],
+      Abdomen: [
+        "Diabetes",
+        "Typhoid",
+        "Jaundice",
+        "Urinary Tract Infection",
+        "Peptic Ulcer Disease",
+        "Hemorrhoids",
+        "GERD",
+      ],
+      Skin: [
+        "Psoriasis",
+        "Acne",
+        "Impetigo",
+        "Chicken Pox",
+        "Fungal Infection",
+        "Allergy",
+        "Varicose Veins",
+        "Drug Reaction",
+      ],
+      Joints: ["Arthritis", "Malaria", "Dengue", "Cervical Spondylosis"],
+    };
 
-      // --- DOM ELEMENTS ---
-      const viewProfile = document.getElementById("view-profile");
-      const viewDiagnosis = document.getElementById("view-diagnosis");
-      const stepInitial = document.getElementById("step-initial");
-      const stepResults = document.getElementById("step-results");
-      const stepFinal = document.getElementById("step-final");
-      const analyzeBtn = document.getElementById("analyze-btn");
+    // --- DOM ELEMENTS ---
+    const viewProfile = document.getElementById("view-profile");
+    const viewDiagnosis = document.getElementById("view-diagnosis");
+    const stepInitial = document.getElementById("step-initial");
+    const stepResults = document.getElementById("step-results");
+    const stepFinal = document.getElementById("step-final");
+    const analyzeBtn = document.getElementById("analyze-btn");
 
-      // --- NAVIGATION ---
-      function switchPage(page) {
-        appState.page = page;
-        if (page === "profile") {
-          viewProfile.classList.remove("hidden");
-          viewDiagnosis.classList.add("hidden");
-          stepInitial.classList.remove("hidden");
-          stepResults.classList.add("hidden");
-          stepFinal.classList.add("hidden");
-        } else {
-          viewProfile.classList.add("hidden");
-          viewDiagnosis.classList.remove("hidden");
-          document.getElementById(
-            "diagnosis-patient-name"
-          ).textContent = `for ${appState.userData.name}, ${appState.userData.age}yo`;
+    // --- NAVIGATION ---
+    function switchPage(page) {
+      appState.page = page;
+      if (page === "profile") {
+        viewProfile.classList.remove("hidden");
+        viewDiagnosis.classList.add("hidden");
+        stepInitial.classList.remove("hidden");
+        stepResults.classList.add("hidden");
+        stepFinal.classList.add("hidden");
+      } else {
+        viewProfile.classList.add("hidden");
+        viewDiagnosis.classList.remove("hidden");
+        document.getElementById(
+          "diagnosis-patient-name"
+        ).textContent = `for ${appState.userData.name}, ${appState.userData.age}yo`;
 
-          // Reset diagnosis view steps
-          stepInitial.classList.remove("hidden");
-          stepResults.classList.add("hidden");
-          stepFinal.classList.add("hidden");
-          document.getElementById("symptom-input").value =
-            appState.symptoms || "";
-        }
+        // Reset diagnosis view steps
+        stepInitial.classList.remove("hidden");
+        stepResults.classList.add("hidden");
+        stepFinal.classList.add("hidden");
+        document.getElementById("symptom-input").value =
+          appState.symptoms || "";
       }
+    }
 
-      function editProfile() {
-        switchPage("profile");
-      }
+    function editProfile() {
+      switchPage("profile");
+    }
 
-      function resetApp() {
-        if (confirm("Start over? This will clear all current data.")) {
-          document.getElementById("profile-form").reset();
-          appState = {
-            page: "profile",
-            userData: {},
-            diagnosis: [],
-            symptoms: "",
-            selectedBodyPart: null,
-          };
-
-          // Reset Body Map UI
-          document.querySelectorAll(".body-part").forEach((el) => {
-            el.classList.remove("active");
-            el.style.fill = "";
-          });
-          document
-            .getElementById("selected-part-label")
-            .classList.add("hidden");
-
-          document.getElementById("symptom-input").value = "";
-          document.getElementById("followup-input").value = "";
-          switchPage("profile");
-        }
-      }
-
-      // --- FORM HANDLING ---
-      function handleProfileSubmit(e) {
-        e.preventDefault();
-
-        // Get multiselect values
-        const getAllOptions = (select) => {
-          return Array.from(select.selectedOptions).map(
-            (option) => option.value
-          );
+    function resetApp() {
+      if (confirm("Start over? This will clear all current data.")) {
+        document.getElementById("profile-form").reset();
+        appState = {
+          page: "profile",
+          userData: {},
+          diagnosis: [],
+          symptoms: "",
+          selectedBodyPart: null,
         };
 
-        appState.userData = {
-          name: document.getElementById("p-name").value,
-          age: document.getElementById("p-age").value,
-          gender: document.getElementById("p-gender").value,
-          weight: document.getElementById("p-weight").value,
-          allergies: getAllOptions(document.getElementById("p-allergies")),
-          chronic: getAllOptions(document.getElementById("p-chronic")),
-        };
-
-        // Trigger Geolocation
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              appState.location = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude,
-              };
-              console.log("Location acquired:", appState.location);
-            },
-            (error) => {
-              console.warn("Location access denied or failed:", error);
-              // Fallback coordinates (e.g., generic center) if needed, or handle in UI
-            }
-          );
-        }
-
-        switchPage("diagnosis");
-      }
-
-      // --- BODY MAP LOGIC ---
-      function toggleBodyPart(partName, element) {
-        const isActive = element
-          .querySelector(".body-part")
-          .classList.contains("active");
-
-        // Reset all
+        // Reset Body Map UI
         document.querySelectorAll(".body-part").forEach((el) => {
           el.classList.remove("active");
-          el.style.fill = ""; // Clear inline styles if any
+          el.style.fill = "";
         });
         document
-          .querySelectorAll(".body-part-group")
-          .forEach((el) => el.classList.remove("active"));
+          .getElementById("selected-part-label")
+          .classList.add("hidden");
 
-        if (!isActive) {
-          // Activate clicked
-          element.querySelector(".body-part").classList.add("active");
-          element.classList.add("active");
-          appState.selectedBodyPart = partName;
-
-          // Show label
-          const labelEl = document.getElementById("selected-part-label");
-          labelEl.textContent = "Focus: " + partName;
-          labelEl.classList.remove("hidden");
-        } else {
-          // Deactivate
-          appState.selectedBodyPart = null;
-          document
-            .getElementById("selected-part-label")
-            .classList.add("hidden");
-        }
+        document.getElementById("symptom-input").value = "";
+        document.getElementById("followup-input").value = "";
+        switchPage("profile");
       }
+    }
 
-      // --- AI MOCKING LOGIC ---
+    // --- FORM HANDLING ---
+    function handleProfileSubmit(e) {
+      e.preventDefault();
 
-      // Simple fuzzy search to simulate the "SentenceTransformer"
-      function getSimulatedDiagnosis(symptoms, selectedBodyPart) {
-        const sym = symptoms.toLowerCase();
-        const candidates = [];
-
-        // Keyword matching heuristics for 41 diseases
-        const keywords = {
-          "Fungal infection": ["itch", "ring", "red", "skin", "toes", "fungal"],
-          Allergy: ["sneeze", "itch", "red", "swollen", "hive", "dust"],
-          GERD: ["burn", "acid", "heartburn", "chest", "stomach", "reflux"],
-          "Chronic cholestasis": [
-            "itch",
-            "jaundice",
-            "liver",
-            "pale",
-            "dark urine",
-          ],
-          "Drug Reaction": ["rash", "itch", "swell", "medication", "drug"],
-          "Peptic ulcer diseae": ["stomach", "pain", "burn", "empty", "ulcer"],
-          AIDS: ["weight loss", "fever", "sweat", "infection", "weak"],
-          Diabetes: ["thirst", "urine", "hungry", "fatigue", "blur", "sugar"],
-          Gastroenteritis: [
-            "vomit",
-            "diarrhea",
-            "stomach",
-            "dehydration",
-            "virus",
-          ],
-          "Bronchial Asthma": ["wheeze", "breath", "tight", "chest", "asthma"],
-          Hypertension: ["headache", "dizzy", "vision", "chest", "bp"],
-          Migraine: [
-            "headache",
-            "light",
-            "sound",
-            "nausea",
-            "one side",
-            "throbbing",
-          ],
-          "Cervical spondylosis": ["neck", "shoulder", "arm", "stiff", "spine"],
-          "Paralysis (brain hemorrhage)": [
-            "weak",
-            "numb",
-            "one side",
-            "speech",
-            "stroke",
-          ],
-          Jaundice: ["yellow", "skin", "eye", "urine", "liver"],
-          Malaria: ["fever", "shiver", "mosquito", "sweat", "cold"],
-          "Chicken pox": ["itchy", "blister", "spot", "fever", "rash", "pox"],
-          Dengue: ["high fever", "eye pain", "joint pain", "rash", "bone"],
-          Typhoid: ["fever", "stomach", "pain", "weakness", "vomit"],
-          "hepatitis A": [
-            "fever",
-            "jaundice",
-            "liver",
-            "nausea",
-            "contaminated",
-          ],
-          "Hepatitis B": ["fatigue", "urine", "jaundice", "liver", "blood"],
-          "Hepatitis C": ["blood", "needle", "liver", "joint", "fatigue"],
-          "Hepatitis D": ["liver", "severe", "infection", "b", "pain"],
-          "Hepatitis E": ["water", "pregnant", "liver", "jaundice", "nausea"],
-          "Alcoholic hepatitis": ["alcohol", "drink", "liver", "swell", "pain"],
-          Tuberculosis: ["cough", "blood", "sweat", "weight", "chest", "tb"],
-          "Common Cold": [
-            "sneeze",
-            "runny",
-            "nose",
-            "cough",
-            "throat",
-            "mild fever",
-          ],
-          Pneumonia: ["breath", "chest pain", "high fever", "phlegm", "cough"],
-          "Dimorphic hemmorhoids(piles)": [
-            "blood",
-            "stool",
-            "pain",
-            "anal",
-            "itch",
-          ],
-          "Heart attack": [
-            "chest",
-            "pressure",
-            "arm",
-            "jaw",
-            "sweat",
-            "breath",
-            "attack",
-          ],
-          "Varicose veins": ["leg", "vein", "swollen", "purple", "pain"],
-          Hypothyroidism: ["cold", "weight gain", "tired", "slow", "dry"],
-          Hyperthyroidism: ["hot", "weight loss", "fast", "anxious", "sweat"],
-          Hypoglycemia: ["shaky", "dizzy", "sweat", "sugar", "faint"],
-          Osteoarthristis: ["joint", "pain", "knee", "hip", "old", "wear"],
-          Arthritis: ["joint", "pain", "stiff", "swell", "autoimmune"],
-          "(vertigo) Paroymsal Positional Vertigo": [
-            "dizzy",
-            "spin",
-            "balance",
-            "head",
-            "vertigo",
-          ],
-          Acne: ["pimple", "face", "spot", "oily", "acne"],
-          "Urinary tract infection": [
-            "urine",
-            "burn",
-            "bladder",
-            "pain",
-            "kidney",
-          ],
-          Psoriasis: ["skin", "rash", "scale", "itch", "silver"],
-          Impetigo: ["sores", "blisters", "honey", "face", "mouth"],
-        };
-
-        for (const [disease, keys] of Object.entries(keywords)) {
-          let score = 0;
-          keys.forEach((k) => {
-            if (sym.includes(k)) score += 1;
-          });
-
-          // --- BAYESIAN PRIOR LOGIC (Body Mapping) ---
-          if (selectedBodyPart && bodyPartLogic[selectedBodyPart]) {
-            if (bodyPartLogic[selectedBodyPart].includes(disease)) {
-              // Boost score significantly if disease matches selected body part
-              if (score > 0) {
-                score += 3; // Strong confirmation
-              } else {
-                score += 0.5; // Weak prior (user clicked leg, but didn't type symptoms)
-              }
-            }
-          }
-
-          if (score > 0) {
-            candidates.push({ label: disease, score: score });
-          }
-        }
-
-        // Fallback if no specific matches
-        if (candidates.length === 0) {
-          candidates.push({ label: "Common Cold", score: 0.5 });
-          candidates.push({ label: "Allergy", score: 0.4 });
-          candidates.push({ label: "Viral Infection", score: 0.3 });
-        }
-
-        // Sort by score
-        candidates.sort((a, b) => b.score - a.score);
-
-        // Normalize scores to percentages (mocking)
-        let top3 = candidates.slice(0, 3);
-        if (top3.length < 3) {
-          // Pad with generics if we found fewer than 3
-          if (!top3.some((c) => c.label === "Common Cold"))
-            top3.push({ label: "Common Cold", score: 0.1 });
-          if (!top3.some((c) => c.label === "Stress/Fatigue"))
-            top3.push({ label: "Stress/Fatigue", score: 0.05 });
-        }
-        top3 = top3.slice(0, 3);
-
-        // Assign fake confidence percentages
-        // Use score to weight confidence more realistically
-        const baseConf = 85;
-        return top3.map((c, i) => {
-          // Logic: Higher score relative to others should yield higher confidence
-          // Mocking: Just decaying confidence based on rank, but boosting if score is high
-          let conf = baseConf - i * 15;
-          if (c.score > 3) conf += 5; // Boost for body map match
-          if (conf > 99) conf = 99;
-          return {
-            label: c.label,
-            confidence: conf.toFixed(2),
-          };
-        });
-      }
-
-      // --- DOCTOR RECOMMENDATION LOGIC ---
-      const specialtyMap = {
-        Dermatologist: [
-          "Psoriasis",
-          "Acne",
-          "Impetigo",
-          "Fungal infection",
-          "Chicken pox",
-          "Allergy",
-          "Varicose veins",
-          "Drug Reaction",
-        ],
-        Cardiologist: ["Heart attack", "Hypertension"],
-        Gastroenterologist: [
-          "GERD",
-          "Peptic ulcer diseae",
-          "Jaundice",
-          "Hepatitis",
-          "Gastroenteritis",
-          "Hemorrhoids",
-          "Chronic cholestasis",
-        ],
-        Pulmonologist: [
-          "Bronchial Asthma",
-          "Pneumonia",
-          "Tuberculosis",
-          "Common Cold",
-        ],
-        Neurologist: [
-          "Migraine",
-          "Paralysis (brain hemorrhage)",
-          "Cervical spondylosis",
-          "(vertigo) Paroymsal Positional Vertigo",
-        ],
-        Orthopedist: ["Arthritis", "Osteoarthristis"],
-        Urologist: ["Urinary tract infection"],
-        Endocrinologist: [
-          "Diabetes",
-          "Hypothyroidism",
-          "Hyperthyroidism",
-          "Hypoglycemia",
-        ],
-        "Infectious Disease Specialist": [
-          "Malaria",
-          "Dengue",
-          "Typhoid",
-          "AIDS",
-        ],
+      // Get multiselect values
+      const getAllOptions = (select) => {
+        return Array.from(select.selectedOptions).map(
+          (option) => option.value
+        );
       };
 
-      function getSpecialtyForCondition(condition) {
-        for (const [specialty, diseases] of Object.entries(specialtyMap)) {
-          // Check for loose match
-          if (
-            diseases.some(
-              (d) =>
-                condition.toLowerCase().includes(d.toLowerCase()) ||
-                d.toLowerCase().includes(condition.toLowerCase())
-            )
-          ) {
-            return specialty;
+      appState.userData = {
+        name: document.getElementById("p-name").value,
+        age: document.getElementById("p-age").value,
+        gender: document.getElementById("p-gender").value,
+        weight: document.getElementById("p-weight").value,
+        allergies: getAllOptions(document.getElementById("p-allergies")),
+        chronic: getAllOptions(document.getElementById("p-chronic")),
+      };
+
+      // Trigger Geolocation
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            appState.location = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            };
+            console.log("Location acquired:", appState.location);
+          },
+          (error) => {
+            console.warn("Location access denied or failed:", error);
+            // Fallback coordinates (e.g., generic center) if needed, or handle in UI
           }
-        }
-        return "General Physician";
+        );
       }
 
-      function generateMockDoctors(specialty, lat, lng) {
-        // Mock data generator - in a real app, this would query the backend
-        const names = [
-          "Dr. Sarah Chen",
-          "Dr. James Wilson",
-          "Dr. Emily Rodriguez",
-          "Dr. Michael Chang",
-          "Dr. Anita Patel",
-        ];
-        const addresses = [
-          "123 Medical Center Blvd",
-          "45 Health Park Way",
-          "889 Community Clinic Rd",
-        ];
+      switchPage("diagnosis");
+    }
 
-        // Deterministic pseudo-random based on specialty length to keep it consistent-ish
-        const count = 2;
-        let doctors = [];
+    // --- BODY MAP LOGIC ---
+    function toggleBodyPart(partName, element) {
+      const isActive = element
+        .querySelector(".body-part")
+        .classList.contains("active");
 
-        for (let i = 0; i < count; i++) {
-          const name = names[(specialty.length + i) % names.length];
-          const address = addresses[i % addresses.length];
-          const rating = (4.5 + i * 0.2).toFixed(1);
-          const distance = (1.2 + i * 1.5).toFixed(1);
+      // Reset all
+      document.querySelectorAll(".body-part").forEach((el) => {
+        el.classList.remove("active");
+        el.style.fill = ""; // Clear inline styles if any
+      });
+      document
+        .querySelectorAll(".body-part-group")
+        .forEach((el) => el.classList.remove("active"));
 
-          doctors.push({
-            name: name,
-            specialty: specialty,
-            address: address,
-            rating: rating,
-            distance: distance,
-            reviews: 40 + i * 15,
-          });
-        }
-        return doctors;
+      if (!isActive) {
+        // Activate clicked
+        element.querySelector(".body-part").classList.add("active");
+        element.classList.add("active");
+        appState.selectedBodyPart = partName;
+
+        // Show label
+        const labelEl = document.getElementById("selected-part-label");
+        labelEl.textContent = "Focus: " + partName;
+        labelEl.classList.remove("hidden");
+      } else {
+        // Deactivate
+        appState.selectedBodyPart = null;
+        document
+          .getElementById("selected-part-label")
+          .classList.add("hidden");
       }
+    }
 
-      // --- NLP UTILITIES ---
-      function extractDuration(text) {
-        // Regex for common duration patterns (e.g., "2 days", "a week", "since yesterday", "48 hours")
-        const patterns = [
-          /\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s+(day|week|month|hour|year)s?\b/gi,
-          /\b(since|for)\s+(yesterday|last\s+\w+|the\s+past\s+\w+)\b/gi,
-          /\b(couple|few)\s+(of\s+)?(days|weeks|months|hours)\b/gi,
-        ];
+    // --- AI MOCKING LOGIC ---
 
-        let matches = [];
-        patterns.forEach((p) => {
-          const found = text.match(p);
-          if (found) matches = [...matches, ...found];
+    // Simple fuzzy search to simulate the "SentenceTransformer"
+    function getSimulatedDiagnosis(symptoms, selectedBodyPart) {
+      const sym = symptoms.toLowerCase();
+      const candidates = [];
+
+      // Keyword matching heuristics for 41 diseases
+      const keywords = {
+        "Fungal infection": ["itch", "ring", "red", "skin", "toes", "fungal"],
+        Allergy: ["sneeze", "itch", "red", "swollen", "hive", "dust"],
+        GERD: ["burn", "acid", "heartburn", "chest", "stomach", "reflux"],
+        "Chronic cholestasis": [
+          "itch",
+          "jaundice",
+          "liver",
+          "pale",
+          "dark urine",
+        ],
+        "Drug Reaction": ["rash", "itch", "swell", "medication", "drug"],
+        "Peptic ulcer diseae": ["stomach", "pain", "burn", "empty", "ulcer"],
+        AIDS: ["weight loss", "fever", "sweat", "infection", "weak"],
+        Diabetes: ["thirst", "urine", "hungry", "fatigue", "blur", "sugar"],
+        Gastroenteritis: [
+          "vomit",
+          "diarrhea",
+          "stomach",
+          "dehydration",
+          "virus",
+        ],
+        "Bronchial Asthma": ["wheeze", "breath", "tight", "chest", "asthma"],
+        Hypertension: ["headache", "dizzy", "vision", "chest", "bp"],
+        Migraine: [
+          "headache",
+          "light",
+          "sound",
+          "nausea",
+          "one side",
+          "throbbing",
+        ],
+        "Cervical spondylosis": ["neck", "shoulder", "arm", "stiff", "spine"],
+        "Paralysis (brain hemorrhage)": [
+          "weak",
+          "numb",
+          "one side",
+          "speech",
+          "stroke",
+        ],
+        Jaundice: ["yellow", "skin", "eye", "urine", "liver"],
+        Malaria: ["fever", "shiver", "mosquito", "sweat", "cold"],
+        "Chicken pox": ["itchy", "blister", "spot", "fever", "rash", "pox"],
+        Dengue: ["high fever", "eye pain", "joint pain", "rash", "bone"],
+        Typhoid: ["fever", "stomach", "pain", "weakness", "vomit"],
+        "hepatitis A": [
+          "fever",
+          "jaundice",
+          "liver",
+          "nausea",
+          "contaminated",
+        ],
+        "Hepatitis B": ["fatigue", "urine", "jaundice", "liver", "blood"],
+        "Hepatitis C": ["blood", "needle", "liver", "joint", "fatigue"],
+        "Hepatitis D": ["liver", "severe", "infection", "b", "pain"],
+        "Hepatitis E": ["water", "pregnant", "liver", "jaundice", "nausea"],
+        "Alcoholic hepatitis": ["alcohol", "drink", "liver", "swell", "pain"],
+        Tuberculosis: ["cough", "blood", "sweat", "weight", "chest", "tb"],
+        "Common Cold": [
+          "sneeze",
+          "runny",
+          "nose",
+          "cough",
+          "throat",
+          "mild fever",
+        ],
+        Pneumonia: ["breath", "chest pain", "high fever", "phlegm", "cough"],
+        "Dimorphic hemmorhoids(piles)": [
+          "blood",
+          "stool",
+          "pain",
+          "anal",
+          "itch",
+        ],
+        "Heart attack": [
+          "chest",
+          "pressure",
+          "arm",
+          "jaw",
+          "sweat",
+          "breath",
+          "attack",
+        ],
+        "Varicose veins": ["leg", "vein", "swollen", "purple", "pain"],
+        Hypothyroidism: ["cold", "weight gain", "tired", "slow", "dry"],
+        Hyperthyroidism: ["hot", "weight loss", "fast", "anxious", "sweat"],
+        Hypoglycemia: ["shaky", "dizzy", "sweat", "sugar", "faint"],
+        Osteoarthristis: ["joint", "pain", "knee", "hip", "old", "wear"],
+        Arthritis: ["joint", "pain", "stiff", "swell", "autoimmune"],
+        "(vertigo) Paroymsal Positional Vertigo": [
+          "dizzy",
+          "spin",
+          "balance",
+          "head",
+          "vertigo",
+        ],
+        Acne: ["pimple", "face", "spot", "oily", "acne"],
+        "Urinary tract infection": [
+          "urine",
+          "burn",
+          "bladder",
+          "pain",
+          "kidney",
+        ],
+        Psoriasis: ["skin", "rash", "scale", "itch", "silver"],
+        Impetigo: ["sores", "blisters", "honey", "face", "mouth"],
+      };
+
+      for (const [disease, keys] of Object.entries(keywords)) {
+        let score = 0;
+        keys.forEach((k) => {
+          if (sym.includes(k)) score += 1;
         });
 
-        return matches.length > 0 ? matches[0] : "Not specified";
+        // --- BAYESIAN PRIOR LOGIC (Body Mapping) ---
+        if (selectedBodyPart && bodyPartLogic[selectedBodyPart]) {
+          if (bodyPartLogic[selectedBodyPart].includes(disease)) {
+            // Boost score significantly if disease matches selected body part
+            if (score > 0) {
+              score += 3; // Strong confirmation
+            } else {
+              score += 0.5; // Weak prior (user clicked leg, but didn't type symptoms)
+            }
+          }
+        }
+
+        if (score > 0) {
+          candidates.push({ label: disease, score: score });
+        }
       }
 
-      function generateReasoning(userData, symptoms, topDiagnosis) {
-        const top = topDiagnosis[0].label;
-        const age = userData.age;
+      // Fallback if no specific matches
+      if (candidates.length === 0) {
+        candidates.push({ label: "Common Cold", score: 0.5 });
+        candidates.push({ label: "Allergy", score: 0.4 });
+        candidates.push({ label: "Viral Infection", score: 0.3 });
+      }
 
-        // Plain text for PDF
-        const textContent = `Based on the patient's age (${age}) and reported symptoms ("${symptoms.substring(
-          0,
-          30
-        )}..."), the symptoms align most closely with ${top}.
+      // Sort by score
+      candidates.sort((a, b) => b.score - a.score);
 
-The high fever and specific pain markers reported are strong indicators. However, ${
-          topDiagnosis[1].label
+      // Normalize scores to percentages (mocking)
+      let top3 = candidates.slice(0, 3);
+      if (top3.length < 3) {
+        // Pad with generics if we found fewer than 3
+        if (!top3.some((c) => c.label === "Common Cold"))
+          top3.push({ label: "Common Cold", score: 0.1 });
+        if (!top3.some((c) => c.label === "Stress/Fatigue"))
+          top3.push({ label: "Stress/Fatigue", score: 0.05 });
+      }
+      top3 = top3.slice(0, 3);
+
+      // Assign fake confidence percentages
+      // Use score to weight confidence more realistically
+      const baseConf = 85;
+      return top3.map((c, i) => {
+        // Logic: Higher score relative to others should yield higher confidence
+        // Mocking: Just decaying confidence based on rank, but boosting if score is high
+        let conf = baseConf - i * 15;
+        if (c.score > 3) conf += 5; // Boost for body map match
+        if (conf > 99) conf = 99;
+        return {
+          label: c.label,
+          confidence: conf.toFixed(2),
+        };
+      });
+    }
+
+    // --- DOCTOR RECOMMENDATION LOGIC ---
+    const specialtyMap = {
+      Dermatologist: [
+        "Psoriasis",
+        "Acne",
+        "Impetigo",
+        "Fungal infection",
+        "Chicken pox",
+        "Allergy",
+        "Varicose veins",
+        "Drug Reaction",
+      ],
+      Cardiologist: ["Heart attack", "Hypertension"],
+      Gastroenterologist: [
+        "GERD",
+        "Peptic ulcer diseae",
+        "Jaundice",
+        "Hepatitis",
+        "Gastroenteritis",
+        "Hemorrhoids",
+        "Chronic cholestasis",
+      ],
+      Pulmonologist: [
+        "Bronchial Asthma",
+        "Pneumonia",
+        "Tuberculosis",
+        "Common Cold",
+      ],
+      Neurologist: [
+        "Migraine",
+        "Paralysis (brain hemorrhage)",
+        "Cervical spondylosis",
+        "(vertigo) Paroymsal Positional Vertigo",
+      ],
+      Orthopedist: ["Arthritis", "Osteoarthristis"],
+      Urologist: ["Urinary tract infection"],
+      Endocrinologist: [
+        "Diabetes",
+        "Hypothyroidism",
+        "Hyperthyroidism",
+        "Hypoglycemia",
+      ],
+      "Infectious Disease Specialist": [
+        "Malaria",
+        "Dengue",
+        "Typhoid",
+        "AIDS",
+      ],
+    };
+
+    function getSpecialtyForCondition(condition) {
+      for (const [specialty, diseases] of Object.entries(specialtyMap)) {
+        // Check for loose match
+        if (
+          diseases.some(
+            (d) =>
+              condition.toLowerCase().includes(d.toLowerCase()) ||
+              d.toLowerCase().includes(condition.toLowerCase())
+          )
+        ) {
+          return specialty;
+        }
+      }
+      return "General Physician";
+    }
+
+    function generateMockDoctors(specialty, lat, lng) {
+      // Mock data generator - in a real app, this would query the backend
+      const names = [
+        "Dr. Sarah Chen",
+        "Dr. James Wilson",
+        "Dr. Emily Rodriguez",
+        "Dr. Michael Chang",
+        "Dr. Anita Patel",
+      ];
+      const addresses = [
+        "123 Medical Center Blvd",
+        "45 Health Park Way",
+        "889 Community Clinic Rd",
+      ];
+
+      // Deterministic pseudo-random based on specialty length to keep it consistent-ish
+      const count = 2;
+      let doctors = [];
+
+      for (let i = 0; i < count; i++) {
+        const name = names[(specialty.length + i) % names.length];
+        const address = addresses[i % addresses.length];
+        const rating = (4.5 + i * 0.2).toFixed(1);
+        const distance = (1.2 + i * 1.5).toFixed(1);
+
+        doctors.push({
+          name: name,
+          specialty: specialty,
+          address: address,
+          rating: rating,
+          distance: distance,
+          reviews: 40 + i * 15,
+        });
+      }
+      return doctors;
+    }
+
+    // --- NLP UTILITIES ---
+    function extractDuration(text) {
+      // Regex for common duration patterns (e.g., "2 days", "a week", "since yesterday", "48 hours")
+      const patterns = [
+        /\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s+(day|week|month|hour|year)s?\b/gi,
+        /\b(since|for)\s+(yesterday|last\s+\w+|the\s+past\s+\w+)\b/gi,
+        /\b(couple|few)\s+(of\s+)?(days|weeks|months|hours)\b/gi,
+      ];
+
+      let matches = [];
+      patterns.forEach((p) => {
+        const found = text.match(p);
+        if (found) matches = [...matches, ...found];
+      });
+
+      return matches.length > 0 ? matches[0] : "Not specified";
+    }
+
+    function generateReasoning(userData, symptoms, topDiagnosis) {
+      const top = topDiagnosis[0].label;
+      const age = userData.age;
+
+      // Plain text for PDF
+      const textContent = `Based on the patient's age (${age}) and reported symptoms ("${symptoms.substring(
+        0,
+        30
+      )}..."), the symptoms align most closely with ${top}.
+
+The high fever and specific pain markers reported are strong indicators. However, ${topDiagnosis[1].label
         } cannot be ruled out without further observation of how the symptoms progress over the next 24 hours.`;
 
-        appState.lastReasoning = textContent;
+      appState.lastReasoning = textContent;
 
-        // HTML for Display
-        // Get dynamic questions
-        const questions =
-          followUpQuestions[top] || followUpQuestions["General"];
+      // HTML for Display
+      // Get dynamic questions
+      const questions =
+        followUpQuestions[top] || followUpQuestions["General"];
 
-        return `Based on the patient's age (${age}) and reported symptoms ("${symptoms.substring(
-          0,
-          30
-        )}..."), the symptoms align most closely with **${top}**.
+      return `Based on the patient's age (${age}) and reported symptoms ("${symptoms.substring(
+        0,
+        30
+      )}..."), the symptoms align most closely with **${top}**.
             
-            The clinical presentation is strong. However, **${
-              topDiagnosis[1].label
-            }** cannot be ruled out without further observation.
+            The clinical presentation is strong. However, **${topDiagnosis[1].label
+        }** cannot be ruled out without further observation.
             
             <span class="font-semibold text-indigo-700 block mt-3 mb-1">Recommended Clinical Inquiries:</span>
             <ul class="list-disc list-inside space-y-1 text-slate-700">
                 <li>${questions[0]}</li>
                 <li>${questions[1]}</li>
             </ul>`;
+    }
+
+    async function analyzeSymptoms() {
+      const input = document.getElementById("symptom-input").value.trim();
+      if (!input) {
+        alert("Please describe your symptoms first.");
+        return;
       }
 
-      async function analyzeSymptoms() {
-        const input = document.getElementById("symptom-input").value.trim();
-        if (!input) {
-          alert("Please describe your symptoms first.");
-          return;
-        }
+      appState.symptoms = input;
+      appState.duration = extractDuration(input); // Extract duration
 
-        appState.symptoms = input;
-        appState.duration = extractDuration(input); // Extract duration
+      // UI Loading State
+      analyzeBtn.innerHTML =
+        '<i class="fa-solid fa-circle-notch fa-spin"></i> Running Models...';
+      analyzeBtn.disabled = true;
 
-        // UI Loading State
-        analyzeBtn.innerHTML =
-          '<i class="fa-solid fa-circle-notch fa-spin"></i> Running Models...';
-        analyzeBtn.disabled = true;
+      // Simulate Network Delay
+      setTimeout(() => {
+        appState.diagnosis = getSimulatedDiagnosis(
+          input,
+          appState.selectedBodyPart
+        );
 
-        // Simulate Network Delay
-        setTimeout(() => {
-          appState.diagnosis = getSimulatedDiagnosis(
-            input,
-            appState.selectedBodyPart
-          );
+        // Render Top 3
+        const container = document.getElementById("top-3-container");
+        container.innerHTML = "";
 
-          // Render Top 3
-          const container = document.getElementById("top-3-container");
-          container.innerHTML = "";
+        appState.diagnosis.forEach((d, index) => {
+          const card = document.createElement("div");
+          card.className = `bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden`;
 
-          appState.diagnosis.forEach((d, index) => {
-            const card = document.createElement("div");
-            card.className = `bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden`;
+          // Highlight top result
+          const highlight =
+            index === 0 ? "border-teal-500 ring-1 ring-teal-500" : "";
+          if (index === 0) card.classList.add(...highlight.split(" "));
 
-            // Highlight top result
-            const highlight =
-              index === 0 ? "border-teal-500 ring-1 ring-teal-500" : "";
-            if (index === 0) card.classList.add(...highlight.split(" "));
-
-            card.innerHTML = `
+          card.innerHTML = `
                         <div class="flex justify-between items-start mb-2">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Option ${
-                              index + 1
-                            }</span>
-                            <span class="bg-slate-100 text-slate-700 text-xs font-bold px-2 py-1 rounded">${
-                              d.confidence
-                            }%</span>
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Option ${index + 1
+            }</span>
+                            <span class="bg-slate-100 text-slate-700 text-xs font-bold px-2 py-1 rounded">${d.confidence
+            }%</span>
                         </div>
-                        <h4 class="text-lg font-bold text-slate-800">${
-                          d.label
-                        }</h4>
+                        <h4 class="text-lg font-bold text-slate-800">${d.label
+            }</h4>
                     `;
-            container.appendChild(card);
-          });
-
-          // Render Reasoning
-          document.getElementById("gemini-reasoning").innerHTML =
-            generateReasoning(appState.userData, input, appState.diagnosis);
-
-          // Transition Views
-          stepInitial.classList.add("hidden");
-          stepResults.classList.remove("hidden");
-
-          // Reset Button
-          analyzeBtn.innerHTML =
-            '<i class="fa-solid fa-microscope"></i> Analyze Symptoms';
-          analyzeBtn.disabled = false;
-        }, 1500);
-      }
-
-      function finalizeDiagnosis() {
-        // Save follow-up response
-        appState.followUpResponse =
-          document.getElementById("followup-input").value;
-
-        const topResult = appState.diagnosis[0];
-        const medInfo = detailedMedMap[topResult.label] ||
-          detailedMedMap[
-            Object.keys(detailedMedMap).find(
-              (k) => k.toLowerCase() === topResult.label.toLowerCase()
-            )
-          ] || {
-            medicine: "Consult Doctor",
-            use_case: "N/A",
-            dosage: "N/A",
-            side_effects: "N/A",
-            warnings: "No database entry found for this condition.",
-            risk_level: "Unknown",
-          };
-
-        // Populate Final Screen
-        document.getElementById("final-condition-name").textContent =
-          topResult.label;
-        document.getElementById("final-confidence").textContent =
-          topResult.confidence + "%";
-
-        document.getElementById("med-name").textContent = medInfo.medicine;
-        document.getElementById("med-dosage").textContent = medInfo.dosage;
-        document.getElementById("med-use").textContent = medInfo.use_case;
-        document.getElementById("med-side-effects").textContent =
-          medInfo.side_effects;
-        document.getElementById("med-warnings").textContent = medInfo.warnings;
-
-        // --- CONTRAINDICATION CHECK ---
-        const userAllergies = appState.userData.allergies || [];
-        const medName = medInfo.medicine.toLowerCase();
-        let conflictFound = false;
-        let conflictDetails = "";
-
-        userAllergies.forEach((allergy) => {
-          if (allergy === "None") return;
-
-          // Direct match
-          if (medName.includes(allergy.toLowerCase())) {
-            conflictFound = true;
-            conflictDetails = `Patient has allergy to ${allergy}, which is present in ${medInfo.medicine}.`;
-          }
-
-          // Cross-reference lookup
-          if (allergyCrossReference[allergy]) {
-            const conflictingMeds = allergyCrossReference[allergy];
-            conflictingMeds.forEach((conf) => {
-              if (medName.includes(conf.toLowerCase())) {
-                conflictFound = true;
-                conflictDetails = `Potential Cross-Reaction: Patient allergy (${allergy}) conflicts with ${medInfo.medicine}.`;
-              }
-            });
-          }
+          container.appendChild(card);
         });
 
-        const banner = document.getElementById("contraindication-banner");
-        if (conflictFound) {
-          banner.classList.remove("hidden");
-          document.getElementById("contraindication-text").textContent =
-            conflictDetails;
-          appState.currentConflict = conflictDetails; // Store for PDF
-        } else {
-          banner.classList.add("hidden");
-          appState.currentConflict = null;
+        // Render Reasoning
+        document.getElementById("gemini-reasoning").innerHTML =
+          generateReasoning(appState.userData, input, appState.diagnosis);
+
+        // Transition Views
+        stepInitial.classList.add("hidden");
+        stepResults.classList.remove("hidden");
+
+        // Reset Button
+        analyzeBtn.innerHTML =
+          '<i class="fa-solid fa-microscope"></i> Analyze Symptoms';
+        analyzeBtn.disabled = false;
+      }, 1500);
+    }
+
+    function finalizeDiagnosis() {
+      // Save follow-up response
+      appState.followUpResponse =
+        document.getElementById("followup-input").value;
+
+      const topResult = appState.diagnosis[0];
+      const medInfo = detailedMedMap[topResult.label] ||
+        detailedMedMap[
+        Object.keys(detailedMedMap).find(
+          (k) => k.toLowerCase() === topResult.label.toLowerCase()
+        )
+        ] || {
+        medicine: "Consult Doctor",
+        use_case: "N/A",
+        dosage: "N/A",
+        side_effects: "N/A",
+        warnings: "No database entry found for this condition.",
+        risk_level: "Unknown",
+      };
+
+      // Populate Final Screen
+      document.getElementById("final-condition-name").textContent =
+        topResult.label;
+      document.getElementById("final-confidence").textContent =
+        topResult.confidence + "%";
+
+      document.getElementById("med-name").textContent = medInfo.medicine;
+      document.getElementById("med-dosage").textContent = medInfo.dosage;
+      document.getElementById("med-use").textContent = medInfo.use_case;
+      document.getElementById("med-side-effects").textContent =
+        medInfo.side_effects;
+      document.getElementById("med-warnings").textContent = medInfo.warnings;
+
+      // --- CONTRAINDICATION CHECK ---
+      const userAllergies = appState.userData.allergies || [];
+      const medName = medInfo.medicine.toLowerCase();
+      let conflictFound = false;
+      let conflictDetails = "";
+
+      userAllergies.forEach((allergy) => {
+        if (allergy === "None") return;
+
+        // Direct match
+        if (medName.includes(allergy.toLowerCase())) {
+          conflictFound = true;
+          conflictDetails = `Patient has allergy to ${allergy}, which is present in ${medInfo.medicine}.`;
         }
 
-        // Risk Meter Logic
-        const riskMap = {
-          "Very Low": { width: "10%", color: "#22c55e", label: "Very Low" }, // Green
-          Low: { width: "25%", color: "#22c55e", label: "Low" },
-          Moderate: { width: "50%", color: "#eab308", label: "Moderate" }, // Yellow/Orange
-          High: { width: "75%", color: "#f97316", label: "High" }, // Orange
-          Critical: { width: "100%", color: "#ef4444", label: "Critical" }, // Red
-          Unknown: { width: "0%", color: "#cbd5e1", label: "Unknown" },
-        };
+        // Cross-reference lookup
+        if (allergyCrossReference[allergy]) {
+          const conflictingMeds = allergyCrossReference[allergy];
+          conflictingMeds.forEach((conf) => {
+            if (medName.includes(conf.toLowerCase())) {
+              conflictFound = true;
+              conflictDetails = `Potential Cross-Reaction: Patient allergy (${allergy}) conflicts with ${medInfo.medicine}.`;
+            }
+          });
+        }
+      });
 
-        // Handle "Variable" or exact matches
-        let riskKey = medInfo.risk_level;
-        if (riskKey.includes("Variable")) riskKey = "Moderate"; // Fallback
+      const banner = document.getElementById("contraindication-banner");
+      if (conflictFound) {
+        banner.classList.remove("hidden");
+        document.getElementById("contraindication-text").textContent =
+          conflictDetails;
+        appState.currentConflict = conflictDetails; // Store for PDF
+      } else {
+        banner.classList.add("hidden");
+        appState.currentConflict = null;
+      }
 
-        const riskData = riskMap[riskKey] || riskMap["Unknown"];
+      // Risk Meter Logic
+      const riskMap = {
+        "Very Low": { width: "10%", color: "#22c55e", label: "Very Low" }, // Green
+        Low: { width: "25%", color: "#22c55e", label: "Low" },
+        Moderate: { width: "50%", color: "#eab308", label: "Moderate" }, // Yellow/Orange
+        High: { width: "75%", color: "#f97316", label: "High" }, // Orange
+        Critical: { width: "100%", color: "#ef4444", label: "Critical" }, // Red
+        Unknown: { width: "0%", color: "#cbd5e1", label: "Unknown" },
+      };
 
-        document.getElementById("risk-text").textContent = riskKey;
-        document.getElementById("risk-text").style.color =
-          riskKey === "Unknown" ? "#64748b" : riskData.color;
-        document.getElementById("risk-text").style.backgroundColor =
-          riskKey === "Unknown" ? "#e2e8f0" : "white";
+      // Handle "Variable" or exact matches
+      let riskKey = medInfo.risk_level;
+      if (riskKey.includes("Variable")) riskKey = "Moderate"; // Fallback
 
-        // Animate bar
-        const bar = document.getElementById("risk-bar");
-        bar.style.width = "0%"; // Reset first
-        setTimeout(() => {
-          bar.style.width = riskData.width;
-          bar.style.backgroundColor = riskData.color;
-        }, 300);
+      const riskData = riskMap[riskKey] || riskMap["Unknown"];
 
-        // Populate Doctors
-        const specialty = getSpecialtyForCondition(topResult.label);
-        const doctors = generateMockDoctors(
-          specialty,
-          appState.location?.lat,
-          appState.location?.lng
-        );
-        const docContainer = document.getElementById("doctor-list-container");
+      document.getElementById("risk-text").textContent = riskKey;
+      document.getElementById("risk-text").style.color =
+        riskKey === "Unknown" ? "#64748b" : riskData.color;
+      document.getElementById("risk-text").style.backgroundColor =
+        riskKey === "Unknown" ? "#e2e8f0" : "white";
 
-        let docHTML = "";
-        doctors.forEach((doc) => {
-          docHTML += `
+      // Animate bar
+      const bar = document.getElementById("risk-bar");
+      bar.style.width = "0%"; // Reset first
+      setTimeout(() => {
+        bar.style.width = riskData.width;
+        bar.style.backgroundColor = riskData.color;
+      }, 300);
+
+      // Populate Doctors
+      const specialty = getSpecialtyForCondition(topResult.label);
+      const doctors = generateMockDoctors(
+        specialty,
+        appState.location?.lat,
+        appState.location?.lng
+      );
+      const docContainer = document.getElementById("doctor-list-container");
+
+      let docHTML = "";
+      doctors.forEach((doc) => {
+        docHTML += `
                 <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:shadow-md transition-all flex items-start gap-4">
                     <div class="bg-teal-50 text-teal-600 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-lg">
                         <i class="fa-solid fa-user-doctor"></i>
@@ -1905,341 +1694,342 @@ The high fever and specific pain markers reported are strong indicators. However
                     </div>
                 </div>
                 `;
-        });
-        docContainer.innerHTML = docHTML;
+      });
+      docContainer.innerHTML = docHTML;
 
-        stepResults.classList.add("hidden");
-        stepFinal.classList.remove("hidden");
+      stepResults.classList.add("hidden");
+      stepFinal.classList.remove("hidden");
+    }
+
+    // --- PDF GENERATION ---
+    // --- VOICE DICTATION LOGIC ---
+    let recognition;
+
+    function toggleDictation() {
+      const btn = document.getElementById("mic-btn");
+      const indicator = document.getElementById("listening-indicator");
+      const textarea = document.getElementById("symptom-input");
+
+      if (
+        !("webkitSpeechRecognition" in window) &&
+        !("SpeechRecognition" in window)
+      ) {
+        alert(
+          "Voice dictation is not supported in this browser. Try Chrome or Edge."
+        );
+        return;
       }
 
-      // --- PDF GENERATION ---
-      // --- VOICE DICTATION LOGIC ---
-      let recognition;
+      if (!recognition) {
+        const SpeechRecognition =
+          window.SpeechRecognition || window.webkitSpeechRecognition;
+        recognition = new SpeechRecognition();
+        recognition.continuous = false;
+        recognition.lang = "en-US";
+        recognition.interimResults = false;
 
-      function toggleDictation() {
-        const btn = document.getElementById("mic-btn");
-        const indicator = document.getElementById("listening-indicator");
-        const textarea = document.getElementById("symptom-input");
+        recognition.onstart = function () {
+          indicator.classList.remove("hidden");
+          btn.classList.add("text-red-600");
+          textarea.placeholder = "Listening... Speak now.";
+        };
 
-        if (
-          !("webkitSpeechRecognition" in window) &&
-          !("SpeechRecognition" in window)
-        ) {
-          alert(
-            "Voice dictation is not supported in this browser. Try Chrome or Edge."
-          );
-          return;
-        }
+        recognition.onend = function () {
+          indicator.classList.add("hidden");
+          btn.classList.remove("text-red-600");
+          textarea.placeholder =
+            "E.g., I have a high fever, headache, and stiff neck...";
+        };
 
-        if (!recognition) {
-          const SpeechRecognition =
-            window.SpeechRecognition || window.webkitSpeechRecognition;
-          recognition = new SpeechRecognition();
-          recognition.continuous = false;
-          recognition.lang = "en-US";
-          recognition.interimResults = false;
+        recognition.onresult = function (event) {
+          const transcript = event.results[0][0].transcript;
+          const currentText = textarea.value;
+          textarea.value = currentText
+            ? currentText + " " + transcript
+            : transcript;
+        };
 
-          recognition.onstart = function () {
-            indicator.classList.remove("hidden");
-            btn.classList.add("text-red-600");
-            textarea.placeholder = "Listening... Speak now.";
-          };
-
-          recognition.onend = function () {
-            indicator.classList.add("hidden");
-            btn.classList.remove("text-red-600");
-            textarea.placeholder =
-              "E.g., I have a high fever, headache, and stiff neck...";
-          };
-
-          recognition.onresult = function (event) {
-            const transcript = event.results[0][0].transcript;
-            const currentText = textarea.value;
-            textarea.value = currentText
-              ? currentText + " " + transcript
-              : transcript;
-          };
-
-          recognition.onerror = function (event) {
-            console.error("Speech recognition error", event.error);
-            indicator.classList.add("hidden");
-            btn.classList.remove("text-red-600");
-          };
-        }
-
-        recognition.start();
+        recognition.onerror = function (event) {
+          console.error("Speech recognition error", event.error);
+          indicator.classList.add("hidden");
+          btn.classList.remove("text-red-600");
+        };
       }
 
-      function downloadPDF() {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        const margin = 20;
-        let cursor = 20;
+      recognition.start();
+    }
 
-        // Header
-        doc.setFillColor(13, 148, 136); // Teal 600
-        doc.rect(0, 0, 210, 40, "F");
+    function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      const margin = 20;
+      let cursor = 20;
 
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(22);
+      // Header
+      doc.setFillColor(13, 148, 136); // Teal 600
+      doc.rect(0, 0, 210, 40, "F");
+
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(22);
+      doc.setFont("helvetica", "bold");
+      doc.text("Diagnosense", margin, 25);
+
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      doc.text("AI-Powered Clinical Summary", margin, 32);
+      doc.text(new Date().toLocaleDateString(), 170, 32);
+
+      cursor = 55;
+      doc.setTextColor(51, 65, 85); // Slate 700
+
+      // 1. Patient Bio
+      doc.setFontSize(14);
+      doc.setFont("helvetica", "bold");
+      doc.text("1. Patient Profile", margin, cursor);
+      cursor += 10;
+
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      const bio = [
+        `Name: ${appState.userData.name}`,
+        `Age: ${appState.userData.age}`,
+        `Gender: ${appState.userData.gender}`,
+        `Weight: ${appState.userData.weight} kg`,
+        `Chronic Conditions: ${appState.userData.chronic.join(", ")}`,
+        `Allergies: ${appState.userData.allergies.join(", ")}`,
+      ];
+
+      // 2-column layout for bio
+      let leftCol = bio.slice(0, 4);
+      let rightCol = bio.slice(4);
+
+      leftCol.forEach((line, i) => {
+        doc.text(line, margin, cursor + i * 6);
+      });
+      rightCol.forEach((line, i) => {
+        doc.text(line, 110, cursor + i * 6);
+      });
+
+      cursor += 35;
+
+      // 2. Symptoms & Timeline
+      doc.setFontSize(14);
+      doc.setFont("helvetica", "bold");
+      doc.text("2. Clinical Presentation", margin, cursor);
+      cursor += 10;
+
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+
+      // Extracted Timeline
+      doc.setTextColor(100);
+      doc.text(
+        `Estimated Duration: ${appState.duration || "Not specified"}`,
+        margin,
+        cursor
+      );
+      doc.setTextColor(51, 65, 85);
+      cursor += 7;
+
+      // Raw Symptoms
+      const splitSymptoms = doc.splitTextToSize(
+        `Patient Report: "${appState.symptoms}"`,
+        170
+      );
+      doc.text(splitSymptoms, margin, cursor);
+      cursor += splitSymptoms.length * 5 + 5;
+
+      // Body Map Context
+      if (appState.selectedBodyPart) {
         doc.setFont("helvetica", "bold");
-        doc.text("Diagnosense", margin, 25);
-
-        doc.setFontSize(10);
-        doc.setFont("helvetica", "normal");
-        doc.text("AI-Powered Clinical Summary", margin, 32);
-        doc.text(new Date().toLocaleDateString(), 170, 32);
-
-        cursor = 55;
-        doc.setTextColor(51, 65, 85); // Slate 700
-
-        // 1. Patient Bio
-        doc.setFontSize(14);
-        doc.setFont("helvetica", "bold");
-        doc.text("1. Patient Profile", margin, cursor);
-        cursor += 10;
-
-        doc.setFontSize(10);
-        doc.setFont("helvetica", "normal");
-        const bio = [
-          `Name: ${appState.userData.name}`,
-          `Age: ${appState.userData.age}`,
-          `Gender: ${appState.userData.gender}`,
-          `Weight: ${appState.userData.weight} kg`,
-          `Chronic Conditions: ${appState.userData.chronic.join(", ")}`,
-          `Allergies: ${appState.userData.allergies.join(", ")}`,
-        ];
-
-        // 2-column layout for bio
-        let leftCol = bio.slice(0, 4);
-        let rightCol = bio.slice(4);
-
-        leftCol.forEach((line, i) => {
-          doc.text(line, margin, cursor + i * 6);
-        });
-        rightCol.forEach((line, i) => {
-          doc.text(line, 110, cursor + i * 6);
-        });
-
-        cursor += 35;
-
-        // 2. Symptoms & Timeline
-        doc.setFontSize(14);
-        doc.setFont("helvetica", "bold");
-        doc.text("2. Clinical Presentation", margin, cursor);
-        cursor += 10;
-
-        doc.setFontSize(10);
-        doc.setFont("helvetica", "normal");
-
-        // Extracted Timeline
-        doc.setTextColor(100);
         doc.text(
-          `Estimated Duration: ${appState.duration || "Not specified"}`,
+          `Focused Anatomy: ${appState.selectedBodyPart}`,
           margin,
           cursor
         );
-        doc.setTextColor(51, 65, 85);
-        cursor += 7;
+        doc.setFont("helvetica", "normal");
+        cursor += 10;
+      } else {
+        cursor += 5;
+      }
 
-        // Raw Symptoms
-        const splitSymptoms = doc.splitTextToSize(
-          `Patient Report: "${appState.symptoms}"`,
+      // Follow-up
+      if (appState.followUpResponse) {
+        doc.setFont("helvetica", "italic");
+        doc.setTextColor(100);
+        const splitFollowUp = doc.splitTextToSize(
+          `Follow-up Notes: ${appState.followUpResponse}`,
           170
         );
-        doc.text(splitSymptoms, margin, cursor);
-        cursor += splitSymptoms.length * 5 + 5;
-
-        // Body Map Context
-        if (appState.selectedBodyPart) {
-          doc.setFont("helvetica", "bold");
-          doc.text(
-            `Focused Anatomy: ${appState.selectedBodyPart}`,
-            margin,
-            cursor
-          );
-          doc.setFont("helvetica", "normal");
-          cursor += 10;
-        } else {
-          cursor += 5;
-        }
-
-        // Follow-up
-        if (appState.followUpResponse) {
-          doc.setFont("helvetica", "italic");
-          doc.setTextColor(100);
-          const splitFollowUp = doc.splitTextToSize(
-            `Follow-up Notes: ${appState.followUpResponse}`,
-            170
-          );
-          doc.text(splitFollowUp, margin, cursor);
-          cursor += splitFollowUp.length * 5 + 10;
-          doc.setTextColor(51, 65, 85);
-        } else {
-          cursor += 5;
-        }
-
-        // 3. Analysis
-        doc.setFontSize(14);
-        doc.setFont("helvetica", "bold");
-        doc.text("3. AI Clinical Analysis", margin, cursor);
-        cursor += 10;
-
-        // Top Prediction
-        const top = appState.diagnosis[0];
-        doc.setFillColor(240, 253, 250); // Teal 50
-        doc.rect(margin, cursor, 170, 25, "F");
-        doc.setDrawColor(13, 148, 136);
-        doc.rect(margin, cursor, 170, 25, "S");
-
-        doc.setFontSize(12);
-        doc.setTextColor(13, 148, 136);
-        doc.text(`Primary Indication: ${top.label}`, margin + 5, cursor + 10);
-
-        doc.setFontSize(10);
+        doc.text(splitFollowUp, margin, cursor);
+        cursor += splitFollowUp.length * 5 + 10;
         doc.setTextColor(51, 65, 85);
-        doc.text(`Confidence: ${top.confidence}%`, margin + 5, cursor + 18);
-
-        cursor += 35;
-
-        // Reasoning
-        doc.setFont("helvetica", "italic");
-        doc.setFontSize(10);
-        const splitReasoning = doc.splitTextToSize(appState.lastReasoning, 170);
-        doc.text(splitReasoning, margin, cursor);
-
-        cursor += splitReasoning.length * 5 + 10;
-
-        // 4. Treatment Plan (Prescription Style)
-        doc.setFontSize(14);
-        doc.setFont("helvetica", "bold");
-        doc.setTextColor(51, 65, 85);
-        doc.text("4. Recommended Treatment Plan", margin, cursor);
-        cursor += 10;
-
-        const medInfo = detailedMedMap[top.label] || {};
-
-        // Medicine Box
-        doc.setDrawColor(203, 213, 225); // Slate 300
-        doc.setFillColor(248, 250, 252); // Slate 50
-        doc.roundedRect(margin, cursor, 170, 45, 3, 3, "FD");
-
-        // RX Symbol
-        doc.setFontSize(20);
-        doc.setFont("times", "bold italic");
-        doc.text("Rx", margin + 5, cursor + 12);
-
-        // Med Name
-        doc.setFont("helvetica", "bold");
-        doc.setFontSize(12);
-        doc.text(
-          medInfo.medicine || "Consult Specialist",
-          margin + 20,
-          cursor + 10
-        );
-
-        // Dosage Details
-        doc.setFont("helvetica", "normal");
-        doc.setFontSize(10);
-
-        doc.setFont("helvetica", "bold");
-        doc.text("Dosage:", margin + 5, cursor + 22);
-        doc.setFont("helvetica", "normal");
-        doc.text(
-          medInfo.dosage || "As directed by physician.",
-          margin + 35,
-          cursor + 22
-        );
-
-        doc.setFont("helvetica", "bold");
-        doc.text("Indication:", margin + 5, cursor + 30);
-        doc.setFont("helvetica", "normal");
-        doc.text(
-          medInfo.use_case || "Symptom management.",
-          margin + 35,
-          cursor + 30
-        );
-
-        doc.setFont("helvetica", "bold");
-        doc.text("Side Effects:", margin + 5, cursor + 38);
-        doc.setFont("helvetica", "italic");
-        doc.setFontSize(9);
-        doc.text(
-          medInfo.side_effects || "None listed.",
-          margin + 35,
-          cursor + 38
-        );
-
-        cursor += 55;
-
-        // 5. Medical Flags
-        doc.setFontSize(14);
-        doc.setFont("helvetica", "bold");
-        doc.setFontSize(14); // Reset size
-        doc.setTextColor(51, 65, 85);
-        doc.text("5. Safety Assessment & Flags", margin, cursor);
-        cursor += 10;
-
-        // Risk Level
-        const riskLevel = medInfo.risk_level || "Unknown";
-        let riskColor = [51, 65, 85]; // Default slate
-        if (riskLevel === "Critical") riskColor = [239, 68, 68];
-        else if (riskLevel === "High") riskColor = [249, 115, 22];
-
-        doc.setFontSize(10);
-        doc.setTextColor(...riskColor);
-        doc.text(`Risk Assessment: ${riskLevel}`, margin, cursor);
-
-        cursor += 8;
-        doc.setTextColor(51, 65, 85);
-        doc.setFont("helvetica", "normal");
-
-        const warnings = medInfo.warnings
-          ? `Warning: ${medInfo.warnings}`
-          : "No specific warnings.";
-        const splitWarnings = doc.splitTextToSize(warnings, 170);
-        doc.text(splitWarnings, margin, cursor);
-
-        cursor += splitWarnings.length * 5 + 10;
-
-        // 5. Contraindications (Dynamic)
-        if (appState.currentConflict) {
-          doc.setDrawColor(220, 38, 38); // Red Border
-          doc.setFillColor(254, 242, 242); // Red 50 Fill
-          doc.rect(margin, cursor, 170, 20, "FD");
-
-          doc.setFont("helvetica", "bold");
-          doc.setTextColor(185, 28, 28); // Red 700
-          doc.text(
-            "CRITICAL ALERT: CONTRAINDICATION DETECTED",
-            margin + 5,
-            cursor + 7
-          );
-
-          doc.setFont("helvetica", "normal");
-          doc.setTextColor(127, 29, 29); // Red 900
-          doc.text(appState.currentConflict, margin + 5, cursor + 14);
-        }
-
-        // Footer
-        doc.setFontSize(8);
-        doc.setTextColor(150);
-        doc.text(
-          "This document is generated by AI for educational purposes only. It is not a prescription.",
-          105,
-          280,
-          null,
-          null,
-          "center"
-        );
-
-        doc.save(
-          `Diagnosense_Report_${appState.userData.name.replace(
-            /\s+/g,
-            "_"
-          )}.pdf`
-        );
+      } else {
+        cursor += 5;
       }
-    </script>
-  </body>
+
+      // 3. Analysis
+      doc.setFontSize(14);
+      doc.setFont("helvetica", "bold");
+      doc.text("3. AI Clinical Analysis", margin, cursor);
+      cursor += 10;
+
+      // Top Prediction
+      const top = appState.diagnosis[0];
+      doc.setFillColor(240, 253, 250); // Teal 50
+      doc.rect(margin, cursor, 170, 25, "F");
+      doc.setDrawColor(13, 148, 136);
+      doc.rect(margin, cursor, 170, 25, "S");
+
+      doc.setFontSize(12);
+      doc.setTextColor(13, 148, 136);
+      doc.text(`Primary Indication: ${top.label}`, margin + 5, cursor + 10);
+
+      doc.setFontSize(10);
+      doc.setTextColor(51, 65, 85);
+      doc.text(`Confidence: ${top.confidence}%`, margin + 5, cursor + 18);
+
+      cursor += 35;
+
+      // Reasoning
+      doc.setFont("helvetica", "italic");
+      doc.setFontSize(10);
+      const splitReasoning = doc.splitTextToSize(appState.lastReasoning, 170);
+      doc.text(splitReasoning, margin, cursor);
+
+      cursor += splitReasoning.length * 5 + 10;
+
+      // 4. Treatment Plan (Prescription Style)
+      doc.setFontSize(14);
+      doc.setFont("helvetica", "bold");
+      doc.setTextColor(51, 65, 85);
+      doc.text("4. Recommended Treatment Plan", margin, cursor);
+      cursor += 10;
+
+      const medInfo = detailedMedMap[top.label] || {};
+
+      // Medicine Box
+      doc.setDrawColor(203, 213, 225); // Slate 300
+      doc.setFillColor(248, 250, 252); // Slate 50
+      doc.roundedRect(margin, cursor, 170, 45, 3, 3, "FD");
+
+      // RX Symbol
+      doc.setFontSize(20);
+      doc.setFont("times", "bold italic");
+      doc.text("Rx", margin + 5, cursor + 12);
+
+      // Med Name
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.text(
+        medInfo.medicine || "Consult Specialist",
+        margin + 20,
+        cursor + 10
+      );
+
+      // Dosage Details
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+
+      doc.setFont("helvetica", "bold");
+      doc.text("Dosage:", margin + 5, cursor + 22);
+      doc.setFont("helvetica", "normal");
+      doc.text(
+        medInfo.dosage || "As directed by physician.",
+        margin + 35,
+        cursor + 22
+      );
+
+      doc.setFont("helvetica", "bold");
+      doc.text("Indication:", margin + 5, cursor + 30);
+      doc.setFont("helvetica", "normal");
+      doc.text(
+        medInfo.use_case || "Symptom management.",
+        margin + 35,
+        cursor + 30
+      );
+
+      doc.setFont("helvetica", "bold");
+      doc.text("Side Effects:", margin + 5, cursor + 38);
+      doc.setFont("helvetica", "italic");
+      doc.setFontSize(9);
+      doc.text(
+        medInfo.side_effects || "None listed.",
+        margin + 35,
+        cursor + 38
+      );
+
+      cursor += 55;
+
+      // 5. Medical Flags
+      doc.setFontSize(14);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(14); // Reset size
+      doc.setTextColor(51, 65, 85);
+      doc.text("5. Safety Assessment & Flags", margin, cursor);
+      cursor += 10;
+
+      // Risk Level
+      const riskLevel = medInfo.risk_level || "Unknown";
+      let riskColor = [51, 65, 85]; // Default slate
+      if (riskLevel === "Critical") riskColor = [239, 68, 68];
+      else if (riskLevel === "High") riskColor = [249, 115, 22];
+
+      doc.setFontSize(10);
+      doc.setTextColor(...riskColor);
+      doc.text(`Risk Assessment: ${riskLevel}`, margin, cursor);
+
+      cursor += 8;
+      doc.setTextColor(51, 65, 85);
+      doc.setFont("helvetica", "normal");
+
+      const warnings = medInfo.warnings
+        ? `Warning: ${medInfo.warnings}`
+        : "No specific warnings.";
+      const splitWarnings = doc.splitTextToSize(warnings, 170);
+      doc.text(splitWarnings, margin, cursor);
+
+      cursor += splitWarnings.length * 5 + 10;
+
+      // 5. Contraindications (Dynamic)
+      if (appState.currentConflict) {
+        doc.setDrawColor(220, 38, 38); // Red Border
+        doc.setFillColor(254, 242, 242); // Red 50 Fill
+        doc.rect(margin, cursor, 170, 20, "FD");
+
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(185, 28, 28); // Red 700
+        doc.text(
+          "CRITICAL ALERT: CONTRAINDICATION DETECTED",
+          margin + 5,
+          cursor + 7
+        );
+
+        doc.setFont("helvetica", "normal");
+        doc.setTextColor(127, 29, 29); // Red 900
+        doc.text(appState.currentConflict, margin + 5, cursor + 14);
+      }
+
+      // Footer
+      doc.setFontSize(8);
+      doc.setTextColor(150);
+      doc.text(
+        "This document is generated by AI for educational purposes only. It is not a prescription.",
+        105,
+        280,
+        null,
+        null,
+        "center"
+      );
+
+      doc.save(
+        `Diagnosense_Report_${appState.userData.name.replace(
+          /\s+/g,
+          "_"
+        )}.pdf`
+      );
+    }
+  </script>
+</body>
+
 </html>
